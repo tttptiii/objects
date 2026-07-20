@@ -1,0 +1,59 @@
+{
+  "towers": 3,
+  "span": [
+    130,
+    150
+  ],
+  "camera": {
+    "pos": [
+      8.5,
+      -58.0,
+      1.4
+    ],
+    "aim": [
+      0.0,
+      40.0,
+      24.0
+    ],
+    "lens": 28
+  },
+  "sky": {
+    "horizon": [
+      0.955,
+      0.01,
+      232
+    ],
+    "zenith": [
+      0.905,
+      0.02,
+      236
+    ],
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.0,
+      "strength": 0.22
+    }
+  },
+  "steel": [
+    0.24,
+    0.02,
+    55
+  ],
+  "fog_clear": 100,
+  "fog_depth": 260,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.4,
+    "scale": 95,
+    "phase": 4.6,
+    "shade": 0.11,
+    "facet": 14
+  },
+  "meta": {
+    "work": 27,
+    "attempt": 1,
+    "rejected_for": [
+      "camera.pos z = 1.4 but the terrain there is 1.3 m high — the camera is inside the ground; rise above it or move"
+    ]
+  }
+}

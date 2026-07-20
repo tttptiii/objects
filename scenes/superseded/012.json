@@ -1,0 +1,48 @@
+{
+  "towers": 3,
+  "span": 120,
+  "camera": {
+    "pos": [
+      0.3,
+      -1.5,
+      1.2
+    ],
+    "aim": [
+      0.0,
+      15.0,
+      49.0
+    ],
+    "lens": 18
+  },
+  "sky": {
+    "horizon": [
+      0.78,
+      0.02,
+      235
+    ],
+    "zenith": [
+      0.72,
+      0.032,
+      240
+    ],
+    "clouds": {
+      "scale": 2.6,
+      "detail": 6.5,
+      "strength": 0.4
+    }
+  },
+  "steel": [
+    0.18,
+    0.02,
+    250
+  ],
+  "fog_clear": 72,
+  "fog_depth": 140,
+  "meta": {
+    "work": 12,
+    "ruleset": "pylon-series",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Directly beneath the tower, wide lens, looking straight up through the lattice. Cool blue-gray fog."
+  }
+}

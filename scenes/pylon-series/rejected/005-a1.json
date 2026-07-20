@@ -1,0 +1,48 @@
+{
+  "towers": 3,
+  "span": 135,
+  "camera": {
+    "pos": [
+      8.0,
+      -20.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      90.0,
+      24.0
+    ],
+    "lens": 32
+  },
+  "sky": {
+    "horizon": [
+      0.91,
+      0.016,
+      232
+    ],
+    "zenith": [
+      0.845,
+      0.032,
+      236
+    ],
+    "clouds": {
+      "scale": 3.0,
+      "detail": 5.0,
+      "strength": 0.22
+    }
+  },
+  "steel": [
+    0.24,
+    0.02,
+    40
+  ],
+  "fog_clear": 105,
+  "fog_depth": 300,
+  "meta": {
+    "work": 5,
+    "attempt": 1,
+    "rejected_for": [
+      "only 3 keypoints of the nearest tower land in frame (< 5) — the camera is not looking at the subject"
+    ]
+  }
+}

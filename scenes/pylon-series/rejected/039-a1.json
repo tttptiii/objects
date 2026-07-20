@@ -1,0 +1,91 @@
+{
+  "towers": 3,
+  "span": [
+    140,
+    150
+  ],
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      20.0,
+      -45.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      60.0,
+      25.0
+    ],
+    "lens": 30
+  },
+  "palette": {
+    "horizon": [
+      0.9,
+      0.03,
+      55
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.9,
+      0.03,
+      55
+    ],
+    "zenith": [
+      0.8,
+      0.024,
+      55.0
+    ]
+  },
+  "fog_clear": 90,
+  "fog_depth": 400,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.64,
+      0.05,
+      100
+    ],
+    "facet": 20,
+    "hedge": {
+      "distance": 100,
+      "height": 6
+    },
+    "hills": {
+      "relief": 80,
+      "scale": 1000
+    },
+    "mist": {
+      "height": 30,
+      "amount": 0.85
+    }
+  },
+  "steel": [
+    0.15000000000000002,
+    0.024,
+    55.0
+  ],
+  "meta": {
+    "work": 39,
+    "attempt": 1,
+    "rejected_for": [
+      "only 14/15 keypoints of the nearest tower fit inside the frame with margin — landscape pieces contain the whole tower; step back, widen the lens, or re-aim",
+      "camera.pos z = 3.0 but the terrain there is 2.8 m high — the camera is inside the ground; rise above it or move"
+    ]
+  }
+}

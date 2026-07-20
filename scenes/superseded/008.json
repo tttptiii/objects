@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": 130,
+  "camera": {
+    "pos": [
+      8.5,
+      -16.0,
+      1.6
+    ],
+    "aim": [
+      0.0,
+      40.0,
+      30.0
+    ],
+    "lens": 22
+  },
+  "sky": {
+    "horizon": [
+      0.92,
+      0.014,
+      240
+    ],
+    "zenith": [
+      0.845,
+      0.03,
+      244
+    ],
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.35
+    }
+  },
+  "steel": [
+    0.19,
+    0.018,
+    258
+  ],
+  "fog_clear": 70,
+  "fog_depth": 150,
+  "terrain": {
+    "color": [
+      0.34,
+      0.03,
+      150
+    ],
+    "ground": true,
+    "elevations": [
+      0,
+      4,
+      9,
+      14
+    ],
+    "treeline": {
+      "distance": 260,
+      "height": 13,
+      "roll": 1.6,
+      "phase": 0.8
+    },
+    "ridges": [
+      {
+        "distance": 450,
+        "height": 110,
+        "roll": 0.55,
+        "phase": 0.3
+      },
+      {
+        "distance": 820,
+        "height": 190,
+        "roll": 0.4,
+        "phase": 1.9
+      },
+      {
+        "distance": 1350,
+        "height": 260,
+        "roll": 0.3,
+        "phase": 3.4
+      }
+    ]
+  },
+  "meta": {
+    "work": 8,
+    "ruleset": "pylon-series",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Mountain country: two or three ridge lines layered in the haze behind the towers, each ridge a paler stripe than the last."
+  }
+}

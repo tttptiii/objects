@@ -1,0 +1,74 @@
+{
+  "towers": 4,
+  "span": [
+    110,
+    130,
+    120
+  ],
+  "camera": {
+    "pos": [
+      18.0,
+      -72.0,
+      3.2
+    ],
+    "aim": [
+      0.0,
+      20.0,
+      27.0
+    ],
+    "lens": 28
+  },
+  "sky": {
+    "horizon": [
+      0.86,
+      0.055,
+      30
+    ],
+    "zenith": [
+      0.62,
+      0.035,
+      240
+    ],
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.3
+    }
+  },
+  "steel": [
+    0.2,
+    0.02,
+    260
+  ],
+  "fog_clear": 90,
+  "fog_depth": 300,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.78,
+      0.05,
+      95
+    ],
+    "facet": 20,
+    "hedge": {
+      "distance": 68,
+      "height": 6.5
+    },
+    "hills": {
+      "relief": 65,
+      "scale": 750
+    },
+    "mist": {
+      "height": 22,
+      "amount": 0.82
+    }
+  },
+  "meta": {
+    "work": 36,
+    "attempt": 2,
+    "rejected_for": [
+      "terrain.field sits only ΔE 0.10 from the horizon (< 0.12) — the crop field underfoot renders crisp and must read against the sky"
+    ]
+  }
+}

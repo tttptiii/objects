@@ -1,0 +1,22 @@
+{
+  "towers": 4,
+  "span": 130,
+  "camera": { "pos": [22.0, -60.0, 4.0], "aim": [0.0, 260.0, 55.0], "lens": 27 },
+  "sky": {
+    "horizon": [0.885, 0.055, 45],
+    "zenith": [0.795, 0.035, 255],
+    "clouds": { "scale": 2.2, "detail": 6.0, "strength": 0.25 }
+  },
+  "steel": [0.2, 0.02, 60],
+  "fog_clear": 110,
+  "fog_depth": 480,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 2.6,
+    "field": [0.66, 0.05, 100],
+    "facet": 22,
+    "hedge": { "distance": 60, "height": 7 },
+    "hills": { "relief": 75, "scale": 750 },
+    "mist": { "height": 22, "amount": 0.85 }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "towers": 3,
+  "span": [
+    110,
+    150
+  ],
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      12.0,
+      -15.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      25.0,
+      30.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.91,
+      0.012,
+      220
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.07
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.68
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.25
+    },
+    "horizon": [
+      0.91,
+      0.012,
+      220
+    ],
+    "zenith": [
+      0.8400000000000001,
+      0.009600000000000001,
+      220.0
+    ]
+  },
+  "fog_clear": 95,
+  "fog_depth": 260,
+  "steel": [
+    0.22999999999999998,
+    0.009600000000000001,
+    220.0
+  ],
+  "meta": {
+    "work": 5,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Thin winter haze — a long clear distance, three towers visible receding. A light rural line: tower_scale near 0.9, an uneven span rhythm."
+  }
+}

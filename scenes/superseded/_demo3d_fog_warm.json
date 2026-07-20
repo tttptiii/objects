@@ -1,0 +1,12 @@
+{
+  "towers": 3,
+  "span": 120,
+  "camera": { "pos": [5.2, -11.0, 1.6], "aim": [0.0, 20.0, 33.0], "lens": 24 },
+  "sky": {
+    "horizon": [0.93, 0.028, 72],
+    "zenith": [0.845, 0.045, 58],
+    "clouds": { "scale": 2.8, "detail": 6.0, "strength": 0.5 }
+  },
+  "steel": [0.27, 0.03, 55],
+  "fog_depth": 150
+}

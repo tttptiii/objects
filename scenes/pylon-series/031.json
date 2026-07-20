@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": [
+    110,
+    135,
+    150
+  ],
+  "tower_scale": 1.05,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      14.0,
+      -85.0,
+      3.2
+    ],
+    "aim": [
+      0.0,
+      60.0,
+      30.0
+    ],
+    "lens": 30
+  },
+  "palette": {
+    "horizon": [
+      0.86,
+      0.018,
+      240
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.68
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.86,
+      0.018,
+      240
+    ],
+    "zenith": [
+      0.76,
+      0.0144,
+      240.0
+    ]
+  },
+  "fog_clear": 150,
+  "fog_depth": 520,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 260,
+    "scale": 950,
+    "sharp": 0.55,
+    "phase": 3.7,
+    "shade": 0.32,
+    "facet": 75,
+    "color": [
+      0.45999999999999996,
+      0.0144,
+      240.0
+    ]
+  },
+  "steel": [
+    0.17999999999999994,
+    0.0144,
+    240.0
+  ],
+  "meta": {
+    "work": 31,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "High mountain fog: the near tower sharp against the ridge, each tower behind it one tone lighter, the last almost — but not — gone."
+  }
+}

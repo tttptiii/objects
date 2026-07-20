@@ -1,0 +1,74 @@
+{
+  "towers": 3,
+  "span": 110,
+  "tower_scale": 1.05,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      8.0,
+      -60.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      15.0,
+      22.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.95,
+      0.008,
+      235
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.2
+    },
+    "horizon": [
+      0.95,
+      0.008,
+      235
+    ],
+    "zenith": [
+      0.8899999999999999,
+      0.0064,
+      235.0
+    ]
+  },
+  "fog_clear": 90,
+  "fog_depth": 110,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.8,
+    "scale": 70,
+    "phase": 4.1,
+    "shade": 0.11,
+    "facet": 10
+  },
+  "steel": [
+    0.19999999999999996,
+    0.0064,
+    235.0
+  ],
+  "meta": {
+    "work": 24,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Snowfield: white ground one breath away from the sky, drift shadows barely there, dark steel rising out of the white."
+  }
+}

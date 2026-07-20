@@ -1,0 +1,64 @@
+{
+  "towers": 2,
+  "span": 140,
+  "camera": {
+    "pos": [
+      15.0,
+      -70.0,
+      2.2
+    ],
+    "aim": [
+      0.0,
+      60.0,
+      28.0
+    ],
+    "lens": 38
+  },
+  "palette": {
+    "horizon": [
+      0.92,
+      0.012,
+      230
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.07
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.92,
+      0.012,
+      230
+    ],
+    "zenith": [
+      0.8500000000000001,
+      0.009600000000000001,
+      230.0
+    ]
+  },
+  "fog_clear": 90,
+  "fog_depth": 150,
+  "steel": [
+    0.17000000000000004,
+    0.009600000000000001,
+    230.0
+  ],
+  "meta": {
+    "work": 3,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Farther back with a longer lens, two towers stacking into each other in the haze."
+  }
+}

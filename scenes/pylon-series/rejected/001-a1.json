@@ -1,0 +1,68 @@
+{
+  "towers": 3,
+  "span": [
+    110,
+    135
+  ],
+  "tower_scale": 1.05,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      8.5,
+      -4.0,
+      1.4
+    ],
+    "aim": [
+      0.0,
+      40.0,
+      30.0
+    ],
+    "lens": 20
+  },
+  "palette": {
+    "horizon": [
+      0.9,
+      0.012,
+      95
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.07
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.68
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.9,
+      0.012,
+      95
+    ],
+    "zenith": [
+      0.8300000000000001,
+      0.009600000000000001,
+      95.0
+    ]
+  },
+  "fog_clear": 55,
+  "fog_depth": 95,
+  "steel": [
+    0.21999999999999997,
+    0.009600000000000001,
+    95.0
+  ],
+  "meta": {
+    "work": 1,
+    "attempt": 1,
+    "rejected_for": [
+      "only 1 keypoints of the nearest tower land in frame (< 5) — the camera is not looking at the subject"
+    ]
+  }
+}

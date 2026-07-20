@@ -1,0 +1,48 @@
+{
+  "towers": 3,
+  "span": 90,
+  "camera": {
+    "pos": [
+      4.0,
+      -8.0,
+      1.2
+    ],
+    "aim": [
+      0.0,
+      15.0,
+      30.0
+    ],
+    "lens": 20
+  },
+  "sky": {
+    "horizon": [
+      0.94,
+      0.008,
+      235
+    ],
+    "zenith": [
+      0.87,
+      0.02,
+      238
+    ],
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.2
+    }
+  },
+  "steel": [
+    0.2,
+    0.02,
+    245
+  ],
+  "fog_clear": 55,
+  "fog_depth": 65,
+  "meta": {
+    "work": 7,
+    "attempt": 2,
+    "rejected_for": [
+      "fog_depth = 65 out of range 70-320"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "towers": 3,
+  "span": 115,
+  "camera": {
+    "pos": [
+      6.0,
+      -9.0,
+      1.3
+    ],
+    "aim": [
+      0.0,
+      18.0,
+      32.0
+    ],
+    "lens": 22
+  },
+  "sky": {
+    "horizon": [
+      0.86,
+      0.05,
+      55
+    ],
+    "zenith": [
+      0.8,
+      0.045,
+      50
+    ],
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.5,
+      "strength": 0.4
+    }
+  },
+  "steel": [
+    0.16,
+    0.02,
+    40
+  ],
+  "fog_clear": 70,
+  "fog_depth": 140,
+  "meta": {
+    "work": 14,
+    "ruleset": "pylon-series",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Warm dawn haze; the tower nearly black against apricot."
+  }
+}

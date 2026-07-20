@@ -1,0 +1,95 @@
+{
+  "towers": 3,
+  "span": [
+    110,
+    140
+  ],
+  "tower_scale": 1.05,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      -12.0,
+      -45.0,
+      5.0
+    ],
+    "aim": [
+      3.0,
+      40.0,
+      30.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.86,
+      0.05,
+      25
+    ],
+    "zenith": {
+      "relation": "analogous",
+      "amount": -140
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.8
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.86,
+      0.05,
+      25
+    ],
+    "zenith": [
+      0.86,
+      0.05,
+      245.0
+    ]
+  },
+  "fog_clear": 100,
+  "fog_depth": 320,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.45999999999999996,
+      0.04000000000000001,
+      25.0
+    ],
+    "facet": 20,
+    "hedge": {
+      "distance": 140,
+      "height": 5
+    },
+    "hills": {
+      "relief": 60,
+      "scale": 700
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.8
+    }
+  },
+  "steel": [
+    0.05999999999999994,
+    0.04000000000000001,
+    25.0
+  ],
+  "meta": {
+    "work": 36,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Farmland at dawn: pink horizon under a blue-gray zenith, the anchor tower dark over a pale crop field, ground mist pooled behind the hedgerow."
+  }
+}

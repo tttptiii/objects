@@ -1,0 +1,83 @@
+{
+  "towers": 2,
+  "span": 130,
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      15.0,
+      -55.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      15.0,
+      22.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.58,
+      0.035,
+      252
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.62
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.06
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.25
+    },
+    "horizon": [
+      0.58,
+      0.035,
+      252
+    ],
+    "zenith": [
+      0.48,
+      0.028000000000000004,
+      252.0
+    ]
+  },
+  "fog_clear": 85,
+  "fog_depth": 95,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.5,
+    "scale": 60,
+    "phase": 4.1,
+    "shade": 0.11,
+    "facet": 10,
+    "color": [
+      0.52,
+      0.028000000000000004,
+      252.0
+    ]
+  },
+  "steel": [
+    0.0,
+    0.028000000000000004,
+    252.0
+  ],
+  "meta": {
+    "work": 25,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Snowfield in blue dusk haze: blue-gray fog over snow, two small rural towers (tower_scale about 0.9), the far one almost erased."
+  }
+}

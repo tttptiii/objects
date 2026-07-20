@@ -1,0 +1,87 @@
+{
+  "towers": 4,
+  "span": [
+    130,
+    150,
+    115
+  ],
+  "tower_scale": 1.05,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      14.0,
+      -55.0,
+      6.5
+    ],
+    "aim": [
+      0.0,
+      40.0,
+      24.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.86,
+      0.05,
+      55
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.18
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.86,
+      0.05,
+      55
+    ],
+    "zenith": [
+      0.6799999999999999,
+      0.04000000000000001,
+      55.0
+    ]
+  },
+  "fog_clear": 130,
+  "fog_depth": 420,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 260,
+    "scale": 850,
+    "sharp": 0.55,
+    "phase": 4.0,
+    "shade": 0.35,
+    "facet": 70,
+    "color": [
+      0.45999999999999996,
+      0.04000000000000001,
+      55.0
+    ]
+  },
+  "steel": [
+    0.16000000000000003,
+    0.04000000000000001,
+    55.0
+  ],
+  "meta": {
+    "work": 29,
+    "attempt": 2,
+    "rejected_for": [
+      "horizon and zenith sit ΔE 0.18 apart (> 0.14) — this is fog, not a sunset; keep the gradient gentle"
+    ]
+  }
+}

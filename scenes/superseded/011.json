@@ -1,0 +1,75 @@
+{
+  "towers": 3,
+  "span": 130,
+  "camera": {
+    "pos": [
+      8.5,
+      -18.0,
+      2.2
+    ],
+    "aim": [
+      0.0,
+      30.0,
+      24.0
+    ],
+    "lens": 28
+  },
+  "sky": {
+    "horizon": [
+      0.86,
+      0.045,
+      55
+    ],
+    "zenith": [
+      0.78,
+      0.035,
+      250
+    ],
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.35
+    }
+  },
+  "steel": [
+    0.16,
+    0.02,
+    40
+  ],
+  "fog_clear": 70,
+  "fog_depth": 150,
+  "terrain": {
+    "color": [
+      0.22,
+      0.05,
+      40
+    ],
+    "ground": true,
+    "elevations": [
+      0,
+      6,
+      14
+    ],
+    "treeline": {
+      "distance": 260,
+      "height": 13,
+      "roll": 1.4,
+      "phase": 0.7
+    },
+    "ridges": [
+      {
+        "distance": 340,
+        "height": 140,
+        "roll": 0.55,
+        "phase": 1.9
+      }
+    ]
+  },
+  "meta": {
+    "work": 11,
+    "ruleset": "pylon-series",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Dawn over mountains: warm haze, dark earth, one great ridge halfway dissolved."
+  }
+}

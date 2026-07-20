@@ -1,0 +1,14 @@
+{
+  "towers": 3,
+  "span": 120,
+  "camera": { "pos": [8.0, -52.0, 2.8], "aim": [0.0, 30.0, 26.0], "lens": 20 },
+  "sky": {
+    "horizon": [0.955, 0.006, 240],
+    "zenith": [0.885, 0.02, 242],
+    "clouds": { "scale": 2.6, "detail": 6.0, "strength": 0.35 }
+  },
+  "steel": [0.2, 0.012, 250],
+  "fog_clear": 75,
+  "fog_depth": 160,
+  "terrain": { "kind": "snowfield", "relief": 2.0, "scale": 65, "phase": 1.3, "shade": 0.13 }
+}

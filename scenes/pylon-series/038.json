@@ -1,0 +1,92 @@
+{
+  "towers": 3,
+  "span": [
+    110,
+    125
+  ],
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      15,
+      -90,
+      3.2
+    ],
+    "aim": [
+      0,
+      30,
+      26
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.72,
+      0.08,
+      55
+    ],
+    "zenith": [
+      0.58,
+      0.07,
+      250
+    ],
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.72,
+      0.08,
+      55
+    ],
+    "zenith": [
+      0.58,
+      0.07,
+      250
+    ]
+  },
+  "fog_clear": 140,
+  "fog_depth": 280,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.62,
+      0.11,
+      95
+    ],
+    "facet": 13,
+    "hedge": {
+      "distance": 60,
+      "height": 6
+    },
+    "hills": {
+      "relief": 60,
+      "scale": 900
+    },
+    "mist": {
+      "height": 22,
+      "amount": 0.75
+    }
+  },
+  "steel": [
+    0.0,
+    0.064,
+    55.0
+  ],
+  "meta": {
+    "work": 38,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Farmland at dusk: straw-colored field, dark hedge band, the far towers rising out of the mist one tone paler each."
+  }
+}

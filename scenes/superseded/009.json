@@ -1,0 +1,68 @@
+{
+  "towers": 3,
+  "span": 130,
+  "camera": {
+    "pos": [
+      8.5,
+      -18.0,
+      1.4
+    ],
+    "aim": [
+      0.0,
+      30.0,
+      22.0
+    ],
+    "lens": 28
+  },
+  "sky": {
+    "horizon": [
+      0.93,
+      0.014,
+      90
+    ],
+    "zenith": [
+      0.85,
+      0.024,
+      235
+    ],
+    "clouds": {
+      "scale": 2.8,
+      "detail": 5.0,
+      "strength": 0.3
+    }
+  },
+  "steel": [
+    0.2,
+    0.02,
+    55
+  ],
+  "fog_clear": 95,
+  "fog_depth": 220,
+  "terrain": {
+    "color": [
+      0.42,
+      0.06,
+      110
+    ],
+    "ground": true,
+    "elevations": [
+      0,
+      0,
+      0
+    ],
+    "treeline": {
+      "distance": 340,
+      "height": 12,
+      "roll": 1.3,
+      "phase": 0.7
+    },
+    "ridges": []
+  },
+  "meta": {
+    "work": 9,
+    "ruleset": "pylon-series",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Farmland: flat ground, a low tree line in the middle distance, wide sky."
+  }
+}

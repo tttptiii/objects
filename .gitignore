@@ -1,0 +1,18 @@
+# Renders are reproducible from the scene specs, so output is not tracked.
+# (Curated copies for the README live in docs/images/.)
+outputs/
+
+# Exploration scratch — not part of the published procedure
+scenes/_explore/
+outputs/_explore/
+
+# python
+__pycache__/
+.venv/
+
+# blender
+*.blend
+*.blend1
+
+# reference images (third-party, do not distribute)
+ref_pylon/

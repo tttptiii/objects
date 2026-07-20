@@ -1,0 +1,61 @@
+{
+  "towers": 4,
+  "span": 150,
+  "camera": {
+    "pos": [
+      6.0,
+      -30.0,
+      4.5
+    ],
+    "aim": [
+      0.0,
+      380.0,
+      140.0
+    ],
+    "lens": 28
+  },
+  "sky": {
+    "horizon": [
+      0.82,
+      0.03,
+      232
+    ],
+    "zenith": [
+      0.78,
+      0.045,
+      236
+    ],
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.4
+    }
+  },
+  "steel": [
+    0.16,
+    0.02,
+    40
+  ],
+  "fog_clear": 90,
+  "fog_depth": 420,
+  "terrain": {
+    "kind": "mountains",
+    "color": [
+      0.34,
+      0.05,
+      145
+    ],
+    "relief": 380,
+    "scale": 1100,
+    "sharp": 0.65,
+    "phase": 3.1,
+    "shade": 0.4
+  },
+  "meta": {
+    "work": 31,
+    "attempt": 1,
+    "rejected_for": [
+      "the nearest tower is 54 m from the camera, outside 150-900 — in mountain country the line stands far off, threading the valley"
+    ]
+  }
+}

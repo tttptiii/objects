@@ -1,0 +1,69 @@
+{
+  "towers": 3,
+  "span": [
+    110,
+    135
+  ],
+  "tower_scale": 1.15,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      8.5,
+      -14.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      25.0,
+      34.0
+    ],
+    "lens": 22
+  },
+  "palette": {
+    "horizon": [
+      0.86,
+      0.05,
+      55
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.85
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.86,
+      0.05,
+      55
+    ],
+    "zenith": [
+      0.76,
+      0.04000000000000001,
+      55.0
+    ]
+  },
+  "fog_clear": 70,
+  "fog_depth": 150,
+  "steel": [
+    0.010000000000000009,
+    0.04000000000000001,
+    55.0
+  ],
+  "meta": {
+    "work": 2,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Warm dawn haze; the tower nearly black against apricot. A heavy trunk line — tower_scale 1.1 or more."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "towers": 4,
+  "span": 130,
+  "camera": {
+    "pos": [
+      8.0,
+      -14.0,
+      1.2
+    ],
+    "aim": [
+      0.0,
+      25.0,
+      30.0
+    ],
+    "lens": 22
+  },
+  "sky": {
+    "horizon": [
+      0.93,
+      0.014,
+      232
+    ],
+    "zenith": [
+      0.85,
+      0.03,
+      238
+    ],
+    "clouds": {
+      "scale": 2.2,
+      "detail": 6.0,
+      "strength": 0.4
+    }
+  },
+  "steel": [
+    0.2,
+    0.02,
+    40
+  ],
+  "fog_clear": 70,
+  "fog_depth": 210,
+  "terrain": {
+    "color": [
+      0.32,
+      0.04,
+      130
+    ],
+    "ground": true,
+    "elevations": [
+      0,
+      8,
+      18,
+      27
+    ],
+    "treeline": {
+      "distance": 260,
+      "height": 13,
+      "roll": 1.6,
+      "phase": 0.9
+    },
+    "ridges": [
+      {
+        "distance": 500,
+        "height": 110,
+        "roll": 0.55,
+        "phase": 0.3
+      },
+      {
+        "distance": 950,
+        "height": 190,
+        "roll": 0.4,
+        "phase": 2.5
+      }
+    ]
+  },
+  "meta": {
+    "work": 10,
+    "attempt": 1,
+    "rejected_for": [
+      "terrain.elevations[3] = 27 out of range 0-25"
+    ]
+  }
+}

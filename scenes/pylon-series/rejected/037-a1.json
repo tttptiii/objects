@@ -1,0 +1,95 @@
+{
+  "towers": 4,
+  "span": [
+    100,
+    145,
+    118
+  ],
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      -14.0,
+      -55.0,
+      2.2
+    ],
+    "aim": [
+      4.0,
+      60.0,
+      30.0
+    ],
+    "lens": 26
+  },
+  "palette": {
+    "horizon": [
+      0.9,
+      0.022,
+      232
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.68
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.9,
+      0.022,
+      232
+    ],
+    "zenith": [
+      0.8,
+      0.0176,
+      232.0
+    ]
+  },
+  "fog_clear": 90,
+  "fog_depth": 260,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 3.4,
+    "field": [
+      0.5,
+      0.0176,
+      232.0
+    ],
+    "facet": 20,
+    "hedge": {
+      "distance": 40.0,
+      "height": 4.5
+    },
+    "hills": {
+      "relief": 55,
+      "scale": 900
+    },
+    "mist": {
+      "height": 26,
+      "amount": 0.8
+    }
+  },
+  "steel": [
+    0.21999999999999997,
+    0.0176,
+    232.0
+  ],
+  "meta": {
+    "work": 37,
+    "attempt": 1,
+    "rejected_for": [
+      "camera.pos z = 2.2 but the terrain there is 2.1 m high — the camera is inside the ground; rise above it or move",
+      "the farthest tower is 0.72 dissolved into the haze (> 0.7) — every tower stays countable; deepen fog_depth, raise fog_clear, or shorten the line"
+    ]
+  }
+}

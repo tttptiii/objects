@@ -1,0 +1,57 @@
+{
+  "towers": 3,
+  "span": 110,
+  "camera": {
+    "pos": [
+      8.0,
+      -14.0,
+      1.2
+    ],
+    "aim": [
+      0.0,
+      25.0,
+      30.0
+    ],
+    "lens": 26
+  },
+  "sky": {
+    "horizon": [
+      0.965,
+      0.008,
+      240
+    ],
+    "zenith": [
+      0.905,
+      0.02,
+      244
+    ],
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.2
+    }
+  },
+  "steel": [
+    0.18,
+    0.02,
+    40
+  ],
+  "fog_clear": 60,
+  "fog_depth": 100,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.4,
+    "scale": 55,
+    "phase": 4.1,
+    "shade": 0.1,
+    "facet": 9
+  },
+  "meta": {
+    "work": 24,
+    "attempt": 1,
+    "rejected_for": [
+      "only 9/15 keypoints of the nearest tower fit inside the frame with margin — landscape pieces contain the whole tower; step back, widen the lens, or re-aim",
+      "the bottom of the frame does not reach the ground within 60 m — lower the aim or step farther back so the field shows under the tower"
+    ]
+  }
+}

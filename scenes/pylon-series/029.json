@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": [
+    110,
+    130,
+    150
+  ],
+  "tower_scale": 1.05,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      18.0,
+      -95.0,
+      6.5
+    ],
+    "aim": [
+      0.0,
+      40.0,
+      30.0
+    ],
+    "lens": 30
+  },
+  "palette": {
+    "horizon": [
+      0.86,
+      0.045,
+      55
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.68
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.86,
+      0.045,
+      55
+    ],
+    "zenith": [
+      0.76,
+      0.036,
+      55.0
+    ]
+  },
+  "fog_clear": 140,
+  "fog_depth": 420,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 260,
+    "scale": 950,
+    "sharp": 0.55,
+    "phase": 4.1,
+    "shade": 0.32,
+    "facet": 75,
+    "color": [
+      0.45999999999999996,
+      0.036,
+      55.0
+    ]
+  },
+  "steel": [
+    0.17999999999999994,
+    0.036,
+    55.0
+  ],
+  "meta": {
+    "work": 29,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Mountains at dawn: warm haze, the anchor tower dark and near, the line stepping away down the valley, ridges stacked behind."
+  }
+}

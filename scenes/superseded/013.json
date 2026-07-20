@@ -1,0 +1,48 @@
+{
+  "towers": 3,
+  "span": 100,
+  "camera": {
+    "pos": [
+      9.5,
+      -6.0,
+      1.4
+    ],
+    "aim": [
+      0.0,
+      25.0,
+      30.0
+    ],
+    "lens": 20
+  },
+  "sky": {
+    "horizon": [
+      0.92,
+      0.014,
+      80
+    ],
+    "zenith": [
+      0.845,
+      0.03,
+      85
+    ],
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.5,
+      "strength": 0.55
+    }
+  },
+  "steel": [
+    0.16,
+    0.02,
+    55
+  ],
+  "fog_clear": 55,
+  "fog_depth": 80,
+  "meta": {
+    "work": 13,
+    "ruleset": "pylon-series",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Beside the base, looking up along the line — the next towers ghosting in dense fog."
+  }
+}

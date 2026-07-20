@@ -1,0 +1,86 @@
+{
+  "towers": 3,
+  "span": [
+    130,
+    150
+  ],
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      8.0,
+      -60.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      20.0,
+      24.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.95,
+      0.008,
+      230
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.07
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.08
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.2
+    },
+    "horizon": [
+      0.95,
+      0.008,
+      230
+    ],
+    "zenith": [
+      0.8799999999999999,
+      0.0064,
+      230.0
+    ]
+  },
+  "fog_clear": 90,
+  "fog_depth": 260,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.5,
+    "scale": 90,
+    "phase": 1.3,
+    "shade": 0.1,
+    "facet": 10,
+    "color": [
+      0.87,
+      0.0064,
+      230.0
+    ]
+  },
+  "steel": [
+    0.19999999999999996,
+    0.0064,
+    230.0
+  ],
+  "meta": {
+    "work": 27,
+    "ruleset": "pylon-series",
+    "rules_sha": "3602d3001354",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-25",
+    "direction": "Snowfield in thin winter light: three towers receding, wires long and low over the drifts."
+  }
+}

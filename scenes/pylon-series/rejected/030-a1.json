@@ -1,0 +1,87 @@
+{
+  "towers": 4,
+  "span": [
+    120,
+    150,
+    140
+  ],
+  "tower_scale": 1.05,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      20.0,
+      -40.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      90.0,
+      30.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.86,
+      0.02,
+      235
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.42
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.5,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.86,
+      0.02,
+      235
+    ],
+    "zenith": [
+      0.76,
+      0.016,
+      235.0
+    ]
+  },
+  "fog_clear": 180,
+  "fog_depth": 420,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 260,
+    "scale": 1000,
+    "sharp": 0.5,
+    "phase": 4.1,
+    "shade": 0.32,
+    "facet": 70,
+    "color": [
+      0.44,
+      0.016,
+      235.0
+    ]
+  },
+  "steel": [
+    0.16000000000000003,
+    0.016,
+    235.0
+  ],
+  "meta": {
+    "work": 30,
+    "attempt": 1,
+    "rejected_for": [
+      "only 13/15 keypoints of the nearest tower fit inside the frame with margin — landscape pieces contain the whole tower; step back, widen the lens, or re-aim"
+    ]
+  }
+}
