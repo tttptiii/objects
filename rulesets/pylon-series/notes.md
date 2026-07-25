@@ -113,6 +113,20 @@ continuous lines, never chains of dots (bead-chain wires were explicitly rejecte
   deleted outright (author's call), and every sampled spec now records `rules_sha`,
   the content hash of the exact rules revision that produced it.
 
+- **The design space and the visible loop (2026-07-26).** Two scaffolding moves.
+  First, directions left the code: per-piece briefs now live in `directions.json`,
+  where the 20 existing pieces keep their hand-written briefs forever and every new
+  piece number is a point in a declared design space — stage × mood × density ×
+  composition × line, 960 combinations walked in a decorrelated order. The mood axis
+  bounds each piece's palette anchor (hue and lightness bands, enforced at sampling
+  time), which turns batch-level color spread from luck into a rule. Second, the
+  judgment loop became visible in the repo: `judgments/` records the author's
+  per-batch verdicts (the third arrow of rules → pieces → judgment → rules), and
+  `scripts/report_pylons.py` generates a piece manifest (`docs/pieces.md`) and a
+  local contact sheet. First design-space pieces (040–043) produced combinations the
+  hand-written list never reached — a violet-evening snowfield, a chroma-less winter
+  mountain line, a blue-dusk farmland seen from a flank.
+
 ## Not yet variables (candidates for later)
 
 Tower proportions (height, base ratio, waist independently), bracing pattern (X/V/K),

@@ -1,0 +1,78 @@
+{
+  "towers": 4,
+  "span": [
+    95,
+    130,
+    108
+  ],
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      0.0,
+      -65.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      40.0,
+      24.0
+    ],
+    "lens": 24
+  },
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 2.2,
+    "scale": 70,
+    "phase": 4.2,
+    "shade": 0.12,
+    "facet": 11
+  },
+  "palette": {
+    "horizon": [
+      0.84,
+      0.045,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.08
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.72
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.0,
+      "strength": 0.32
+    },
+    "horizon": [
+      0.84,
+      0.045,
+      300
+    ],
+    "zenith": [
+      0.76,
+      0.036,
+      300.0
+    ]
+  },
+  "fog_clear": 90,
+  "fog_depth": 90,
+  "steel": [
+    0.12,
+    0.036,
+    300.0
+  ],
+  "meta": {
+    "work": 41,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "A snowfield under the line. Violet evening haze. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+  }
+}

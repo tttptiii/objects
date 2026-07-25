@@ -36,9 +36,13 @@ flat-shaded triangle taking a single tone.
 
 ```
 rulesets/pylon-series/rules.md          the prompt — the thing being published
-        │
+rulesets/pylon-series/directions.json   per-piece briefs: assigned pieces keep
+        │                               theirs forever; new pieces are points in a
+        │                               declared design space (stage × mood ×
+        │                               density × composition × line), the mood
+        │                               axis bounding each piece's palette anchor
         ▼
-sample_pylons.py                        claude -p, headless; one piece per direction
+sample_pylons.py                        claude -p, headless; one piece per brief
         │        ◄──────────────┐
         ▼                       │ violations (retried in-session,
 validate_pylon.py               │  rejects kept with reasons)
@@ -55,7 +59,8 @@ scenes/pylon-series/NNN.json            the unit of reproduction
 render_pylon3d.py (Blender, Cycles)     spec -> image, deterministically
         │
         ▼
-human judgment ──► the next revision of rules.md
+human judgment ──► rulesets/pylon-series/judgments/   ──► the next revision
+  (keep / kill / revise, per batch)                        of rules.md
 ```
 
 **The refusals are part of the record.** Rejected candidates are kept in
@@ -84,13 +89,16 @@ image can be made again is.
 
 ```
 rulesets/pylon-series/
-  rules.md      the prompt, sent verbatim — nothing else is
-  checks.json   validation thresholds, layered over defaults
-  notes.md      for humans: where each rule came from
-scenes/         specs, the units of reproduction (rejected/ and superseded/ included)
-scripts/        sampling, validation, rendering — python stdlib only
-outputs/        rendered images (reproducible, not tracked)
-docs/images/    curated copies for this page
+  rules.md         the prompt, sent verbatim — nothing else is
+  directions.json  per-piece creative briefs and the design space behind new pieces
+  checks.json      validation thresholds, layered over defaults
+  notes.md         for humans: where each rule came from
+  judgments/       the author's per-batch verdicts — the loop's third arrow
+scenes/          specs, the units of reproduction (rejected/ and superseded/ included)
+scripts/         sampling, validation, rendering — python stdlib only
+outputs/         rendered images (reproducible, not tracked)
+docs/pieces.md   generated manifest: what every piece number is
+docs/images/     curated copies for this page
 ```
 
 ## Setup and running
@@ -107,6 +115,9 @@ python scripts/render_pylons.py --pieces 26 --full
 
 # render the hand-authored demo scenes
 python scripts/render_pylons.py --demos
+
+# regenerate the manifest (docs/pieces.md) and a local contact sheet
+python scripts/report_pylons.py
 ```
 
 ## License

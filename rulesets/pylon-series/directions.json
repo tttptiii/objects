@@ -1,0 +1,66 @@
+{
+  "_comment": [
+    "Per-piece creative briefs. A piece number listed under `assigned` keeps that",
+    "direction forever (resampling never reshuffles it). Any other piece number is a",
+    "point in the design space below: its combination index is (piece * 137) % 960",
+    "(137 is coprime to the 960-combination product, so consecutive pieces walk the",
+    "whole space in a decorrelated order), decomposed digit by digit over the axes",
+    "in the listed order: stage, mood, density, composition, line. The mood axis",
+    "also bounds the palette anchor (hue and lightness ranges, enforced at sampling",
+    "time), which is what guarantees color spread across a batch."
+  ],
+  "assigned": {
+    "0": { "kind": null, "text": "Directly beneath the tower, wide lens, looking straight up through the lattice. Cool blue-gray fog." },
+    "1": { "kind": null, "text": "Beside the base, looking up along the line — the next towers ghosting in dense fog." },
+    "2": { "kind": null, "text": "Warm dawn haze; the tower nearly black against apricot. A heavy trunk line — tower_scale 1.1 or more." },
+    "3": { "kind": null, "text": "Farther back with a longer lens, two towers stacking into each other in the haze." },
+    "4": { "kind": null, "text": "Extreme wide at the legs, the tower plunging past the top of the frame." },
+    "5": { "kind": null, "text": "Thin winter haze — a long clear distance, three towers visible receding. A light rural line: tower_scale near 0.9, an uneven span rhythm." },
+    "6": { "kind": null, "text": "Camera off to the side of the line, the wires crossing the frame diagonally overhead." },
+    "7": { "kind": null, "text": "Dense fog at its thickest: only the subject survives, the second tower barely a stain." },
+    "24": { "kind": "snowfield", "text": "Snowfield: white ground one breath away from the sky, drift shadows barely there, dark steel rising out of the white." },
+    "25": { "kind": "snowfield", "text": "Snowfield in blue dusk haze: blue-gray fog over snow, two small rural towers (tower_scale about 0.9), the far one almost erased." },
+    "26": { "kind": "snowfield", "text": "Snowfield whiteout: the horizon gone — ground and sky a single white, only the near tower fully drawn." },
+    "27": { "kind": "snowfield", "text": "Snowfield in thin winter light: three towers receding, wires long and low over the drifts." },
+    "28": { "kind": "mountains", "text": "Mountain pass: the first tower large and crisp at the frame's edge, the line diving away into layered ranges, every far tower still countable. Heavy trunk towers — tower_scale 1.1+, V-string insulators." },
+    "29": { "kind": "mountains", "text": "Mountains at dawn: warm haze, the anchor tower dark and near, the line stepping away down the valley, ridges stacked behind." },
+    "30": { "kind": "mountains", "text": "Beside the anchor tower in mountain country: wires leading the eye to the far towers threading between two ranges. V-string insulators read at this distance." },
+    "31": { "kind": "mountains", "text": "High mountain fog: the near tower sharp against the ridge, each tower behind it one tone lighter, the last almost — but not — gone." },
+    "36": { "kind": "farmland", "text": "Farmland at dawn: pink horizon under a blue-gray zenith, the anchor tower dark over a pale crop field, ground mist pooled behind the hedgerow." },
+    "37": { "kind": "farmland", "text": "Farmland, morning blue: cool haze, gaps in the hedge showing the misty flats, the line stepping away over low hills on an uneven span rhythm, V-strings." },
+    "38": { "kind": "farmland", "text": "Farmland at dusk: straw-colored field, dark hedge band, the far towers rising out of the mist one tone paler each." },
+    "39": { "kind": "farmland", "text": "Wide farmland: low hills behind the hedgerow, deep mist between them, wires sweeping over the field toward the anchor." }
+  },
+  "axes": {
+    "stage": [
+      { "name": "bare-sky", "kind": null, "text": "No landscape — only towers, wires, and fog." },
+      { "name": "snowfield", "kind": "snowfield", "text": "A snowfield under the line." },
+      { "name": "mountains", "kind": "mountains", "text": "Mountain country, the line threading a valley." },
+      { "name": "farmland", "kind": "farmland", "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it." }
+    ],
+    "mood": [
+      { "name": "cool-morning", "hue": [215, 255], "lightness": [0.88, 0.97], "text": "Cool blue-gray morning fog." },
+      { "name": "warm-dawn", "hue": [35, 75], "lightness": [0.85, 0.94], "text": "Warm dawn haze, apricot toward the horizon." },
+      { "name": "blue-dusk", "hue": [240, 275], "lightness": [0.72, 0.86], "text": "Blue dusk, the light almost gone." },
+      { "name": "winter-pale", "hue": [190, 250], "lightness": [0.9, 0.97], "text": "Pale winter light, nearly white, chroma close to nothing." },
+      { "name": "violet-evening", "hue": [280, 320], "lightness": [0.78, 0.9], "text": "Violet evening haze." }
+    ],
+    "density": [
+      { "name": "thin", "text": "Thin haze — a long clear sight down the line." },
+      { "name": "dense", "text": "Dense fog — only the near survives whole." },
+      { "name": "layered", "text": "Middling fog that stacks the distance into distinct layers." }
+    ],
+    "composition": [
+      { "name": "tunnel", "sky": "Stand almost beneath the tower, the lattice a converging tunnel overhead.", "land": "The anchor tower off-center left, the line receding to the right." },
+      { "name": "loom", "sky": "Beside the base, the tower looming past the frame.", "land": "The anchor near center, the line receding straight away from the camera." },
+      { "name": "stack", "sky": "Farther back with a longer lens, the towers stacking into each other.", "land": "Camera raised on a flank slope, looking across at the line below." },
+      { "name": "aside", "sky": "Off to the side of the line, wires crossing the frame diagonally overhead.", "land": "The anchor close to one edge, most of the frame given to land and haze." }
+    ],
+    "line": [
+      { "name": "standard", "text": "A standard line." },
+      { "name": "rural", "text": "A light rural line — tower_scale near 0.9." },
+      { "name": "trunk", "text": "A heavy trunk line — tower_scale 1.1 or more, V-string insulators." },
+      { "name": "uneven", "text": "An uneven span rhythm, the gaps varying tower to tower." }
+    ]
+  }
+}
