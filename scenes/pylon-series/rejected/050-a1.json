@@ -1,0 +1,84 @@
+{
+  "towers": 4,
+  "span": 130,
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      110,
+      -50,
+      22
+    ],
+    "aim": [
+      0,
+      150,
+      20
+    ],
+    "lens": 30
+  },
+  "palette": {
+    "horizon": [
+      0.8,
+      0.02,
+      255
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.72
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.8,
+      0.02,
+      255
+    ],
+    "zenith": [
+      0.7000000000000001,
+      0.016,
+      255.0
+    ]
+  },
+  "fog_clear": 180,
+  "fog_depth": 500,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 250,
+    "scale": 1000,
+    "sharp": 0.5,
+    "phase": 4.5,
+    "shade": 0.35,
+    "facet": 90,
+    "color": [
+      0.4,
+      0.016,
+      255.0
+    ]
+  },
+  "steel": [
+    0.08000000000000007,
+    0.016,
+    255.0
+  ],
+  "meta": {
+    "work": 50,
+    "attempt": 1,
+    "rejected_for": [
+      "only 0 keypoints of the nearest tower land in frame (< 5) — the camera is not looking at the subject",
+      "only 0/15 keypoints of the nearest tower fit inside the frame with margin — landscape pieces contain the whole tower; step back, widen the lens, or re-aim"
+    ]
+  }
+}

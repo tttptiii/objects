@@ -1,0 +1,70 @@
+{
+  "towers": 4,
+  "span": [
+    95,
+    145,
+    115
+  ],
+  "tower_scale": 0.95,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      18.0,
+      -20.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      20.0,
+      34.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.945,
+      0.012,
+      220
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.5,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.945,
+      0.012,
+      220
+    ],
+    "zenith": [
+      0.885,
+      0.009600000000000001,
+      220.0
+    ]
+  },
+  "fog_clear": 65,
+  "fog_depth": 150,
+  "steel": [
+    0.245,
+    0.009600000000000001,
+    220.0
+  ],
+  "meta": {
+    "work": 56,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "No landscape — only towers, wires, and fog. Pale winter light, nearly white, chroma close to nothing. Middling fog that stacks the distance into distinct layers. Off to the side of the line, wires crossing the frame diagonally overhead. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+  }
+}

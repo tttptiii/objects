@@ -1,0 +1,74 @@
+{
+  "towers": 4,
+  "span": 130,
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      6.0,
+      -60.0,
+      1.6
+    ],
+    "aim": [
+      0.0,
+      0.0,
+      24.0
+    ],
+    "lens": 20
+  },
+  "palette": {
+    "horizon": [
+      0.92,
+      0.016,
+      235
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.2
+    },
+    "horizon": [
+      0.92,
+      0.016,
+      235
+    ],
+    "zenith": [
+      0.8600000000000001,
+      0.0128,
+      235.0
+    ]
+  },
+  "fog_clear": 105,
+  "fog_depth": 290,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.6,
+    "scale": 80,
+    "phase": 4.7,
+    "shade": 0.11,
+    "facet": 9
+  },
+  "steel": [
+    0.22000000000000008,
+    0.0128,
+    235.0
+  ],
+  "meta": {
+    "work": 53,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "A snowfield under the line. Cool blue-gray morning fog. Thin haze — a long clear sight down the line. The anchor near center, the line receding straight away from the camera. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "towers": 4,
+  "span": 130,
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      110,
+      -50,
+      22
+    ],
+    "aim": [
+      0,
+      0,
+      28
+    ],
+    "lens": 26
+  },
+  "palette": {
+    "horizon": [
+      0.8,
+      0.02,
+      255
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.72
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.8,
+      0.02,
+      255
+    ],
+    "zenith": [
+      0.7000000000000001,
+      0.016,
+      255.0
+    ]
+  },
+  "fog_clear": 180,
+  "fog_depth": 500,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 250,
+    "scale": 1000,
+    "sharp": 0.5,
+    "phase": 4.5,
+    "shade": 0.35,
+    "facet": 90,
+    "color": [
+      0.4,
+      0.016,
+      255.0
+    ]
+  },
+  "steel": [
+    0.08000000000000007,
+    0.016,
+    255.0
+  ],
+  "meta": {
+    "work": 50,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "Mountain country, the line threading a valley. Blue dusk, the light almost gone. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+  }
+}

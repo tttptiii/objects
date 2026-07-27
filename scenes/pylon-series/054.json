@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": [
+    130,
+    150,
+    140
+  ],
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      48.0,
+      -130.0,
+      6.0
+    ],
+    "aim": [
+      8.0,
+      70.0,
+      40.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.85,
+      0.035,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.08
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.72
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.85,
+      0.035,
+      300
+    ],
+    "zenith": [
+      0.77,
+      0.028000000000000004,
+      300.0
+    ]
+  },
+  "fog_clear": 220,
+  "fog_depth": 700,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 280,
+    "scale": 1000,
+    "sharp": 0.5,
+    "phase": 3.5,
+    "shade": 0.3,
+    "facet": 90,
+    "color": [
+      0.44999999999999996,
+      0.028000000000000004,
+      300.0
+    ]
+  },
+  "steel": [
+    0.13,
+    0.028000000000000004,
+    300.0
+  ],
+  "meta": {
+    "work": 54,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "Mountain country, the line threading a valley. Violet evening haze. Thin haze — a long clear sight down the line. The anchor close to one edge, most of the frame given to land and haze. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+  }
+}

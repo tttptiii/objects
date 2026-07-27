@@ -1,0 +1,66 @@
+{
+  "towers": 3,
+  "span": 110,
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      2.0,
+      -3.5,
+      1.2
+    ],
+    "aim": [
+      0.0,
+      5.0,
+      40.0
+    ],
+    "lens": 18
+  },
+  "palette": {
+    "horizon": [
+      0.78,
+      0.045,
+      258
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.78,
+      0.045,
+      258
+    ],
+    "zenith": [
+      0.68,
+      0.036,
+      258.0
+    ]
+  },
+  "fog_clear": 50,
+  "fog_depth": 80,
+  "steel": [
+    0.08000000000000007,
+    0.036,
+    258.0
+  ],
+  "meta": {
+    "work": 44,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "No landscape — only towers, wires, and fog. Blue dusk, the light almost gone. Dense fog — only the near survives whole. Stand almost beneath the tower, the lattice a converging tunnel overhead. A light rural line — tower_scale near 0.9. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+  }
+}

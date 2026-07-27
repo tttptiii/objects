@@ -1,0 +1,85 @@
+{
+  "towers": 4,
+  "span": [
+    95,
+    140,
+    115
+  ],
+  "camera": {
+    "pos": [
+      20.0,
+      -58.0,
+      3.0
+    ],
+    "aim": [
+      -6.0,
+      20.0,
+      23.0
+    ],
+    "lens": 26
+  },
+  "palette": {
+    "horizon": [
+      0.94,
+      0.008,
+      220
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.05
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.06
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.94,
+      0.008,
+      220
+    ],
+    "zenith": [
+      0.8899999999999999,
+      0.0064,
+      220.0
+    ]
+  },
+  "fog_clear": 90,
+  "fog_depth": 140,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 2.2,
+    "scale": 65,
+    "phase": 3.7,
+    "shade": 0.12,
+    "facet": 10,
+    "color": [
+      0.8799999999999999,
+      0.0064,
+      220.0
+    ]
+  },
+  "steel": [
+    0.18999999999999995,
+    0.0064,
+    220.0
+  ],
+  "meta": {
+    "work": 49,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "A snowfield under the line. Pale winter light, nearly white, chroma close to nothing. Middling fog that stacks the distance into distinct layers. The anchor close to one edge, most of the frame given to land and haze. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+  }
+}

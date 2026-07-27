@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": [
+    140,
+    150,
+    135
+  ],
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      8.0,
+      -60.0,
+      3.2
+    ],
+    "aim": [
+      0.0,
+      60.0,
+      30.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.93,
+      0.02,
+      232
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.42
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.22
+    },
+    "horizon": [
+      0.93,
+      0.02,
+      232
+    ],
+    "zenith": [
+      0.8700000000000001,
+      0.016,
+      232.0
+    ]
+  },
+  "fog_clear": 130,
+  "fog_depth": 520,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 220,
+    "scale": 1100,
+    "sharp": 0.4,
+    "phase": 3.5,
+    "shade": 0.3,
+    "facet": 90,
+    "color": [
+      0.51,
+      0.016,
+      232.0
+    ]
+  },
+  "steel": [
+    0.18000000000000005,
+    0.016,
+    232.0
+  ],
+  "meta": {
+    "work": 46,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "Mountain country, the line threading a valley. Cool blue-gray morning fog. Thin haze — a long clear sight down the line. The anchor near center, the line receding straight away from the camera. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+  }
+}

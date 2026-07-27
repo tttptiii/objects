@@ -1,0 +1,83 @@
+{
+  "towers": 4,
+  "span": 140,
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      30.0,
+      -55.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      60.0,
+      24.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.85,
+      0.03,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.08
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.06
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 6.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.85,
+      0.03,
+      300
+    ],
+    "zenith": [
+      0.77,
+      0.024,
+      300.0
+    ]
+  },
+  "fog_clear": 95,
+  "fog_depth": 280,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 2.2,
+    "scale": 90,
+    "phase": 4.1,
+    "shade": 0.12,
+    "facet": 12,
+    "color": [
+      0.79,
+      0.024,
+      300.0
+    ]
+  },
+  "steel": [
+    0.09999999999999998,
+    0.024,
+    300.0
+  ],
+  "meta": {
+    "work": 61,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "A snowfield under the line. Violet evening haze. Thin haze — a long clear sight down the line. The anchor close to one edge, most of the frame given to land and haze. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+  }
+}

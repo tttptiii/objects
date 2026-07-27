@@ -1,0 +1,69 @@
+{
+  "towers": 3,
+  "span": [
+    140,
+    155
+  ],
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      14.5,
+      -9.0,
+      2.2
+    ],
+    "aim": [
+      0.0,
+      8.0,
+      42.0
+    ],
+    "lens": 20
+  },
+  "palette": {
+    "horizon": [
+      0.93,
+      0.016,
+      235
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.78
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.5,
+      "strength": 0.25
+    },
+    "horizon": [
+      0.93,
+      0.016,
+      235
+    ],
+    "zenith": [
+      0.8700000000000001,
+      0.0128,
+      235.0
+    ]
+  },
+  "fog_clear": 100,
+  "fog_depth": 300,
+  "steel": [
+    0.15000000000000002,
+    0.0128,
+    235.0
+  ],
+  "meta": {
+    "work": 60,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "No landscape — only towers, wires, and fog. Cool blue-gray morning fog. Thin haze — a long clear sight down the line. Beside the base, the tower looming past the frame. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+  }
+}

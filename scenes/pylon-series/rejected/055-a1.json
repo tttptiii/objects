@@ -1,0 +1,96 @@
+{
+  "towers": 3,
+  "span": [
+    95,
+    140
+  ],
+  "tower_scale": 1.0,
+  "camera": {
+    "pos": [
+      1.0,
+      -38.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      60.0,
+      24.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.94,
+      0.008,
+      215
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.05
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.42
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.22
+    },
+    "horizon": [
+      0.94,
+      0.008,
+      215
+    ],
+    "zenith": [
+      0.8899999999999999,
+      0.0064,
+      215.0
+    ]
+  },
+  "fog_clear": 70,
+  "fog_depth": 100,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.52,
+      0.0064,
+      215.0
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 90,
+      "height": 5
+    },
+    "hills": {
+      "relief": 70,
+      "scale": 900
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.8
+    }
+  },
+  "steel": [
+    0.18999999999999995,
+    0.0064,
+    215.0
+  ],
+  "meta": {
+    "work": 55,
+    "attempt": 1,
+    "rejected_for": [
+      "fog_depth = 100 out of range 200-900",
+      "only 12/15 keypoints of the nearest tower fit inside the frame with margin — landscape pieces contain the whole tower; step back, widen the lens, or re-aim",
+      "camera.pos z = 2.0 but the terrain there is 2.2 m high — the camera is inside the ground; rise above it or move",
+      "the farthest tower is 0.87 dissolved into the haze (> 0.7) — every tower stays countable; deepen fog_depth, raise fog_clear, or shorten the line"
+    ]
+  }
+}

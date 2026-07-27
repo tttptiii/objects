@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": [
+    85,
+    110,
+    95
+  ],
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      5,
+      -75,
+      4
+    ],
+    "aim": [
+      0,
+      150,
+      30
+    ],
+    "lens": 32
+  },
+  "palette": {
+    "horizon": [
+      0.95,
+      0.014,
+      220
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.62
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.45
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.5,
+      "strength": 0.25
+    },
+    "horizon": [
+      0.95,
+      0.014,
+      220
+    ],
+    "zenith": [
+      0.8899999999999999,
+      0.011200000000000002,
+      220.0
+    ]
+  },
+  "fog_clear": 95,
+  "fog_depth": 420,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 260,
+    "scale": 900,
+    "sharp": 0.45,
+    "phase": 4.0,
+    "shade": 0.3,
+    "facet": 80,
+    "color": [
+      0.49999999999999994,
+      0.011200000000000002,
+      220.0
+    ]
+  },
+  "steel": [
+    0.32999999999999996,
+    0.011200000000000002,
+    220.0
+  ],
+  "meta": {
+    "work": 62,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "Mountain country, the line threading a valley. Pale winter light, nearly white, chroma close to nothing. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+  }
+}

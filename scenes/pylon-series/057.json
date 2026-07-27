@@ -1,0 +1,74 @@
+{
+  "towers": 4,
+  "span": 130,
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      15.0,
+      -60.0,
+      9.0
+    ],
+    "aim": [
+      0.0,
+      0.0,
+      22.0
+    ],
+    "lens": 28
+  },
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.8,
+    "scale": 85,
+    "phase": 4.1,
+    "shade": 0.1,
+    "facet": 13
+  },
+  "palette": {
+    "horizon": [
+      0.8,
+      0.03,
+      258
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.08
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.0,
+      "strength": 0.2
+    },
+    "horizon": [
+      0.8,
+      0.03,
+      258
+    ],
+    "zenith": [
+      0.7200000000000001,
+      0.024,
+      258.0
+    ]
+  },
+  "fog_clear": 95,
+  "fog_depth": 260,
+  "steel": [
+    0.050000000000000044,
+    0.024,
+    258.0
+  ],
+  "meta": {
+    "work": 57,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "A snowfield under the line. Blue dusk, the light almost gone. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "towers": 4,
+  "span": [
+    100,
+    145,
+    115
+  ],
+  "camera": {
+    "pos": [
+      -35.0,
+      -150.0,
+      2.4
+    ],
+    "aim": [
+      -6.0,
+      40.0,
+      29.0
+    ],
+    "lens": 30
+  },
+  "palette": {
+    "horizon": [
+      0.8,
+      0.035,
+      258
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.18
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.76
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.8,
+      0.035,
+      258
+    ],
+    "zenith": [
+      0.6200000000000001,
+      0.028000000000000004,
+      258.0
+    ]
+  },
+  "fog_clear": 160,
+  "fog_depth": 300,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.52,
+      0.07,
+      95
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 0,
+      "height": 6.5
+    },
+    "hills": {
+      "relief": 75,
+      "scale": 900
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.75
+    }
+  },
+  "steel": [
+    0.040000000000000036,
+    0.028000000000000004,
+    258.0
+  ],
+  "meta": {
+    "work": 63,
+    "attempt": 1,
+    "rejected_for": [
+      "the anchor tower's peak is 161 m away but fog_clear is 160 — the anchor renders crisp; raise fog_clear"
+    ]
+  }
+}

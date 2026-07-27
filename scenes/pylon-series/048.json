@@ -1,0 +1,67 @@
+{
+  "towers": 3,
+  "span": [
+    95,
+    145
+  ],
+  "camera": {
+    "pos": [
+      15.0,
+      -12.0,
+      1.8
+    ],
+    "aim": [
+      0.0,
+      10.0,
+      30.0
+    ],
+    "lens": 20
+  },
+  "palette": {
+    "horizon": [
+      0.82,
+      0.055,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.08
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.82,
+      0.055,
+      300
+    ],
+    "zenith": [
+      0.74,
+      0.044000000000000004,
+      300.0
+    ]
+  },
+  "fog_clear": 58,
+  "fog_depth": 85,
+  "steel": [
+    0.06999999999999995,
+    0.044000000000000004,
+    300.0
+  ],
+  "meta": {
+    "work": 48,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "No landscape — only towers, wires, and fog. Violet evening haze. Dense fog — only the near survives whole. Beside the base, the tower looming past the frame. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+  }
+}

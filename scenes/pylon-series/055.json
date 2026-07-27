@@ -1,0 +1,94 @@
+{
+  "towers": 3,
+  "span": [
+    95,
+    140
+  ],
+  "tower_scale": 1.0,
+  "camera": {
+    "pos": [
+      2.0,
+      -85.0,
+      6.0
+    ],
+    "aim": [
+      0.0,
+      100.0,
+      22.0
+    ],
+    "lens": 20
+  },
+  "palette": {
+    "horizon": [
+      0.94,
+      0.008,
+      215
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.05
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.42
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.22
+    },
+    "horizon": [
+      0.94,
+      0.008,
+      215
+    ],
+    "zenith": [
+      0.8899999999999999,
+      0.0064,
+      215.0
+    ]
+  },
+  "fog_clear": 100,
+  "fog_depth": 900,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.52,
+      0.0064,
+      215.0
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 30,
+      "height": 5
+    },
+    "hills": {
+      "relief": 70,
+      "scale": 900
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.8
+    }
+  },
+  "steel": [
+    0.18999999999999995,
+    0.0064,
+    215.0
+  ],
+  "meta": {
+    "work": 55,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-07-26",
+    "direction": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Pale winter light, nearly white, chroma close to nothing. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+  }
+}

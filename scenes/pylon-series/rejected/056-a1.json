@@ -1,0 +1,69 @@
+{
+  "towers": 4,
+  "span": [
+    95,
+    145,
+    115
+  ],
+  "tower_scale": 0.95,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      22.0,
+      -14.0,
+      2.2
+    ],
+    "aim": [
+      -6.0,
+      70.0,
+      26.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.945,
+      0.012,
+      220
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.5,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.945,
+      0.012,
+      220
+    ],
+    "zenith": [
+      0.885,
+      0.009600000000000001,
+      220.0
+    ]
+  },
+  "fog_clear": 65,
+  "fog_depth": 150,
+  "steel": [
+    0.245,
+    0.009600000000000001,
+    220.0
+  ],
+  "meta": {
+    "work": 56,
+    "attempt": 1,
+    "rejected_for": [
+      "no arm tip or peak of the nearest tower is in frame — only legs; raise the aim or step back"
+    ]
+  }
+}

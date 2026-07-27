@@ -1,0 +1,95 @@
+{
+  "towers": 3,
+  "span": [
+    120,
+    135
+  ],
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      30.0,
+      -90.0,
+      18.0
+    ],
+    "aim": [
+      0.0,
+      10.0,
+      22.0
+    ],
+    "lens": 30
+  },
+  "palette": {
+    "horizon": [
+      0.92,
+      0.02,
+      235
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.08
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.35
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.92,
+      0.02,
+      235
+    ],
+    "zenith": [
+      0.8400000000000001,
+      0.016,
+      235.0
+    ]
+  },
+  "fog_clear": 110,
+  "fog_depth": 190,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.6,
+    "field": [
+      0.5700000000000001,
+      0.016,
+      235.0
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": -10,
+      "height": 5
+    },
+    "hills": {
+      "relief": 60,
+      "scale": 700
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.6
+    }
+  },
+  "steel": [
+    0.22000000000000008,
+    0.016,
+    235.0
+  ],
+  "meta": {
+    "work": 59,
+    "attempt": 1,
+    "rejected_for": [
+      "fog_depth = 190 out of range 200-900",
+      "the farthest tower is 0.71 dissolved into the haze (> 0.7) — every tower stays countable; deepen fog_depth, raise fog_clear, or shorten the line"
+    ]
+  }
+}

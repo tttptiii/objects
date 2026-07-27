@@ -30,5 +30,25 @@ Piece numbers are permanent: a number keeps its creative brief forever (`ruleset
 | 041 | snowfield | scale 1.0, I-strings, uneven spans | `0.84 0.045 300` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
 | 042 | mountains | scale 1.0, I-strings, uneven spans | `0.945 0.008 220` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
 | 043 | farmland | scale 1.0, I-strings, even spans | `0.79 0.032 260` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 044 | bare sky | scale 0.9, I-strings, even spans | `0.78 0.045 258` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 045 | snowfield | scale 0.9, I-strings, even spans | `0.9 0.035 55` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 046 | mountains | scale 1.15, V-strings, uneven spans | `0.93 0.02 232` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 047 | farmland | scale 1.15, V-strings, even spans | `0.85 0.035 305` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 048 | bare sky | scale 1.0, I-strings, uneven spans | `0.82 0.055 300` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 049 | snowfield | scale 1.0, I-strings, uneven spans | `0.94 0.008 220` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 050 | mountains | scale 1.0, I-strings, even spans | `0.8 0.02 255` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 051 | farmland | scale 0.9, I-strings, uneven spans | `0.9 0.035 50` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 052 | bare sky | scale 0.9, I-strings, uneven spans | `0.9 0.045 55` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 053 | snowfield | scale 1.15, V-strings, even spans | `0.92 0.016 235` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 054 | mountains | scale 1.15, V-strings, uneven spans | `0.85 0.035 300` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 055 | farmland | scale 1.0, I-strings, uneven spans | `0.94 0.008 215` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 056 | bare sky | scale 0.95, I-strings, uneven spans | `0.945 0.012 220` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 057 | snowfield | scale 1.0, I-strings, even spans | `0.8 0.03 258` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 058 | mountains | scale 0.9, I-strings, uneven spans | `0.9 0.045 55` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 059 | farmland | scale 0.9, I-strings, uneven spans | `0.92 0.02 235` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 060 | bare sky | scale 1.15, V-strings, uneven spans | `0.93 0.016 235` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 061 | snowfield | scale 1.15, V-strings, even spans | `0.85 0.03 300` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 062 | mountains | scale 1.0, I-strings, uneven spans | `0.95 0.014 220` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
+| 063 | farmland | scale 1.0, I-strings, uneven spans | `0.8 0.035 258` | claude-sonnet-5 | `d44d7b3095a2` | 2026-07-26 |
 
-Active pieces: 24. Superseded specs: 11 (`scenes/superseded/`). Rejected candidates: `scenes/pylon-series/rejected/`. Judgments: `rulesets/pylon-series/judgments/`.
+Active pieces: 44. Superseded specs: 11 (`scenes/superseded/`). Rejected candidates: `scenes/pylon-series/rejected/`. Judgments: `rulesets/pylon-series/judgments/`.

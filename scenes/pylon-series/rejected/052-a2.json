@@ -1,0 +1,68 @@
+{
+  "towers": 4,
+  "span": [
+    150,
+    165,
+    140
+  ],
+  "tower_scale": 0.9,
+  "camera": {
+    "pos": [
+      -38,
+      -230,
+      3.2
+    ],
+    "aim": [
+      0,
+      120,
+      30
+    ],
+    "lens": 38
+  },
+  "palette": {
+    "horizon": [
+      0.9,
+      0.045,
+      55
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.09
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.68
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.9,
+      0.045,
+      55
+    ],
+    "zenith": [
+      0.81,
+      0.036,
+      55.0
+    ]
+  },
+  "fog_clear": 70,
+  "fog_depth": 160,
+  "steel": [
+    0.21999999999999997,
+    0.036,
+    55.0
+  ],
+  "meta": {
+    "work": 52,
+    "attempt": 2,
+    "rejected_for": [
+      "the nearest tower's peak is 237 m from the camera but fog_clear is 70 — the subject must be entirely sharp; raise fog_clear or move closer"
+    ]
+  }
+}
