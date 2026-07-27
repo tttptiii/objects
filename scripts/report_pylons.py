@@ -1,9 +1,13 @@
-"""Generate the series manifest and a contact sheet from the specs on disk.
+"""Generate the series manifest, thumbnails, and a contact sheet from the specs.
 
-Two outputs, one source of truth (the spec files):
+Three outputs, one source of truth (the spec files):
 
-  docs/pieces.md                        tracked — what every piece number is, at a
-                                        glance, for someone reading the repo
+  docs/thumbs/NNN.png                   tracked — the draft renders (640px) copied
+                                        in as the series' small visual record; the
+                                        full-size renders stay untracked and
+                                        reproducible
+  docs/pieces.md                        tracked — gallery + manifest table: what
+                                        every piece number is, at a glance
   outputs/pylon-series/contact.html     untracked — a local grid of the draft
                                         renders with their briefs and palettes,
                                         for reviewing a batch in one page
@@ -16,6 +20,7 @@ import glob
 import html
 import json
 import os
+import shutil
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -44,7 +49,28 @@ def describe(spec):
     return kind, rhythm, scale, ins, anchor
 
 
-def write_manifest(pieces):
+def write_thumbs(pieces):
+    """Copy the draft renders in as tracked thumbnails — the series' small visual
+    record. Full renders stay untracked (reproducible from the specs)."""
+    tdir = os.path.join(ROOT, "docs", "thumbs")
+    os.makedirs(tdir, exist_ok=True)
+    have = set()
+    for n, _spec in pieces:
+        src = os.path.join(ROOT, "outputs", RULESET, "draft", f"{n:03d}.png")
+        if os.path.exists(src):
+            shutil.copyfile(src, os.path.join(tdir, f"{n:03d}.png"))
+            have.add(n)
+        else:
+            print(f"[report] warning: no draft render for {n:03d} — thumbnail skipped")
+    # drop thumbnails whose piece no longer exists
+    active = {n for n, _ in pieces}
+    for path in glob.glob(os.path.join(tdir, "[0-9]*.png")):
+        if int(os.path.basename(path)[:3]) not in active:
+            os.remove(path)
+    return have
+
+
+def write_manifest(pieces, thumbs):
     superseded = sorted(glob.glob(os.path.join(ROOT, "scenes", "superseded", "*.json")))
     lines = [
         "# Pieces",
@@ -55,6 +81,20 @@ def write_manifest(pieces):
         "(`rulesets/pylon-series/directions.json`), so resampling a piece never changes "
         "what it is about. Gaps in the numbering are pieces whose direction era was "
         "retired; their specs live in `scenes/superseded/`.",
+        "",
+        "## Gallery",
+        "",
+    ]
+    row = [(n, s) for n, s in pieces if n in thumbs]
+    for i in range(0, len(row), 4):
+        chunk = row[i:i + 4]
+        lines.append("| " + " | ".join(f"{n:03d}" for n, _ in chunk) + " |")
+        lines.append("|" + "---|" * len(chunk))
+        lines.append("| " + " | ".join(f"![](thumbs/{n:03d}.png)" for n, _ in chunk)
+                     + " |")
+        lines.append("")
+    lines += [
+        "## Manifest",
         "",
         "| piece | stage | line | anchor | model | rules | date |",
         "|---|---|---|---|---|---|---|",
@@ -128,7 +168,9 @@ def write_contact(pieces):
 
 def main():
     pieces = load_pieces()
-    print(f"[report] {write_manifest(pieces)}")
+    thumbs = write_thumbs(pieces)
+    print(f"[report] docs/thumbs: {len(thumbs)} thumbnails")
+    print(f"[report] {write_manifest(pieces, thumbs)}")
     print(f"[report] {write_contact(pieces)}")
 
 
