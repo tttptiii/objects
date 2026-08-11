@@ -128,17 +128,21 @@ def farm_args(terrain):
             hills.get("scale", 800.0), hedge.get("distance", 240.0))
 
 
-def hedge_mesh(distance, height, phase=0.0, half_width=840.0, nx=210, rows=3):
+def hedge_mesh(distance, height, phase=0.0, half_width=840.0, nx=210, rows=3,
+               base_at=None):
     """The hedgerow as a vertical curtain with a belly — the camera sees its face, not
     the top edge of a displaced sheet. Coarse segments keep it as low-poly as the
-    land. Returns (verts, faces)."""
+    land. `base_at(x, y)` seats the curtain on a terrain height (default: flat 0 —
+    the farmland hedge). Returns (verts, faces)."""
     verts = []
     for j in range(rows + 1):
         t = j / rows
         for i in range(nx + 1):
             x = -half_width + 2.0 * half_width * i / nx
             h = hedge_profile(x, height, phase)
-            verts.append((x, distance - 1.1 + 2.2 * math.sin(math.pi * t), h * t))
+            y = distance - 1.1 + 2.2 * math.sin(math.pi * t)
+            base = base_at(x, y) if base_at else 0.0
+            verts.append((x, y, base + h * t))
     faces = [(j * (nx + 1) + i, j * (nx + 1) + i + 1,
               (j + 1) * (nx + 1) + i + 1, (j + 1) * (nx + 1) + i)
              for j in range(rows) for i in range(nx)]

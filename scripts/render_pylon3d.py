@@ -19,7 +19,7 @@ from mathutils import Vector
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pylon3d  # noqa: E402
-from colorutil import oklch_to_linear_srgb  # noqa: E402
+from colorutil import clamp_oklch, oklch_to_linear_srgb  # noqa: E402
 from validate_pylon import camera_basis, visible  # noqa: E402
 
 # Member radii (meters). Conductors are exaggerated slightly past reality so they still
@@ -274,6 +274,21 @@ def terrain_material(name, oklch, horizon_rgba, fog_depth, fog_clear, shade,
     return mat
 
 
+def plain_material(name, oklch):
+    """Pure emission, no fog, no mist — for the crack, which is meant to be alien:
+    its color cuts through the haze untouched, at any distance."""
+    mat = bpy.data.materials.new(name)
+    mat.use_nodes = True
+    nt = mat.node_tree
+    nt.nodes.clear()
+    out = nt.nodes.new("ShaderNodeOutputMaterial")
+    em = nt.nodes.new("ShaderNodeEmission")
+    em.inputs["Strength"].default_value = 1.0
+    em.inputs["Color"].default_value = rgb(oklch)
+    nt.links.new(em.outputs["Emission"], out.inputs["Surface"])
+    return mat
+
+
 def curve_object(name, bevel, mat, scn):
     cu = bpy.data.curves.new(name, "CURVE")
     cu.dimensions = "3D"
@@ -371,12 +386,26 @@ def build_terrain(scn, terrain, sky_horizon_oklch, horizon, fog_depth, fog_clear
             -840, 840, -350, 3200, terrain.get("facet", 22.0),
             lambda x, y: pylon3d.terrain_height_at(terrain, x, y))
         mesh_object("field", verts, faces, mat, scn)
-        ph, _hr, _hs, hd = pylon3d.farm_args(terrain)
-        hmat = terrain_material("hedge", terrain.get("hedge_color", DEFAULT_HEDGE_COLOR),
-                                horizon, fog_depth, fog_clear, 0.3)
+        if not terrain.get("crack"):    # the crack supersedes the hedgerow
+            ph, _hr, _hs, hd = pylon3d.farm_args(terrain)
+            hmat = terrain_material("hedge",
+                                    terrain.get("hedge_color", DEFAULT_HEDGE_COLOR),
+                                    horizon, fog_depth, fog_clear, 0.3)
+            verts, faces = pylon3d.hedge_mesh(
+                hd, (terrain.get("hedge") or {}).get("height", 6.0), ph)
+            mesh_object("hedge", verts, faces, hmat, scn)
+
+    # The crack: the hedgerow generalized — a lumpy band crossing any land, but colored
+    # to collide with the palette (default: the sky's complement at violent chroma) and
+    # exempt from fog. One per piece; in farmland it takes the hedgerow's place.
+    crack = terrain.get("crack")
+    if crack and kind in ("snowfield", "mountains", "farmland"):
+        color = crack.get("color") or clamp_oklch(0.55, 0.30, sky_horizon_oklch[2] + 180.0)
         verts, faces = pylon3d.hedge_mesh(
-            hd, (terrain.get("hedge") or {}).get("height", 6.0), ph)
-        mesh_object("hedge", verts, faces, hmat, scn)
+            crack.get("distance", 120.0), crack.get("height", 4.0),
+            terrain.get("phase", 0.0),
+            base_at=lambda x, y: pylon3d.terrain_height_at(terrain, x, y, towers, span) - 0.8)
+        mesh_object("crack", verts, faces, plain_material("crack", color), scn)
 
 
 def lead_ends_off_frame(spec, elevations, lead_gap):
