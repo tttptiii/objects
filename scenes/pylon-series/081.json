@@ -1,0 +1,78 @@
+{
+  "towers": 4,
+  "span": [
+    100,
+    130,
+    110
+  ],
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      12,
+      -55,
+      3
+    ],
+    "aim": [
+      4,
+      20,
+      20
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.84,
+      0.03,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.09
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.84,
+      0.03,
+      300
+    ],
+    "zenith": [
+      0.75,
+      0.024,
+      300.0
+    ]
+  },
+  "fog_clear": 85,
+  "fog_depth": 180,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 2,
+    "scale": 90,
+    "phase": 2.5,
+    "shade": 0.12,
+    "facet": 12
+  },
+  "steel": [
+    0.14,
+    0.024,
+    300.0
+  ],
+  "meta": {
+    "work": 81,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "A snowfield under the line. Violet evening haze. Middling fog that stacks the distance into distinct layers. The anchor tower off-center left, the line receding to the right. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "towers": 3,
+  "span": [
+    100,
+    120
+  ],
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      -30.0,
+      -70.0,
+      4.0
+    ],
+    "aim": [
+      15.0,
+      40.0,
+      25.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.84,
+      0.05,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.09
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.72
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.4
+    },
+    "horizon": [
+      0.84,
+      0.05,
+      300
+    ],
+    "zenith": [
+      0.75,
+      0.04000000000000001,
+      300.0
+    ]
+  },
+  "fog_clear": 105,
+  "fog_depth": 350,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.62,
+      0.06,
+      100
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 40,
+      "height": 5
+    },
+    "hills": {
+      "relief": 70,
+      "scale": 900
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.7
+    }
+  },
+  "steel": [
+    0.12,
+    0.04000000000000001,
+    300.0
+  ],
+  "meta": {
+    "work": 67,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Violet evening haze. Middling fog that stacks the distance into distinct layers. The anchor tower off-center left, the line receding to the right. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+  }
+}

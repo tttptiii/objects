@@ -1,0 +1,83 @@
+{
+  "towers": 3,
+  "span": 130,
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      50.0,
+      -20.0,
+      8.0
+    ],
+    "aim": [
+      0.0,
+      20.0,
+      22.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.92,
+      0.02,
+      235
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.08
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 6.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.92,
+      0.02,
+      235
+    ],
+    "zenith": [
+      0.8600000000000001,
+      0.016,
+      235.0
+    ]
+  },
+  "fog_clear": 70,
+  "fog_depth": 150,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 2.0,
+    "scale": 80,
+    "phase": 4.1,
+    "shade": 0.12,
+    "facet": 12,
+    "color": [
+      0.8400000000000001,
+      0.016,
+      235.0
+    ]
+  },
+  "steel": [
+    0.17000000000000004,
+    0.016,
+    235.0
+  ],
+  "meta": {
+    "work": 73,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "A snowfield under the line. Cool blue-gray morning fog. Middling fog that stacks the distance into distinct layers. Camera raised on a flank slope, looking across at the line below. A light rural line — tower_scale near 0.9. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+  }
+}

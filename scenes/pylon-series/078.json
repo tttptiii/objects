@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": [
+    130,
+    120,
+    145
+  ],
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      -55.0,
+      -60.0,
+      28.0
+    ],
+    "aim": [
+      0.0,
+      90.0,
+      26.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.9,
+      0.055,
+      55
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.0,
+      "strength": 0.25
+    },
+    "horizon": [
+      0.9,
+      0.055,
+      55
+    ],
+    "zenith": [
+      0.8,
+      0.044000000000000004,
+      55.0
+    ]
+  },
+  "fog_clear": 190,
+  "fog_depth": 620,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 260,
+    "scale": 950,
+    "sharp": 0.4,
+    "phase": 4.8,
+    "shade": 0.28,
+    "facet": 70,
+    "color": [
+      0.5,
+      0.044000000000000004,
+      55.0
+    ]
+  },
+  "steel": [
+    0.20000000000000007,
+    0.044000000000000004,
+    55.0
+  ],
+  "meta": {
+    "work": 78,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "Mountain country, the line threading a valley. Warm dawn haze, apricot toward the horizon. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+  }
+}

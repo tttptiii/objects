@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": [
+    130,
+    140,
+    130
+  ],
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      -40,
+      -92,
+      6
+    ],
+    "aim": [
+      20,
+      60,
+      30
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.84,
+      0.06,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.72
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.5,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.84,
+      0.06,
+      300
+    ],
+    "zenith": [
+      0.74,
+      0.048,
+      300.0
+    ]
+  },
+  "fog_clear": 110,
+  "fog_depth": 300,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 250,
+    "scale": 900,
+    "sharp": 0.5,
+    "phase": 3.7,
+    "shade": 0.35,
+    "facet": 80,
+    "color": [
+      0.43999999999999995,
+      0.048,
+      300.0
+    ]
+  },
+  "steel": [
+    0.12,
+    0.048,
+    300.0
+  ],
+  "meta": {
+    "work": 74,
+    "attempt": 1,
+    "rejected_for": [
+      "the anchor tower's peak is 113 m away but fog_clear is 110 — the anchor renders crisp; raise fog_clear",
+      "the farthest tower is 0.72 dissolved into the haze (> 0.7) — every tower stays countable; deepen fog_depth, raise fog_clear, or shorten the line"
+    ]
+  }
+}

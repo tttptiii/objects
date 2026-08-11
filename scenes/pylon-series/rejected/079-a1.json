@@ -1,0 +1,89 @@
+{
+  "towers": 4,
+  "span": 120,
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      30,
+      -70,
+      3
+    ],
+    "aim": [
+      16,
+      140,
+      24
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.91,
+      0.018,
+      236
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.76
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.91,
+      0.018,
+      236
+    ],
+    "zenith": [
+      0.8500000000000001,
+      0.0144,
+      236.0
+    ]
+  },
+  "fog_clear": 82,
+  "fog_depth": 95,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.4,
+    "field": [
+      0.78,
+      0.055,
+      96
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 100,
+      "height": 6.5
+    },
+    "hills": {
+      "relief": 65,
+      "scale": 750
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.8
+    }
+  },
+  "steel": [
+    0.15000000000000002,
+    0.0144,
+    236.0
+  ],
+  "meta": {
+    "work": 79,
+    "attempt": 1,
+    "rejected_for": [
+      "fog_depth = 95 out of range 200-900",
+      "the anchor tower's peak is 87 m away but fog_clear is 82 — the anchor renders crisp; raise fog_clear",
+      "the farthest tower is 0.98 dissolved into the haze (> 0.7) — every tower stays countable; deepen fog_depth, raise fog_clear, or shorten the line"
+    ]
+  }
+}

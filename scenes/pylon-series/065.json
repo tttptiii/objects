@@ -1,0 +1,74 @@
+{
+  "towers": 3,
+  "span": 130,
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      -20.0,
+      -52.0,
+      2.5
+    ],
+    "aim": [
+      10.0,
+      40.0,
+      22.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.905,
+      0.02,
+      52
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.905,
+      0.02,
+      52
+    ],
+    "zenith": [
+      0.845,
+      0.016,
+      52.0
+    ]
+  },
+  "fog_clear": 72,
+  "fog_depth": 88,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.8,
+    "scale": 60,
+    "phase": 2.0,
+    "shade": 0.11,
+    "facet": 10
+  },
+  "steel": [
+    0.15500000000000003,
+    0.016,
+    52.0
+  ],
+  "meta": {
+    "work": 65,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "A snowfield under the line. Warm dawn haze, apricot toward the horizon. Dense fog — only the near survives whole. The anchor tower off-center left, the line receding to the right. A light rural line — tower_scale near 0.9. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+  }
+}

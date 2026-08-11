@@ -1,0 +1,76 @@
+{
+  "towers": 3,
+  "span": [
+    95,
+    150
+  ],
+  "tower_scale": 0.95,
+  "camera": {
+    "pos": [
+      6.0,
+      -48.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      10.0,
+      20.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.95,
+      0.012,
+      215
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.07
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.72
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.95,
+      0.012,
+      215
+    ],
+    "zenith": [
+      0.8799999999999999,
+      0.009600000000000001,
+      215.0
+    ]
+  },
+  "fog_clear": 70,
+  "fog_depth": 90,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 2.5,
+    "scale": 90,
+    "phase": 3.1,
+    "shade": 0.13,
+    "facet": 12
+  },
+  "steel": [
+    0.22999999999999998,
+    0.009600000000000001,
+    215.0
+  ],
+  "meta": {
+    "work": 69,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "A snowfield under the line. Pale winter light, nearly white, chroma close to nothing. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+  }
+}

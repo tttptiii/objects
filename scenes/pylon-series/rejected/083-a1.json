@@ -1,0 +1,99 @@
+{
+  "towers": 4,
+  "span": [
+    92,
+    138,
+    108
+  ],
+  "camera": {
+    "pos": [
+      4.5,
+      -8.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      60.0,
+      22.0
+    ],
+    "lens": 32
+  },
+  "palette": {
+    "horizon": [
+      0.8,
+      0.045,
+      258
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.07
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.8,
+      0.045,
+      258
+    ],
+    "zenith": [
+      0.73,
+      0.036,
+      258.0
+    ]
+  },
+  "fog_clear": 48,
+  "fog_depth": 90,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.6,
+    "field": [
+      0.4,
+      0.036,
+      258.0
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 130,
+      "height": 6
+    },
+    "hills": {
+      "relief": 55,
+      "scale": 700
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.8
+    }
+  },
+  "steel": [
+    0.10000000000000009,
+    0.036,
+    258.0
+  ],
+  "meta": {
+    "work": 83,
+    "attempt": 1,
+    "rejected_for": [
+      "fog_clear = 48 out of range 60-400",
+      "fog_depth = 90 out of range 200-900",
+      "only 2 keypoints of the nearest tower land in frame (< 5) — the camera is not looking at the subject",
+      "only 2/15 keypoints of the nearest tower fit inside the frame with margin — landscape pieces contain the whole tower; step back, widen the lens, or re-aim",
+      "the anchor tower's peak is 50 m away but fog_clear is 48 — the anchor renders crisp; raise fog_clear",
+      "the anchor tower stands 0.88 of the frame height (> 0.85) — it needs air around it; step back or widen the lens",
+      "the farthest tower is 0.96 dissolved into the haze (> 0.7) — every tower stays countable; deepen fog_depth, raise fog_clear, or shorten the line"
+    ]
+  }
+}

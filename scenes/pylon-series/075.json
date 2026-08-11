@@ -1,0 +1,91 @@
+{
+  "towers": 3,
+  "span": [
+    130,
+    140
+  ],
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      -50.0,
+      -140.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      120.0,
+      35.0
+    ],
+    "lens": 35
+  },
+  "terrain": {
+    "kind": "farmland",
+    "phase": 3.1,
+    "field": [
+      0.8,
+      0.025,
+      90
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": -20,
+      "height": 6
+    },
+    "hills": {
+      "relief": 70,
+      "scale": 900
+    },
+    "mist": {
+      "height": 25,
+      "amount": 0.55
+    }
+  },
+  "palette": {
+    "horizon": [
+      0.94,
+      0.012,
+      220
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.2
+    },
+    "horizon": [
+      0.94,
+      0.012,
+      220
+    ],
+    "zenith": [
+      0.8799999999999999,
+      0.009600000000000001,
+      220.0
+    ]
+  },
+  "fog_clear": 200,
+  "fog_depth": 320,
+  "steel": [
+    0.24,
+    0.009600000000000001,
+    220.0
+  ],
+  "meta": {
+    "work": 75,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Pale winter light, nearly white, chroma close to nothing. Thin haze — a long clear sight down the line. The anchor close to one edge, most of the frame given to land and haze. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+  }
+}

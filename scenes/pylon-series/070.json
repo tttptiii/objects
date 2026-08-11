@@ -1,0 +1,88 @@
+{
+  "towers": 4,
+  "span": [
+    110,
+    150,
+    95
+  ],
+  "tower_scale": 1.0,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      -25.0,
+      -60.0,
+      3.0
+    ],
+    "aim": [
+      0.0,
+      60.0,
+      26.0
+    ],
+    "lens": 32
+  },
+  "palette": {
+    "horizon": [
+      0.8,
+      0.045,
+      255
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.4
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.8,
+      0.045,
+      255
+    ],
+    "zenith": [
+      0.7000000000000001,
+      0.036,
+      255.0
+    ]
+  },
+  "fog_clear": 130,
+  "fog_depth": 350,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 280,
+    "scale": 1000,
+    "sharp": 0.55,
+    "phase": 4.5,
+    "shade": 0.35,
+    "facet": 90,
+    "color": [
+      0.4,
+      0.036,
+      255.0
+    ]
+  },
+  "steel": [
+    0.050000000000000044,
+    0.036,
+    255.0
+  ],
+  "meta": {
+    "work": 70,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "Mountain country, the line threading a valley. Blue dusk, the light almost gone. Middling fog that stacks the distance into distinct layers. The anchor close to one edge, most of the frame given to land and haze. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+  }
+}

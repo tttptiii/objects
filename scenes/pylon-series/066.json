@@ -1,0 +1,86 @@
+{
+  "towers": 3,
+  "span": [
+    110,
+    120
+  ],
+  "tower_scale": 0.9,
+  "camera": {
+    "pos": [
+      150,
+      -60,
+      22
+    ],
+    "aim": [
+      0,
+      60,
+      24
+    ],
+    "lens": 35
+  },
+  "palette": {
+    "horizon": [
+      0.93,
+      0.02,
+      232
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.06
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.72
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.45
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.93,
+      0.02,
+      232
+    ],
+    "zenith": [
+      0.8700000000000001,
+      0.016,
+      232.0
+    ]
+  },
+  "fog_clear": 180,
+  "fog_depth": 220,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 250,
+    "scale": 900,
+    "sharp": 0.5,
+    "phase": 4.1,
+    "shade": 0.35,
+    "facet": 90,
+    "color": [
+      0.48000000000000004,
+      0.016,
+      232.0
+    ]
+  },
+  "steel": [
+    0.21000000000000008,
+    0.016,
+    232.0
+  ],
+  "meta": {
+    "work": 66,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "Mountain country, the line threading a valley. Cool blue-gray morning fog. Middling fog that stacks the distance into distinct layers. Camera raised on a flank slope, looking across at the line below. A light rural line — tower_scale near 0.9. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+  }
+}

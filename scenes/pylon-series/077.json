@@ -1,0 +1,76 @@
+{
+  "towers": 4,
+  "span": [
+    90,
+    150,
+    115
+  ],
+  "camera": {
+    "pos": [
+      42.0,
+      -58.0,
+      3.0
+    ],
+    "aim": [
+      5.0,
+      10.0,
+      24.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.78,
+      0.03,
+      255
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.12
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.78
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.78,
+      0.03,
+      255
+    ],
+    "zenith": [
+      0.66,
+      0.024,
+      255.0
+    ]
+  },
+  "fog_clear": 90,
+  "fog_depth": 160,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.8,
+    "scale": 85,
+    "phase": 4.5,
+    "shade": 0.11,
+    "facet": 13
+  },
+  "steel": [
+    0.0,
+    0.024,
+    255.0
+  ],
+  "meta": {
+    "work": 77,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "A snowfield under the line. Blue dusk, the light almost gone. Middling fog that stacks the distance into distinct layers. The anchor close to one edge, most of the frame given to land and haze. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+  }
+}

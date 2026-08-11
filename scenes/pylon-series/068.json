@@ -1,0 +1,70 @@
+{
+  "towers": 4,
+  "span": [
+    130,
+    150,
+    110
+  ],
+  "tower_scale": 1.15,
+  "insulators": "V",
+  "camera": {
+    "pos": [
+      19.0,
+      -13.5,
+      2.2
+    ],
+    "aim": [
+      -4.0,
+      40.0,
+      30.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.86,
+      0.025,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.09
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.8,
+      "detail": 5.5,
+      "strength": 0.25
+    },
+    "horizon": [
+      0.86,
+      0.025,
+      300
+    ],
+    "zenith": [
+      0.77,
+      0.020000000000000004,
+      300.0
+    ]
+  },
+  "fog_clear": 100,
+  "fog_depth": 260,
+  "steel": [
+    0.10999999999999999,
+    0.020000000000000004,
+    300.0
+  ],
+  "meta": {
+    "work": 68,
+    "ruleset": "pylon-series",
+    "rules_sha": "d44d7b3095a2",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-12",
+    "direction": "No landscape — only towers, wires, and fog. Violet evening haze. Thin haze — a long clear sight down the line. Off to the side of the line, wires crossing the frame diagonally overhead. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+  }
+}
