@@ -25,6 +25,9 @@ from validate_pylon import check  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _lock = threading.Lock()
 
+# Validator messages carry em-dashes and ΔE; a cp949 console must not kill the batch.
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 STRIDE = 137    # coprime to the design-space size — consecutive pieces walk the
                 # whole combination space in a decorrelated order
 
