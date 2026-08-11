@@ -1,0 +1,95 @@
+{
+  "towers": 3,
+  "span": 130,
+  "camera": {
+    "pos": [
+      100,
+      -90,
+      22
+    ],
+    "aim": [
+      0,
+      25,
+      20
+    ],
+    "lens": 32
+  },
+  "palette": {
+    "horizon": [
+      0.9,
+      0.045,
+      55
+    ],
+    "zenith": {
+      "relation": "triad",
+      "amount": 0.666
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.76
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.18
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.5,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.9,
+      0.045,
+      55
+    ],
+    "zenith": [
+      0.9,
+      0.045,
+      175.0
+    ]
+  },
+  "fog_clear": 340,
+  "fog_depth": 720,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.72,
+      0.036,
+      55.0
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 20,
+      "height": 5
+    },
+    "hills": {
+      "relief": 70,
+      "scale": 900
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.4
+    }
+  },
+  "steel": [
+    0.14,
+    0.036,
+    55.0
+  ],
+  "meta": {
+    "campaign": "color-01",
+    "gen": 2,
+    "id": "c02-13",
+    "chassis": 71,
+    "parents": [
+      "c01-15"
+    ],
+    "gates": {
+      "max_horizon_zenith_de": 0.3,
+      "max_farm_horizon_zenith_de": 0.35
+    }
+  }
+}

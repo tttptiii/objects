@@ -1,0 +1,532 @@
+{
+ "campaign": "color-01",
+ "generation": 2,
+ "cells": {
+  "h0-l3-neutral": {
+   "id": "c02-13",
+   "gen": 2,
+   "chassis": 71,
+   "genome": {
+    "horizon": [
+     0.9,
+     0.045,
+     55
+    ],
+    "zenith": {
+     "relation": "triad",
+     "amount": 0.666
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.76
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.18
+    }
+   },
+   "score": 7.5,
+   "why": "Warm dusty-rose dusk palette stays coherent and quiet while offering a distinct new mood from the usual pale fog, with towers reading clearly.",
+   "niche": "h0-l3-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-02\\c02-13.png"
+  },
+  "h3-l3-neutral": {
+   "id": "seed-069",
+   "gen": 0,
+   "chassis": 69,
+   "genome": {
+    "horizon": [
+     0.95,
+     0.012,
+     215
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.07
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.72
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.3
+    }
+   },
+   "score": 5.8,
+   "why": "clean coherent pale fog with legible tower, but a near-monochrome repeat of the series' safe territory with no distinct color exploration.",
+   "niche": "h3-l3-neutral",
+   "png": "outputs\\pylon-series\\draft\\069.png"
+  },
+  "h0-l2-neutral": {
+   "id": "c01-06",
+   "gen": 1,
+   "chassis": 2,
+   "genome": {
+    "horizon": [
+     0.8503531688892185,
+     0.04024128945704611,
+     29.99720054819615
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.1
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.913
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.06
+    }
+   },
+   "score": 7.8,
+   "why": "A soft dusty-rose sky reads as one coherent quiet-fog atmosphere with the black tower clearly legible against it.",
+   "niche": "h0-l2-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-06.png"
+  },
+  "h4-l1-neutral": {
+   "id": "c01-00",
+   "gen": 1,
+   "chassis": 25,
+   "genome": {
+    "horizon": [
+     0.58,
+     0.035,
+     252
+    ],
+    "zenith": {
+     "relation": "triad",
+     "amount": 0.394
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.62
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.06
+    }
+   },
+   "score": 7.8,
+   "why": "Dusky mauve-to-slate gradient reads as one coherent atmosphere with clearly legible towers, a quiet dusk mood distinct from the usual pale fog without tipping into drama.",
+   "niche": "h4-l1-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-00.png"
+  },
+  "h3-l2-neutral": {
+   "id": "c02-00",
+   "gen": 2,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.820142478259949,
+     0.04362819784154301,
+     226.51295974541432
+    ],
+    "zenith": {
+     "relation": "tint",
+     "amount": 0.4
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.4
+    }
+   },
+   "score": 6.5,
+   "why": "Coherent cool blue-grey fog with clear tower legibility, but it's a safe repeat of the series' usual pale palette rather than staking new territory.",
+   "niche": "h3-l2-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-02\\c02-00.png"
+  },
+  "h2-l1-neutral": {
+   "id": "c01-02",
+   "gen": 1,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.7008465917546898,
+     0.06562908837785499,
+     171.50642295552151
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.1
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.4
+    }
+   },
+   "score": 6.8,
+   "why": "Coherent teal-green monochrome fog with clear tower legibility, but it's a fairly safe hue shift rather than striking new territory.",
+   "niche": "h2-l1-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-02.png"
+  },
+  "h1-l3-colored": {
+   "id": "c01-05",
+   "gen": 1,
+   "chassis": 71,
+   "genome": {
+    "horizon": [
+     0.97,
+     0.0,
+     76.5521783749599
+    ],
+    "zenith": {
+     "relation": "analogous",
+     "amount": -32
+    },
+    "steel": [
+     0.476,
+     0.216,
+     254.1
+    ],
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.18
+    }
+   },
+   "score": 5.8,
+   "why": "Blue steel against neutral gray fog is legible and distinct territory but the isolated dark hedgerow band feels like a foreign accent rather than one coherent palette family.",
+   "niche": "h1-l3-colored",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-05.png"
+  },
+  "h0-l1-neutral": {
+   "id": "c01-08",
+   "gen": 1,
+   "chassis": 2,
+   "genome": {
+    "horizon": [
+     0.5632788407338408,
+     0.039027269929835615,
+     49.71196500573975
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.1
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.85
+    }
+   },
+   "score": 7.3,
+   "why": "A muted mauve-brown dusk fog reads as one coherent atmosphere with strong silhouette legibility, quietly distinct without tipping into drama.",
+   "niche": "h0-l1-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-08.png"
+  },
+  "h2-l3-colored": {
+   "id": "c01-11",
+   "gen": 1,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.9030668821090218,
+     0.08518690639657404,
+     160.22006345577245
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.161
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.4
+    }
+   },
+   "score": 6.8,
+   "why": "Coherent monochrome green fog reads as one calm atmosphere with clear tower legibility, but it's a fairly safe hue-shift rather than striking new territory.",
+   "niche": "h2-l3-colored",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-11.png"
+  },
+  "h4-l2-neutral": {
+   "id": "c01-13",
+   "gen": 1,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.807161677155906,
+     0.004627291537927531,
+     252.98991843145205
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.1
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.85
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.4
+    }
+   },
+   "score": 5.5,
+   "why": "Coherent and legible grayscale fog scene, but it's essentially colorless and safe, not a distinct territory move.",
+   "niche": "h4-l2-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-13.png"
+  },
+  "h3-l0-neutral": {
+   "id": "c01-12",
+   "gen": 1,
+   "chassis": 25,
+   "genome": {
+    "horizon": [
+     0.4068384288442568,
+     0.018237152212574236,
+     221.78933463052022
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.1
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.62
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.06
+    }
+   },
+   "score": 7.5,
+   "why": "Coherent dusky slate-blue monochrome with quiet dark mood, tower and second tower legible but the near-black land/sky contrast is a little flat.",
+   "niche": "h3-l0-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-12.png"
+  },
+  "h5-l2-neutral": {
+   "id": "c01-17",
+   "gen": 1,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.7945318631045858,
+     0.009654214916834582,
+     301.48713248130747
+    ],
+    "zenith": {
+     "relation": "complement",
+     "amount": 0.869
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.4
+    }
+   },
+   "score": 5.5,
+   "why": "coherent quiet neutral-gray fog with clear tower legibility, but it's a very safe repeat of the series' usual pale-fog territory rather than a distinct new mood.",
+   "niche": "h5-l2-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-17.png"
+  },
+  "h4-l1-colored": {
+   "id": "c01-16",
+   "gen": 1,
+   "chassis": 25,
+   "genome": {
+    "horizon": [
+     0.5779623084725033,
+     0.11206708813027878,
+     248.29257344991282
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.1
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.624
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.06
+    }
+   },
+   "score": 6.5,
+   "why": "Coherent monochrome dusk-blue mood with clear tower legibility, but it's a fairly safe variant rather than striking new territory.",
+   "niche": "h4-l1-colored",
+   "png": "outputs\\evolve\\color-01\\gen-01\\c01-16.png"
+  },
+  "h3-l1-colored": {
+   "id": "c02-03",
+   "gen": 2,
+   "chassis": 25,
+   "genome": {
+    "horizon": [
+     0.5766756053152685,
+     0.07635685869638006,
+     199.66660712044705
+    ],
+    "zenith": {
+     "relation": "triad",
+     "amount": 0.394
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.06
+    }
+   },
+   "score": 6.5,
+   "why": "Purple-to-teal gradient is striking new ground but the teal ground fusing into the sky edges toward saturated dusk-drama rather than quiet fog.",
+   "niche": "h3-l1-colored",
+   "png": "outputs\\evolve\\color-01\\gen-02\\c02-03.png"
+  },
+  "h3-l0-colored": {
+   "id": "c02-02",
+   "gen": 2,
+   "chassis": 25,
+   "genome": {
+    "horizon": [
+     0.478749167676398,
+     0.07656006759166398,
+     205.9694830349747
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.1
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.62
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.06
+    }
+   },
+   "score": 7.8,
+   "why": "A coherent teal dusk mood with the tower clearly legible, distinct new ground yet still quiet fog atmosphere.",
+   "niche": "h3-l0-colored",
+   "png": "outputs\\evolve\\color-01\\gen-02\\c02-02.png"
+  },
+  "h2-l3-neutral": {
+   "id": "c02-06",
+   "gen": 2,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.97,
+     0.04542106072803599,
+     134.54698781111222
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.0
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.4
+    }
+   },
+   "score": 6.0,
+   "why": "coherent pale sage-fog family with clear tower legibility, but it's a safe repeat of the series' usual mood rather than striking new territory.",
+   "niche": "h2-l3-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-02\\c02-06.png"
+  },
+  "h1-l0-neutral": {
+   "id": "c02-04",
+   "gen": 2,
+   "chassis": 2,
+   "genome": {
+    "horizon": [
+     0.5031915207831051,
+     0.0625206777549843,
+     76.86533707988278
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.256
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.85
+    }
+   },
+   "score": 7.2,
+   "why": "Cohesive warm amber-dusk fog with clear tower silhouette, distinct territory without tipping into weather drama.",
+   "niche": "h1-l0-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-02\\c02-04.png"
+  },
+  "h2-l2-colored": {
+   "id": "c02-10",
+   "gen": 2,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.85611895205068,
+     0.08323627967927874,
+     144.9573204161553
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.161
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.72
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.3
+    }
+   },
+   "score": 6.0,
+   "why": "Coherent sickly green monochrome with clear tower legibility, but a somewhat safe, muted variation rather than a striking new mood.",
+   "niche": "h2-l2-colored",
+   "png": "outputs\\evolve\\color-01\\gen-02\\c02-10.png"
+  },
+  "h1-l1-neutral": {
+   "id": "c02-14",
+   "gen": 2,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.7087628942428335,
+     0.0,
+     102.08015245015052
+    ],
+    "zenith": {
+     "relation": "shade",
+     "amount": 0.1
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
+    "terrain": [
+     0.325,
+     0.232,
+     217.3
+    ]
+   },
+   "score": 6.8,
+   "why": "Cool blue-gray dusk fog reads coherent and quiet, with towers legible against the sky, but the palette split feels closer to a safe overcast variant than a striking new territory.",
+   "niche": "h1-l1-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-02\\c02-14.png"
+  }
+ }
+}

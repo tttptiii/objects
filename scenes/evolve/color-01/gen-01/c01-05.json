@@ -1,0 +1,96 @@
+{
+  "towers": 3,
+  "span": 130,
+  "camera": {
+    "pos": [
+      100,
+      -90,
+      22
+    ],
+    "aim": [
+      0,
+      25,
+      20
+    ],
+    "lens": 32
+  },
+  "palette": {
+    "horizon": [
+      0.97,
+      0.0,
+      76.5521783749599
+    ],
+    "zenith": {
+      "relation": "analogous",
+      "amount": -32
+    },
+    "steel": [
+      0.476,
+      0.216,
+      254.1
+    ],
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.18
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.5,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.97,
+      0.0,
+      76.5521783749599
+    ],
+    "zenith": [
+      0.97,
+      0.0,
+      44.552178374959894
+    ]
+  },
+  "fog_clear": 340,
+  "fog_depth": 720,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.79,
+      0.0,
+      76.5521783749599
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 20,
+      "height": 5
+    },
+    "hills": {
+      "relief": 70,
+      "scale": 900
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.4
+    }
+  },
+  "steel": [
+    0.476,
+    0.216,
+    254.1
+  ],
+  "meta": {
+    "campaign": "color-01",
+    "gen": 1,
+    "id": "c01-05",
+    "chassis": 71,
+    "parents": [
+      "seed-071"
+    ],
+    "gates": {
+      "max_horizon_zenith_de": 0.3,
+      "max_farm_horizon_zenith_de": 0.35
+    }
+  }
+}
