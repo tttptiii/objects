@@ -14,7 +14,11 @@ artist. Specs record campaign, generation, parents, and judge verdicts in meta.
 Usage:
   python scripts/evolve_colors.py --init          # seed the archive from iter-0
   python scripts/evolve_colors.py --gen           # breed, render, judge one generation
-  python scripts/evolve_colors.py --report        # write + open the niche map
+  python scripts/evolve_colors.py --report        # write the niche map (click to zoom,
+                                                  #  1-10 author scoring, export JSON)
+  python scripts/evolve_colors.py --ingest F.json # take the exported author scores:
+                                                  #  they override the judge's, elites
+                                                  #  are re-ranked, agreement measured
 """
 
 import argparse
@@ -301,11 +305,58 @@ def cmd_gen(model):
 
 LIGHT_BINS = ["dark (<0.55)", "dusk (0.55-0.72)", "mid (0.72-0.88)", "pale (>0.88)"]
 
+# Plain string, not an f-string — the braces are JavaScript's.
+REPORT_JS = """
+<div id="lb"><img id="big"></div>
+<script>
+const KEY = "CAMPAIGN-author-scores";
+let scores = Object.assign({}, PRE, JSON.parse(localStorage.getItem(KEY) || "{}"));
+function paint() {
+  document.querySelectorAll(".sc").forEach(sc => {
+    sc.querySelectorAll("button").forEach(b =>
+      b.classList.toggle("on", scores[sc.dataset.id] == +b.textContent));
+  });
+}
+document.addEventListener("click", e => {
+  const b = e.target;
+  if (b.matches(".sc button")) {
+    scores[b.closest(".sc").dataset.id] = +b.textContent;
+    localStorage.setItem(KEY, JSON.stringify(scores));
+    paint();
+  } else if (b.matches("img.z")) {
+    document.getElementById("big").src = b.src;
+    document.getElementById("lb").style.display = "flex";
+  } else if (b.closest("#lb")) {
+    document.getElementById("lb").style.display = "none";
+  }
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") document.getElementById("lb").style.display = "none";
+});
+function exportScores() {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(scores, null, 1)],
+                                        {type: "application/json"}));
+  a.download = "CAMPAIGN-author-scores.json";
+  a.click();
+}
+paint();
+</script>
+"""
+
+
+def _score_widget(eid):
+    btns = "".join(f"<button>{i}</button>" for i in range(1, 11))
+    return f"<div class='sc' data-id='{eid}'>{btns}</div>"
+
 
 def cmd_report():
     archive = load_archive()
     _, lpath = _paths()
     log = [json.loads(line) for line in open(lpath, encoding="utf-8")]
+    author_path = os.path.join(CDIR, "author.json")
+    author = (json.load(open(author_path, encoding="utf-8"))
+              if os.path.exists(author_path) else {})
     cells = archive["cells"]
     rows = []
     for li in range(3, -1, -1):
@@ -317,15 +368,20 @@ def cmd_report():
                     png = os.path.join(ROOT, e["png"]).replace(os.sep, "/")
                     sw = oklch_to_hex(*e["genome"]["horizon"])
                     tds.append(
-                        f"<td><img src='file:///{png}' width='150'><br>"
-                        f"<b>{e['score']:.1f}</b> {e['id']} "
-                        f"<span class='sw' style='background:{sw}'></span></td>")
+                        f"<td><img class='z' src='file:///{png}' width='150' "
+                        f"loading='lazy'><br><b>{e['score']:.1f}</b> {e['id']} "
+                        f"<span class='sw' style='background:{sw}'></span>"
+                        f"{_score_widget(e['id'])}</td>")
                 else:
                     tds.append("<td class='empty'>—</td>")
             rows.append(f"<tr><th>{LIGHT_BINS[li]}<br>{steel}</th>{''.join(tds)}</tr>")
     log_rows = "".join(
-        f"<tr><td>{e['id']}</td><td>{e['gen']}</td><td>{e['chassis']:03d}</td>"
-        f"<td>{e['score']:.1f}</td><td>{e['niche']}</td><td>{e['why']}</td></tr>"
+        f"<tr><td><img class='z' src='file:///"
+        f"{os.path.join(ROOT, e['png']).replace(os.sep, '/')}' width='90' "
+        f"loading='lazy'></td>"
+        f"<td>{e['id']}</td><td>{e['gen']}</td><td>{e['chassis']:03d}</td>"
+        f"<td>{e['score']:.1f}</td><td>{_score_widget(e['id'])}</td>"
+        f"<td>{e['niche']}</td><td>{e['why']}</td></tr>"
         for e in sorted(log, key=lambda e: -e["score"]))
     hue_heads = "".join(f"<th>hue {h * 60}-{h * 60 + 60}</th>" for h in range(6))
     page = f"""<!doctype html><meta charset="utf-8">
@@ -333,17 +389,33 @@ def cmd_report():
 <style>
  body {{ background:#16181c; color:#cfd3da; font:13px/1.5 system-ui; margin:2rem; }}
  td, th {{ padding:6px; text-align:center; vertical-align:top; }}
- td.empty {{ color:#3a3f47; }} img {{ border-radius:3px; display:block; margin:auto; }}
+ td.empty {{ color:#3a3f47; }}
+ img {{ border-radius:3px; display:block; margin:auto; }}
+ img.z {{ cursor: zoom-in; }}
  .sw {{ display:inline-block; width:.8em; height:.8em; border-radius:50%;
        vertical-align:-1px; border:1px solid #444; }}
+ .sc button {{ background:#23272e; color:#8b93a0; border:0; border-radius:3px;
+       margin:1px; padding:2px 5px; cursor:pointer; font-size:11px; }}
+ .sc button.on {{ background:#4a9eff; color:#fff; }}
+ #lb {{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.88);
+       align-items:center; justify-content:center; cursor: zoom-out; z-index:9; }}
+ #lb img {{ max-width:94vw; max-height:94vh; }}
  table.log td {{ text-align:left; }} h2 {{ margin-top:2rem; }}
+ .bar {{ position:sticky; top:0; background:#16181c; padding:.5rem 0; }}
+ .bar button {{ background:#2e7d46; color:#fff; border:0; border-radius:4px;
+       padding:6px 14px; cursor:pointer; }}
 </style>
 <h1>{CAMPAIGN} — generation {archive['generation']}, {len(cells)} cells filled,
 {len(log)} individuals evaluated</h1>
+<div class="bar"><button onclick="exportScores()">내 점수 내보내기 (JSON)</button>
+ 점수를 매기면 브라우저에 저장됩니다 — 끝나면 내보내서
+ <code>--ingest</code>로 회수하세요. 이미지 클릭 = 확대.</div>
 <table><tr><th></th>{hue_heads}</tr>{''.join(rows)}</table>
 <h2>all individuals, best first</h2>
-<table class="log"><tr><th>id</th><th>gen</th><th>chassis</th><th>score</th>
-<th>niche</th><th>judge</th></tr>{log_rows}</table>
+<table class="log"><tr><th></th><th>id</th><th>gen</th><th>chassis</th><th>judge</th>
+<th>내 점수</th><th>niche</th><th>judge says</th></tr>{log_rows}</table>
+<script>const PRE = {json.dumps(author)};</script>
+{REPORT_JS.replace("CAMPAIGN", CAMPAIGN)}
 """
     path = os.path.join(ODIR, "map.html")
     os.makedirs(ODIR, exist_ok=True)
@@ -353,21 +425,60 @@ def cmd_report():
     return path
 
 
+def cmd_ingest(path):
+    """Author scores in: they become the authoritative fitness. Elites re-rank with
+    the author's number wherever one exists, and the judge's agreement is measured —
+    the proxy is only as good as that number."""
+    with open(path, encoding="utf-8") as f:
+        new = {k: float(v) for k, v in json.load(f).items()}
+    apath = os.path.join(CDIR, "author.json")
+    author = (json.load(open(apath, encoding="utf-8"))
+              if os.path.exists(apath) else {})
+    author.update(new)
+    with open(apath, "w", encoding="utf-8") as f:
+        json.dump(author, f, indent=1)
+
+    _, lpath = _paths()
+    log = [json.loads(line) for line in open(lpath, encoding="utf-8")]
+    pairs = [(author[e["id"]], e["score"], e["id"]) for e in log if e["id"] in author]
+    archive = load_archive()
+    cells = {}
+    for e in log:
+        s = author.get(e["id"], e["score"])
+        e2 = {**e, "score": s, "scored_by": "author" if e["id"] in author else "judge"}
+        c = cells.get(e["niche"])
+        if not c or s > c["score"]:
+            cells[e["niche"]] = e2
+    archive["cells"] = cells
+    save(archive, [])
+    print(f"[evolve] {len(author)} author scores in; elites re-ranked "
+          f"({len(cells)} cells)")
+    if pairs:
+        d = sum(abs(a - j) for a, j, _ in pairs) / len(pairs)
+        print(f"[evolve] judge agreement: mean |author - judge| = {d:.2f} "
+              f"over {len(pairs)} shared")
+        for a, j, eid in sorted(pairs, key=lambda p: -abs(p[0] - p[1]))[:3]:
+            print(f"[evolve]   biggest gap: {eid} author {a:g} vs judge {j:g}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--init", action="store_true")
     ap.add_argument("--gen", action="store_true")
     ap.add_argument("--report", action="store_true")
+    ap.add_argument("--ingest", metavar="F.json")
     ap.add_argument("--model", default=DEFAULT_MODEL)
     args = ap.parse_args()
     if args.init:
         cmd_init(args.model)
     if args.gen:
         cmd_gen(args.model)
-    if args.report:
+    if args.ingest:
+        cmd_ingest(args.ingest)
+    if args.ingest or args.report:
         cmd_report()
-    if not (args.init or args.gen or args.report):
-        sys.exit("nothing to do — pass --init, --gen, and/or --report")
+    if not (args.init or args.gen or args.report or args.ingest):
+        sys.exit("nothing to do — pass --init, --gen, --report, or --ingest")
 
 
 if __name__ == "__main__":
