@@ -20,6 +20,7 @@ from mathutils import Vector
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pylon3d  # noqa: E402
 from colorutil import oklch_to_linear_srgb  # noqa: E402
+from validate_pylon import camera_basis, visible  # noqa: E402
 
 # Member radii (meters). Conductors are exaggerated slightly past reality so they still
 # read as lines at distance; everything else is close to actual angle-steel scale.
@@ -378,6 +379,22 @@ def build_terrain(scn, terrain, sky_horizon_oklch, horizon, fog_depth, fog_clear
         mesh_object("hedge", verts, faces, hmat, scn)
 
 
+def lead_ends_off_frame(spec, elevations, lead_gap):
+    """True when the lead wires' cut ends would land outside the camera frustum (with
+    margin) — then a vista can carry wires past its anchor tower without loose ends
+    hanging in view. Pure function of the spec: reproducibility holds."""
+    cam = spec.get("camera") or {}
+    pos = cam.get("pos", DEFAULT_CAM["pos"])
+    aim = cam.get("aim", DEFAULT_CAM["aim"])
+    tan_half = 18.0 / cam.get("lens", DEFAULT_CAM["lens"]) * 1.15
+    fwd, right, up = camera_basis(pos, aim)
+    t0 = pylon3d.tower(origin_y=0.0, origin_z=(elevations or [0.0])[0],
+                       scale=spec.get("tower_scale", 1.0),
+                       v_strings=spec.get("insulators", "I") == "V")
+    ends = [(a[0], a[1] - lead_gap, a[2]) for a in t0["attach"].values()]
+    return not any(visible(p, pos, fwd, right, up, tan_half) for p in ends)
+
+
 def build(spec):
     bpy.ops.wm.read_factory_settings(use_empty=True)
     scn = bpy.context.scene
@@ -396,11 +413,15 @@ def build(spec):
     towers, span = spec.get("towers", 3), spec.get("span", 120.0)
     kind = (spec.get("terrain") or {}).get("kind")
     lead_gap = span[0] if isinstance(span, (list, tuple)) else span
-    # Lead half-span wires continue over the camera region — but only when the camera
-    # actually stands inside that region; otherwise their cut ends hang visibly in air.
+    elevations = pylon3d.tower_elevations(spec.get("terrain"), int(towers), span)
+    # Lead half-span wires continue over the camera region. A vista used to drop them
+    # outright (cut ends in the air); now it carries them whenever every cut end stays
+    # safely off-frame — a line that dead-ends at its anchor tower reads wrong.
+    lead = kind not in ("mountains", "farmland") or cam_y >= -lead_gap
+    if not lead:
+        lead = lead_ends_off_frame(spec, elevations, lead_gap)
     geo = pylon3d.line_of_towers(
-        towers, span, pylon3d.tower_elevations(spec.get("terrain"), int(towers), span),
-        lead=(kind not in ("mountains", "farmland") or cam_y >= -lead_gap),
+        towers, span, elevations, lead=lead,
         scale=spec.get("tower_scale", 1.0),
         v_strings=spec.get("insulators", "I") == "V")
     for group in ("legs", "braces", "arms", "insulators"):
