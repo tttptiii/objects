@@ -127,6 +127,21 @@ continuous lines, never chains of dots (bead-chain wires were explicitly rejecte
   hand-written list never reached — a violet-evening snowfield, a chroma-less winter
   mountain line, a blue-dusk farmland seen from a flank.
 
+- **The graphic identity, confirmed (2026-08-11).** The author weighed redirecting
+  the series toward photorealism (sun lighting, physical fog scattering, camera
+  artifacts — each of which would break the emission-only invariant and the exact-
+  palette guarantee) and confirmed the graphic identity instead: emission-only,
+  colors rendering as exactly themselves, and the low-poly land are definitional,
+  not provisional. Realism is out of scope. Publishing decisions that followed:
+  the frame stays square (a 4:5 portrait axis for Instagram was considered and
+  deferred — it would recalibrate every containment and anchor-frac threshold),
+  the license split was settled (MIT for code, CC BY-NC 4.0 for images), and
+  `scripts/export_instagram.py` packages full renders with captions built from
+  each piece's brief. Open observations for the next batch's judgment: head-on
+  compositions (e.g. 055) show the jumper catenaries tangled in front of the body
+  when seen edge-on; the farmland horizon (e.g. 039) can read as a hard dark band
+  where the hills meet the field.
+
 ## Not yet variables (candidates for later)
 
 Tower proportions (height, base ratio, waist independently), bracing pattern (X/V/K),

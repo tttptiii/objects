@@ -118,9 +118,13 @@ python scripts/render_pylons.py --demos
 
 # regenerate the manifest (docs/pieces.md) and a local contact sheet
 python scripts/report_pylons.py
+
+# package post-ready images + captions (outputs/pylon-series/instagram/)
+python scripts/export_instagram.py
 ```
 
 ## License
 
-Undecided — to be settled before the first public release. Likely split between code
-and images (MIT for one, CC BY-NC for the other).
+Split: code (scripts, rulesets, specs) is MIT (`LICENSE`); images — `docs/images/`,
+`docs/thumbs/`, and any render produced from the specs — are CC BY-NC 4.0
+(`LICENSE-IMAGES`).
