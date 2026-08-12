@@ -16,3 +16,6 @@ __pycache__/
 
 # reference images (third-party, do not distribute)
 ref_pylon/
+
+# local secrets (Instagram token)
+.env
