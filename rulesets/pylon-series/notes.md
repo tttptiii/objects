@@ -142,6 +142,22 @@ continuous lines, never chains of dots (bead-chain wires were explicitly rejecte
   when seen edge-on; the farmland horizon (e.g. 039) can read as a hard dark band
   where the hills meet the field.
 
+- **The color campaign, distilled (2026-08-12).** The first evolution campaign
+  (`scripts/evolve_colors.py`, `scenes/evolve/color-01/`): palette genomes evolved
+  MAP-Elites-style on frozen composition chassis — 3 generations, 68 individuals,
+  a vision judge scoring drafts against the author's recorded taste, the author's
+  own 1–10 scores overriding it (mean |author − judge| ≈ 0.8; the judge's one
+  exposed bias: it undervalued quiet near-grayscale pieces the author rates
+  highly). The map's verdict: the fertile ground is the dusk-dark territory the
+  mood bands forbade (anchor lightness below 0.72), plus gentle two-tone
+  gradients; grayscale drift, neon, and mismatched two-palette pieces are dead
+  zones; colored steel stays unproven. Distilled into the rules: pieces 040–083
+  frozen into `assigned` first (axis growth reshuffles the walk — same bug class
+  as the 2026-07-26 `direction_index` fix), then four mood bands added (teal-dusk,
+  slate-dusk, amber-dusk, ashen — boundaries taken from the elites' actual
+  anchors, not the judge's color words), and the sunset cap eased 0.14 → 0.22.
+  The design space is now 1,728 combinations; the series darkens from piece 084 on.
+
 ## Not yet variables (candidates for later)
 
 Tower proportions (height, base ratio, waist independently), bracing pattern (X/V/K),

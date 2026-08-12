@@ -2,65 +2,458 @@
   "_comment": [
     "Per-piece creative briefs. A piece number listed under `assigned` keeps that",
     "direction forever (resampling never reshuffles it). Any other piece number is a",
-    "point in the design space below: its combination index is (piece * 137) % 960",
-    "(137 is coprime to the 960-combination product, so consecutive pieces walk the",
+    "point in the design space below: its combination index is (piece * 137) % 1728",
+    "(137 is coprime to the 1728-combination product, so consecutive pieces walk the",
     "whole space in a decorrelated order), decomposed digit by digit over the axes",
     "in the listed order: stage, mood, density, composition, line. The mood axis",
     "also bounds the palette anchor (hue and lightness ranges, enforced at sampling",
-    "time), which is what guarantees color spread across a batch."
+    "time), which is what guarantees color spread across a batch.",
+    "2026-08-12: pieces 040-083 frozen into `assigned` with the briefs the 5-mood-era axes gave them, then the mood axis grew 5 -> 9 (teal-dusk, slate-dusk, amber-dusk, ashen — bands distilled from the color-01 evolution campaign). Freezing first keeps every existing piece's brief; only pieces 084+ walk the grown space."
   ],
   "assigned": {
-    "0": { "kind": null, "text": "Directly beneath the tower, wide lens, looking straight up through the lattice. Cool blue-gray fog." },
-    "1": { "kind": null, "text": "Beside the base, looking up along the line — the next towers ghosting in dense fog." },
-    "2": { "kind": null, "text": "Warm dawn haze; the tower nearly black against apricot. A heavy trunk line — tower_scale 1.1 or more." },
-    "3": { "kind": null, "text": "Farther back with a longer lens, two towers stacking into each other in the haze." },
-    "4": { "kind": null, "text": "Extreme wide at the legs, the tower plunging past the top of the frame." },
-    "5": { "kind": null, "text": "Thin winter haze — a long clear distance, three towers visible receding. A light rural line: tower_scale near 0.9, an uneven span rhythm." },
-    "6": { "kind": null, "text": "Camera off to the side of the line, the wires crossing the frame diagonally overhead." },
-    "7": { "kind": null, "text": "Dense fog at its thickest: only the subject survives, the second tower barely a stain." },
-    "24": { "kind": "snowfield", "text": "Snowfield: white ground one breath away from the sky, drift shadows barely there, dark steel rising out of the white." },
-    "25": { "kind": "snowfield", "text": "Snowfield in blue dusk haze: blue-gray fog over snow, two small rural towers (tower_scale about 0.9), the far one almost erased." },
-    "26": { "kind": "snowfield", "text": "Snowfield whiteout: the horizon gone — ground and sky a single white, only the near tower fully drawn." },
-    "27": { "kind": "snowfield", "text": "Snowfield in thin winter light: three towers receding, wires long and low over the drifts." },
-    "28": { "kind": "mountains", "text": "Mountain pass: the first tower large and crisp at the frame's edge, the line diving away into layered ranges, every far tower still countable. Heavy trunk towers — tower_scale 1.1+, V-string insulators." },
-    "29": { "kind": "mountains", "text": "Mountains at dawn: warm haze, the anchor tower dark and near, the line stepping away down the valley, ridges stacked behind." },
-    "30": { "kind": "mountains", "text": "Beside the anchor tower in mountain country: wires leading the eye to the far towers threading between two ranges. V-string insulators read at this distance." },
-    "31": { "kind": "mountains", "text": "High mountain fog: the near tower sharp against the ridge, each tower behind it one tone lighter, the last almost — but not — gone." },
-    "36": { "kind": "farmland", "text": "Farmland at dawn: pink horizon under a blue-gray zenith, the anchor tower dark over a pale crop field, ground mist pooled behind the hedgerow." },
-    "37": { "kind": "farmland", "text": "Farmland, morning blue: cool haze, gaps in the hedge showing the misty flats, the line stepping away over low hills on an uneven span rhythm, V-strings." },
-    "38": { "kind": "farmland", "text": "Farmland at dusk: straw-colored field, dark hedge band, the far towers rising out of the mist one tone paler each." },
-    "39": { "kind": "farmland", "text": "Wide farmland: low hills behind the hedgerow, deep mist between them, wires sweeping over the field toward the anchor." }
+    "0": {
+      "kind": null,
+      "text": "Directly beneath the tower, wide lens, looking straight up through the lattice. Cool blue-gray fog."
+    },
+    "1": {
+      "kind": null,
+      "text": "Beside the base, looking up along the line — the next towers ghosting in dense fog."
+    },
+    "2": {
+      "kind": null,
+      "text": "Warm dawn haze; the tower nearly black against apricot. A heavy trunk line — tower_scale 1.1 or more."
+    },
+    "3": {
+      "kind": null,
+      "text": "Farther back with a longer lens, two towers stacking into each other in the haze."
+    },
+    "4": {
+      "kind": null,
+      "text": "Extreme wide at the legs, the tower plunging past the top of the frame."
+    },
+    "5": {
+      "kind": null,
+      "text": "Thin winter haze — a long clear distance, three towers visible receding. A light rural line: tower_scale near 0.9, an uneven span rhythm."
+    },
+    "6": {
+      "kind": null,
+      "text": "Camera off to the side of the line, the wires crossing the frame diagonally overhead."
+    },
+    "7": {
+      "kind": null,
+      "text": "Dense fog at its thickest: only the subject survives, the second tower barely a stain."
+    },
+    "24": {
+      "kind": "snowfield",
+      "text": "Snowfield: white ground one breath away from the sky, drift shadows barely there, dark steel rising out of the white."
+    },
+    "25": {
+      "kind": "snowfield",
+      "text": "Snowfield in blue dusk haze: blue-gray fog over snow, two small rural towers (tower_scale about 0.9), the far one almost erased."
+    },
+    "26": {
+      "kind": "snowfield",
+      "text": "Snowfield whiteout: the horizon gone — ground and sky a single white, only the near tower fully drawn."
+    },
+    "27": {
+      "kind": "snowfield",
+      "text": "Snowfield in thin winter light: three towers receding, wires long and low over the drifts."
+    },
+    "28": {
+      "kind": "mountains",
+      "text": "Mountain pass: the first tower large and crisp at the frame's edge, the line diving away into layered ranges, every far tower still countable. Heavy trunk towers — tower_scale 1.1+, V-string insulators."
+    },
+    "29": {
+      "kind": "mountains",
+      "text": "Mountains at dawn: warm haze, the anchor tower dark and near, the line stepping away down the valley, ridges stacked behind."
+    },
+    "30": {
+      "kind": "mountains",
+      "text": "Beside the anchor tower in mountain country: wires leading the eye to the far towers threading between two ranges. V-string insulators read at this distance."
+    },
+    "31": {
+      "kind": "mountains",
+      "text": "High mountain fog: the near tower sharp against the ridge, each tower behind it one tone lighter, the last almost — but not — gone."
+    },
+    "36": {
+      "kind": "farmland",
+      "text": "Farmland at dawn: pink horizon under a blue-gray zenith, the anchor tower dark over a pale crop field, ground mist pooled behind the hedgerow."
+    },
+    "37": {
+      "kind": "farmland",
+      "text": "Farmland, morning blue: cool haze, gaps in the hedge showing the misty flats, the line stepping away over low hills on an uneven span rhythm, V-strings."
+    },
+    "38": {
+      "kind": "farmland",
+      "text": "Farmland at dusk: straw-colored field, dark hedge band, the far towers rising out of the mist one tone paler each."
+    },
+    "39": {
+      "kind": "farmland",
+      "text": "Wide farmland: low hills behind the hedgerow, deep mist between them, wires sweeping over the field toward the anchor."
+    },
+    "40": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Cool blue-gray morning fog. Dense fog — only the near survives whole. Off to the side of the line, wires crossing the frame diagonally overhead. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "41": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Violet evening haze. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "42": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Pale winter light, nearly white, chroma close to nothing. Middling fog that stacks the distance into distinct layers. The anchor close to one edge, most of the frame given to land and haze. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "43": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Blue dusk, the light almost gone. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    },
+    "44": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Blue dusk, the light almost gone. Dense fog — only the near survives whole. Stand almost beneath the tower, the lattice a converging tunnel overhead. A light rural line — tower_scale near 0.9. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    },
+    "45": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Warm dawn haze, apricot toward the horizon. Middling fog that stacks the distance into distinct layers. Camera raised on a flank slope, looking across at the line below. A light rural line — tower_scale near 0.9. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+    },
+    "46": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Cool blue-gray morning fog. Thin haze — a long clear sight down the line. The anchor near center, the line receding straight away from the camera. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "47": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Violet evening haze. Thin haze — a long clear sight down the line. The anchor close to one edge, most of the frame given to land and haze. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "48": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Violet evening haze. Dense fog — only the near survives whole. Beside the base, the tower looming past the frame. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "49": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Pale winter light, nearly white, chroma close to nothing. Middling fog that stacks the distance into distinct layers. The anchor close to one edge, most of the frame given to land and haze. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "50": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Blue dusk, the light almost gone. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    },
+    "51": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Warm dawn haze, apricot toward the horizon. Dense fog — only the near survives whole. The anchor tower off-center left, the line receding to the right. A light rural line — tower_scale near 0.9. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+    },
+    "52": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Warm dawn haze, apricot toward the horizon. Middling fog that stacks the distance into distinct layers. Farther back with a longer lens, the towers stacking into each other. A light rural line — tower_scale near 0.9. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+    },
+    "53": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Cool blue-gray morning fog. Thin haze — a long clear sight down the line. The anchor near center, the line receding straight away from the camera. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "54": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Violet evening haze. Thin haze — a long clear sight down the line. The anchor close to one edge, most of the frame given to land and haze. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "55": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Pale winter light, nearly white, chroma close to nothing. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "56": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Pale winter light, nearly white, chroma close to nothing. Middling fog that stacks the distance into distinct layers. Off to the side of the line, wires crossing the frame diagonally overhead. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "57": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Blue dusk, the light almost gone. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    },
+    "58": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Warm dawn haze, apricot toward the horizon. Dense fog — only the near survives whole. The anchor tower off-center left, the line receding to the right. A light rural line — tower_scale near 0.9. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+    },
+    "59": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Cool blue-gray morning fog. Middling fog that stacks the distance into distinct layers. Camera raised on a flank slope, looking across at the line below. A light rural line — tower_scale near 0.9. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "60": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Cool blue-gray morning fog. Thin haze — a long clear sight down the line. Beside the base, the tower looming past the frame. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "61": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Violet evening haze. Thin haze — a long clear sight down the line. The anchor close to one edge, most of the frame given to land and haze. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "62": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Pale winter light, nearly white, chroma close to nothing. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "63": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Blue dusk, the light almost gone. Middling fog that stacks the distance into distinct layers. The anchor close to one edge, most of the frame given to land and haze. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    },
+    "64": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Blue dusk, the light almost gone. Thin haze — a long clear sight down the line. Farther back with a longer lens, the towers stacking into each other. A standard line. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    },
+    "65": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Warm dawn haze, apricot toward the horizon. Dense fog — only the near survives whole. The anchor tower off-center left, the line receding to the right. A light rural line — tower_scale near 0.9. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+    },
+    "66": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Cool blue-gray morning fog. Middling fog that stacks the distance into distinct layers. Camera raised on a flank slope, looking across at the line below. A light rural line — tower_scale near 0.9. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "67": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Violet evening haze. Middling fog that stacks the distance into distinct layers. The anchor tower off-center left, the line receding to the right. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "68": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Violet evening haze. Thin haze — a long clear sight down the line. Off to the side of the line, wires crossing the frame diagonally overhead. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "69": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Pale winter light, nearly white, chroma close to nothing. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "70": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Blue dusk, the light almost gone. Middling fog that stacks the distance into distinct layers. The anchor close to one edge, most of the frame given to land and haze. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    },
+    "71": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Warm dawn haze, apricot toward the horizon. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+    },
+    "72": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Warm dawn haze, apricot toward the horizon. Dense fog — only the near survives whole. Stand almost beneath the tower, the lattice a converging tunnel overhead. A light rural line — tower_scale near 0.9. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+    },
+    "73": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Cool blue-gray morning fog. Middling fog that stacks the distance into distinct layers. Camera raised on a flank slope, looking across at the line below. A light rural line — tower_scale near 0.9. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "74": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Violet evening haze. Middling fog that stacks the distance into distinct layers. The anchor tower off-center left, the line receding to the right. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "75": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Pale winter light, nearly white, chroma close to nothing. Thin haze — a long clear sight down the line. The anchor close to one edge, most of the frame given to land and haze. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "76": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Pale winter light, nearly white, chroma close to nothing. Dense fog — only the near survives whole. Beside the base, the tower looming past the frame. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "77": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Blue dusk, the light almost gone. Middling fog that stacks the distance into distinct layers. The anchor close to one edge, most of the frame given to land and haze. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    },
+    "78": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Warm dawn haze, apricot toward the horizon. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 35 and 75 degrees, lightness 0.85-0.94."
+    },
+    "79": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Cool blue-gray morning fog. Dense fog — only the near survives whole. The anchor tower off-center left, the line receding to the right. A light rural line — tower_scale near 0.9. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "80": {
+      "kind": null,
+      "text": "No landscape — only towers, wires, and fog. Cool blue-gray morning fog. Middling fog that stacks the distance into distinct layers. Farther back with a longer lens, the towers stacking into each other. A light rural line — tower_scale near 0.9. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+    },
+    "81": {
+      "kind": "snowfield",
+      "text": "A snowfield under the line. Violet evening haze. Middling fog that stacks the distance into distinct layers. The anchor tower off-center left, the line receding to the right. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+    },
+    "82": {
+      "kind": "mountains",
+      "text": "Mountain country, the line threading a valley. Pale winter light, nearly white, chroma close to nothing. Thin haze — a long clear sight down the line. The anchor close to one edge, most of the frame given to land and haze. A heavy trunk line — tower_scale 1.1 or more, V-string insulators. Anchor the palette hue between 190 and 250 degrees, lightness 0.9-0.97."
+    },
+    "83": {
+      "kind": "farmland",
+      "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Blue dusk, the light almost gone. Dense fog — only the near survives whole. The anchor near center, the line receding straight away from the camera. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+    }
   },
   "axes": {
     "stage": [
-      { "name": "bare-sky", "kind": null, "text": "No landscape — only towers, wires, and fog." },
-      { "name": "snowfield", "kind": "snowfield", "text": "A snowfield under the line." },
-      { "name": "mountains", "kind": "mountains", "text": "Mountain country, the line threading a valley." },
-      { "name": "farmland", "kind": "farmland", "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it." }
+      {
+        "name": "bare-sky",
+        "kind": null,
+        "text": "No landscape — only towers, wires, and fog."
+      },
+      {
+        "name": "snowfield",
+        "kind": "snowfield",
+        "text": "A snowfield under the line."
+      },
+      {
+        "name": "mountains",
+        "kind": "mountains",
+        "text": "Mountain country, the line threading a valley."
+      },
+      {
+        "name": "farmland",
+        "kind": "farmland",
+        "text": "Crop country: a field underfoot, a hedgerow, ground mist behind it."
+      }
     ],
     "mood": [
-      { "name": "cool-morning", "hue": [215, 255], "lightness": [0.88, 0.97], "text": "Cool blue-gray morning fog." },
-      { "name": "warm-dawn", "hue": [35, 75], "lightness": [0.85, 0.94], "text": "Warm dawn haze, apricot toward the horizon." },
-      { "name": "blue-dusk", "hue": [240, 275], "lightness": [0.72, 0.86], "text": "Blue dusk, the light almost gone." },
-      { "name": "winter-pale", "hue": [190, 250], "lightness": [0.9, 0.97], "text": "Pale winter light, nearly white, chroma close to nothing." },
-      { "name": "violet-evening", "hue": [280, 320], "lightness": [0.78, 0.9], "text": "Violet evening haze." }
+      {
+        "name": "cool-morning",
+        "hue": [
+          215,
+          255
+        ],
+        "lightness": [
+          0.88,
+          0.97
+        ],
+        "text": "Cool blue-gray morning fog."
+      },
+      {
+        "name": "warm-dawn",
+        "hue": [
+          35,
+          75
+        ],
+        "lightness": [
+          0.85,
+          0.94
+        ],
+        "text": "Warm dawn haze, apricot toward the horizon."
+      },
+      {
+        "name": "blue-dusk",
+        "hue": [
+          240,
+          275
+        ],
+        "lightness": [
+          0.72,
+          0.86
+        ],
+        "text": "Blue dusk, the light almost gone."
+      },
+      {
+        "name": "winter-pale",
+        "hue": [
+          190,
+          250
+        ],
+        "lightness": [
+          0.9,
+          0.97
+        ],
+        "text": "Pale winter light, nearly white, chroma close to nothing."
+      },
+      {
+        "name": "violet-evening",
+        "hue": [
+          280,
+          320
+        ],
+        "lightness": [
+          0.78,
+          0.9
+        ],
+        "text": "Violet evening haze."
+      },
+      {
+        "name": "teal-dusk",
+        "hue": [
+          170,
+          210
+        ],
+        "lightness": [
+          0.45,
+          0.72
+        ],
+        "text": "Teal dusk — the fog deep green-blue, the light failing."
+      },
+      {
+        "name": "slate-dusk",
+        "hue": [
+          205,
+          255
+        ],
+        "lightness": [
+          0.38,
+          0.65
+        ],
+        "text": "Slate-blue dusk verging on night, the darkest the series goes."
+      },
+      {
+        "name": "amber-dusk",
+        "hue": [
+          40,
+          90
+        ],
+        "lightness": [
+          0.45,
+          0.66
+        ],
+        "text": "Amber-umber dusk, a dark warm haze like late storm light."
+      },
+      {
+        "name": "ashen",
+        "hue": [
+          0,
+          360
+        ],
+        "lightness": [
+          0.6,
+          0.9
+        ],
+        "text": "Ash-gray fog with chroma stripped to almost nothing — the picture reads in grays; keep the anchor's chroma at or below 0.01."
+      }
     ],
     "density": [
-      { "name": "thin", "text": "Thin haze — a long clear sight down the line." },
-      { "name": "dense", "text": "Dense fog — only the near survives whole." },
-      { "name": "layered", "text": "Middling fog that stacks the distance into distinct layers." }
+      {
+        "name": "thin",
+        "text": "Thin haze — a long clear sight down the line."
+      },
+      {
+        "name": "dense",
+        "text": "Dense fog — only the near survives whole."
+      },
+      {
+        "name": "layered",
+        "text": "Middling fog that stacks the distance into distinct layers."
+      }
     ],
     "composition": [
-      { "name": "tunnel", "sky": "Stand almost beneath the tower, the lattice a converging tunnel overhead.", "land": "The anchor tower off-center left, the line receding to the right." },
-      { "name": "loom", "sky": "Beside the base, the tower looming past the frame.", "land": "The anchor near center, the line receding straight away from the camera." },
-      { "name": "stack", "sky": "Farther back with a longer lens, the towers stacking into each other.", "land": "Camera raised on a flank slope, looking across at the line below." },
-      { "name": "aside", "sky": "Off to the side of the line, wires crossing the frame diagonally overhead.", "land": "The anchor close to one edge, most of the frame given to land and haze." }
+      {
+        "name": "tunnel",
+        "sky": "Stand almost beneath the tower, the lattice a converging tunnel overhead.",
+        "land": "The anchor tower off-center left, the line receding to the right."
+      },
+      {
+        "name": "loom",
+        "sky": "Beside the base, the tower looming past the frame.",
+        "land": "The anchor near center, the line receding straight away from the camera."
+      },
+      {
+        "name": "stack",
+        "sky": "Farther back with a longer lens, the towers stacking into each other.",
+        "land": "Camera raised on a flank slope, looking across at the line below."
+      },
+      {
+        "name": "aside",
+        "sky": "Off to the side of the line, wires crossing the frame diagonally overhead.",
+        "land": "The anchor close to one edge, most of the frame given to land and haze."
+      }
     ],
     "line": [
-      { "name": "standard", "text": "A standard line." },
-      { "name": "rural", "text": "A light rural line — tower_scale near 0.9." },
-      { "name": "trunk", "text": "A heavy trunk line — tower_scale 1.1 or more, V-string insulators." },
-      { "name": "uneven", "text": "An uneven span rhythm, the gaps varying tower to tower." }
+      {
+        "name": "standard",
+        "text": "A standard line."
+      },
+      {
+        "name": "rural",
+        "text": "A light rural line — tower_scale near 0.9."
+      },
+      {
+        "name": "trunk",
+        "text": "A heavy trunk line — tower_scale 1.1 or more, V-string insulators."
+      },
+      {
+        "name": "uneven",
+        "text": "An uneven span rhythm, the gaps varying tower to tower."
+      }
     ]
   }
 }

@@ -70,6 +70,10 @@ Piece numbers are permanent: a number keeps its creative brief forever (`ruleset
 |---|---|---|---|
 | ![](thumbs/080.png) | ![](thumbs/081.png) | ![](thumbs/082.png) | ![](thumbs/083.png) |
 
+| 084 |
+|---|
+| ![](thumbs/084.png) |
+
 ## Manifest
 
 | piece | stage | line | anchor | model | rules | date |
@@ -138,5 +142,6 @@ Piece numbers are permanent: a number keeps its creative brief forever (`ruleset
 | 081 | snowfield | scale 1.15, V-strings, uneven spans | `0.84 0.03 300` | claude-sonnet-5 | `d44d7b3095a2` | 2026-08-12 |
 | 082 | mountains | scale 1.15, V-strings, uneven spans | `0.955 0.012 218` | claude-sonnet-5 | `d44d7b3095a2` | 2026-08-12 |
 | 083 | farmland | scale 1.0, I-strings, uneven spans | `0.8 0.045 258` | claude-sonnet-5 | `d44d7b3095a2` | 2026-08-12 |
+| 084 | bare sky | scale 1.15, V-strings, even spans | `0.42 0.05 230` | claude-sonnet-5 | `9abacd67518a` | 2026-08-12 |
 
-Active pieces: 64. Superseded specs: 11 (`scenes/superseded/`). Rejected candidates: `scenes/pylon-series/rejected/`. Judgments: `rulesets/pylon-series/judgments/`.
+Active pieces: 65. Superseded specs: 11 (`scenes/superseded/`). Rejected candidates: `scenes/pylon-series/rejected/`. Judgments: `rulesets/pylon-series/judgments/`.

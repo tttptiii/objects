@@ -37,13 +37,16 @@ that zone — the validator checks that the distance from the camera to the near
 peak does not exceed `fog_clear`. Beyond the clear zone, structures dissolve into the
 horizon color over `fog_depth`.
 
-**The sky is fog, not weather drama.** Horizon and zenith stay close (ΔE ≤ 0.14) — a
-gentle deepening upward, never a sunset gradient. Clouds are a soft mottle
-(`strength` 0.15–0.7), brighter patches in the haze rather than shapes.
+**The sky is fog, not weather drama.** Horizon and zenith stay close (ΔE ≤ 0.22) — a
+gentle deepening upward, or a quiet two-tone dusk gradient; never a postcard sunset.
+Clouds are a soft mottle (`strength` 0.15–0.7), brighter patches in the haze rather
+than shapes — in the darker moods the mottle finally reads, so use it deliberately.
 
 **Steel stands against the sky.** The steel color must sit at least ΔE 0.35 from the
 horizon color. Dark steel on pale fog is the home key; a near-black warm brown against
-apricot haze, or blue-black against blue-gray, both work. All colors are OKLCH
+apricot haze, or blue-black against blue-gray, both work. The dusk moods lower the
+whole key — anchor lightness down toward 0.4 — and the same gate then pushes the
+steel darker still, near-black against a failing sky. All colors are OKLCH
 ([L 0–1, C 0–0.4, H 0–360]).
 
 ## Composition notes

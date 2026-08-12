@@ -11,7 +11,7 @@
     "cloud_scale": [1.2, 5.0],
     "cloud_strength": [0.15, 0.7],
     "min_steel_sky_de": 0.35,
-    "max_horizon_zenith_de": 0.14,
+    "max_horizon_zenith_de": 0.22,
     "min_visible_keypoints": 5,
     "require_upper_keypoint": true,
     "phase": [0.0, 6.3],
