@@ -63,6 +63,22 @@ human judgment ──► rulesets/pylon-series/judgments/   ──► the next r
   (keep / kill / revise, per batch)                        of rules.md
 ```
 
+### The two loops
+
+The procedure above is the **main loop**; its unit is the **batch** — a sampled
+group of pieces judged together, each verdict feeding the next revision of the
+rules. Piece numbers are permanent; batches are judgment events.
+
+Beside it runs a **scout loop**: evolution campaigns (`scripts/evolve_colors.py`,
+`scenes/evolve/`). A campaign explores one question — the first, `color-01`, asked
+what the palette space holds — by evolving spec genomes on frozen compositions,
+MAP-Elites-style: **generations** of mutate → validate → render → judge, a vision
+model scoring the drafts and the author's own 1–10 scores overriding it, the best
+individual kept per niche so the result is a map of the territory, not a single
+winner. Campaign individuals never become pieces. What a campaign finds is
+**distilled** into the next rules revision — `color-01` became four dusk mood
+bands and a relaxed gradient gate — so the published artifact stays the rules.
+
 **The refusals are part of the record.** Rejected candidates are kept in
 `scenes/pylon-series/rejected/` with the violations that killed them, and whole
 directions the author rejected stay in the history. The flat cutout terrain below was
@@ -95,6 +111,7 @@ rulesets/pylon-series/
   notes.md         for humans: where each rule came from
   judgments/       the author's per-batch verdicts — the loop's third arrow
 scenes/          specs, the units of reproduction (rejected/ and superseded/ included)
+scenes/evolve/   evolution campaigns — the scout loop's genomes, scores, and niche maps
 scripts/         sampling, validation, rendering — python stdlib only
 outputs/         rendered images (reproducible, not tracked)
 docs/pieces.md   generated manifest: what every piece number is
@@ -121,6 +138,11 @@ python scripts/report_pylons.py
 
 # package post-ready images + captions (outputs/pylon-series/instagram/)
 python scripts/export_instagram.py
+
+# scout loop: seed a campaign, breed one generation, write the niche-map report
+python scripts/evolve_colors.py --init
+python scripts/evolve_colors.py --gen
+python scripts/evolve_colors.py --report
 ```
 
 ## License
