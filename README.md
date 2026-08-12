@@ -10,6 +10,7 @@ the next revision of the rules. **The prompts are the published artifact** — t
 procedure is meant to be runnable by anyone.
 
 The current series is **pylon-series**: a line of lattice transmission towers in fog.
+It posts at [instagram.com/pylonscape](https://instagram.com/pylonscape).
 
 | bare sky | snowfield | mountains | farmland |
 |---|---|---|---|

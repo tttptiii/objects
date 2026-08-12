@@ -31,7 +31,7 @@ TAGS = ("#pylonseries #generativeart #proceduralart #creativecoding "
 ABOUT = ("From a series built from nothing but rules: a versioned prompt, a "
          "language model sampling inside it, deterministic validators, "
          "Blender/Cycles. The spec is the piece; the image reproduces from it "
-         "exactly.")
+         "exactly.\n\nRules and specs: github.com/haklee/objects")
 
 
 def caption(n, spec):
