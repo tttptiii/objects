@@ -10,7 +10,9 @@ the next revision of the rules. **The prompts are the published artifact** — t
 procedure is meant to be runnable by anyone.
 
 The current series is **pylon-series**: a line of lattice transmission towers in fog.
-It posts at [instagram.com/pylonscape](https://instagram.com/pylonscape).
+One piece a day goes out at [instagram.com/pylonscape](https://instagram.com/pylonscape)
+— a scheduled action reads the account's own feed to find what has not been posted
+yet, and falls silent when the series has caught up with itself.
 
 | bare sky | snowfield | mountains | farmland |
 |---|---|---|---|
@@ -139,6 +141,10 @@ python scripts/report_pylons.py
 
 # package post-ready images + captions (outputs/pylon-series/instagram/)
 python scripts/export_instagram.py
+
+# publishing: host new JPEGs, then post (a scheduled action does this daily)
+python scripts/post_instagram.py --upload
+python scripts/post_instagram.py --check
 
 # scout loop: seed a campaign, breed one generation, write the niche-map report
 python scripts/evolve_colors.py --init
