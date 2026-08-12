@@ -1,0 +1,88 @@
+{
+  "towers": 2,
+  "span": 130,
+  "tower_scale": 0.9,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      15.0,
+      -55.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      15.0,
+      22.0
+    ],
+    "lens": 24
+  },
+  "palette": {
+    "horizon": [
+      0.6159516263502136,
+      0.08850124325751212,
+      229.63548827097418
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.06
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.25
+    },
+    "horizon": [
+      0.6159516263502136,
+      0.08850124325751212,
+      229.63548827097418
+    ],
+    "zenith": [
+      0.5159516263502136,
+      0.07080099460600969,
+      229.63548827097418
+    ]
+  },
+  "fog_clear": 85,
+  "fog_depth": 95,
+  "terrain": {
+    "kind": "snowfield",
+    "relief": 1.5,
+    "scale": 60,
+    "phase": 4.1,
+    "shade": 0.11,
+    "facet": 10,
+    "color": [
+      0.5559516263502136,
+      0.07080099460600969,
+      229.63548827097418
+    ]
+  },
+  "steel": [
+    0.0,
+    0.07080099460600969,
+    229.63548827097418
+  ],
+  "meta": {
+    "campaign": "color-01",
+    "gen": 3,
+    "id": "c03-16",
+    "chassis": 25,
+    "parents": [
+      "c02-03"
+    ],
+    "gates": {
+      "max_horizon_zenith_de": 0.3,
+      "max_farm_horizon_zenith_de": 0.35
+    }
+  }
+}

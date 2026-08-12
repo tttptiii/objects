@@ -1,6 +1,6 @@
 {
  "campaign": "color-01",
- "generation": 2,
+ "generation": 3,
  "cells": {
   "h0-l3-neutral": {
    "id": "c01-15",
@@ -148,8 +148,8 @@
    "scored_by": "author"
   },
   "h2-l1-neutral": {
-   "id": "c01-02",
-   "gen": 1,
+   "id": "c03-19",
+   "gen": 3,
    "chassis": 28,
    "genome": {
     "horizon": [
@@ -158,8 +158,8 @@
      171.50642295552151
     ],
     "zenith": {
-     "relation": "shade",
-     "amount": 0.1
+     "relation": "neutral",
+     "amount": 0.49
     },
     "steel": {
      "relation": "shade",
@@ -170,41 +170,38 @@
      "amount": 0.4
     }
    },
-   "score": 6.0,
-   "why": "Coherent teal-green monochrome fog with clear tower legibility, but it's a fairly safe hue shift rather than striking new territory.",
+   "score": 7.2,
+   "why": "A cohesive murky teal fog reads as quiet new territory while towers stay clearly legible against the sky.",
    "niche": "h2-l1-neutral",
-   "png": "outputs\\evolve\\color-01\\gen-01\\c01-02.png",
-   "scored_by": "author"
+   "png": "outputs\\evolve\\color-01\\gen-03\\c03-19.png"
   },
   "h1-l3-colored": {
-   "id": "c01-05",
-   "gen": 1,
-   "chassis": 71,
+   "id": "c03-15",
+   "gen": 3,
+   "chassis": 28,
    "genome": {
     "horizon": [
-     0.97,
-     0.0,
-     76.5521783749599
+     0.9303750012106707,
+     0.10268752502017793,
+     112.4080655640787
     ],
     "zenith": {
-     "relation": "analogous",
-     "amount": -32
+     "relation": "shade",
+     "amount": 0.161
     },
-    "steel": [
-     0.476,
-     0.216,
-     254.1
-    ],
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
     "terrain": {
      "relation": "shade",
-     "amount": 0.18
+     "amount": 0.4
     }
    },
-   "score": 5.0,
-   "why": "Blue steel against neutral gray fog is legible and distinct territory but the isolated dark hedgerow band feels like a foreign accent rather than one coherent palette family.",
+   "score": 5.8,
+   "why": "coherent sickly olive-yellow monochrome with clear tower legibility, but the muted khaki cast reads more murky than striking new territory.",
    "niche": "h1-l3-colored",
-   "png": "outputs\\evolve\\color-01\\gen-01\\c01-05.png",
-   "scored_by": "author"
+   "png": "outputs\\evolve\\color-01\\gen-03\\c03-15.png"
   },
   "h0-l1-neutral": {
    "id": "c01-08",
@@ -319,8 +316,8 @@
    "scored_by": "author"
   },
   "h5-l2-neutral": {
-   "id": "c01-17",
-   "gen": 1,
+   "id": "c03-00",
+   "gen": 3,
    "chassis": 28,
    "genome": {
     "horizon": [
@@ -330,22 +327,21 @@
     ],
     "zenith": {
      "relation": "complement",
-     "amount": 0.869
+     "amount": 1.0
     },
     "steel": {
      "relation": "shade",
      "amount": 0.75
     },
     "terrain": {
-     "relation": "shade",
-     "amount": 0.4
+     "relation": "tint",
+     "amount": 0.902
     }
    },
-   "score": 5.5,
-   "why": "coherent quiet neutral-gray fog with clear tower legibility, but it's a very safe repeat of the series' usual pale-fog territory rather than a distinct new mood.",
+   "score": 6.2,
+   "why": "Coherent quiet grey-white fog with clear tower legibility, but too close to the series' default pale palette to stake out new territory.",
    "niche": "h5-l2-neutral",
-   "png": "outputs\\evolve\\color-01\\gen-01\\c01-17.png",
-   "scored_by": "judge"
+   "png": "outputs\\evolve\\color-01\\gen-03\\c03-00.png"
   },
   "h4-l1-colored": {
    "id": "c01-16",
@@ -546,6 +542,116 @@
    "niche": "h1-l1-neutral",
    "png": "outputs\\evolve\\color-01\\gen-02\\c02-14.png",
    "scored_by": "author"
+  },
+  "h0-l3-colored": {
+   "id": "c03-06",
+   "gen": 3,
+   "chassis": 71,
+   "genome": {
+    "horizon": [
+     0.97,
+     0.0,
+     23.80403194634495
+    ],
+    "zenith": {
+     "relation": "analogous",
+     "amount": -32
+    },
+    "steel": [
+     0.476,
+     0.216,
+     254.1
+    ],
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.18
+    }
+   },
+   "score": 6.0,
+   "why": "Coherent pale-fog family with blue steel adding mild interest, but towers stay legible and it's a fairly safe repeat of the series' usual mood rather than new territory.",
+   "niche": "h0-l3-colored",
+   "png": "outputs\\evolve\\color-01\\gen-03\\c03-06.png"
+  },
+  "h5-l0-neutral": {
+   "id": "c03-02",
+   "gen": 3,
+   "chassis": 2,
+   "genome": {
+    "horizon": [
+     0.3577265961295809,
+     0.06950082602389253,
+     309.9531482594361
+    ],
+    "zenith": [
+     0.486,
+     0.029,
+     155.3
+    ],
+    "steel": {
+     "relation": "shade",
+     "amount": 0.85
+    }
+   },
+   "score": 6.8,
+   "why": "Coherent dusky green-to-purple gradient with clear tower silhouettes, but the near-black steel and purple cast lean toward moody drama rather than quiet fog.",
+   "niche": "h5-l0-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-03\\c03-02.png"
+  },
+  "h4-l2-colored": {
+   "id": "c03-10",
+   "gen": 3,
+   "chassis": 28,
+   "genome": {
+    "horizon": [
+     0.7789829423721655,
+     0.15,
+     264.6894596110559
+    ],
+    "zenith": {
+     "relation": "tint",
+     "amount": 0.4
+    },
+    "steel": {
+     "relation": "shade",
+     "amount": 0.75
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.4
+    }
+   },
+   "score": 6.5,
+   "why": "Coherent monochrome blue fog with clear tower legibility, but it's a fairly safe pale-fog rendition rather than striking new territory.",
+   "niche": "h4-l2-colored",
+   "png": "outputs\\evolve\\color-01\\gen-03\\c03-10.png"
+  },
+  "h1-l3-neutral": {
+   "id": "c03-12",
+   "gen": 3,
+   "chassis": 71,
+   "genome": {
+    "horizon": [
+     0.97,
+     0.0,
+     76.5521783749599
+    ],
+    "zenith": {
+     "relation": "analogous",
+     "amount": -32
+    },
+    "steel": {
+     "relation": "neutral",
+     "amount": 0.509
+    },
+    "terrain": {
+     "relation": "shade",
+     "amount": 0.18
+    }
+   },
+   "score": 4.5,
+   "why": "Nearly monochrome grayscale reads as coherent fog but abandons the 'color exploration' brief and offers no distinct territory beyond a safe pale repeat.",
+   "niche": "h1-l3-neutral",
+   "png": "outputs\\evolve\\color-01\\gen-03\\c03-12.png"
   }
  }
 }

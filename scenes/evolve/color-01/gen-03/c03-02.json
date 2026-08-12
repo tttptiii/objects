@@ -1,0 +1,75 @@
+{
+  "towers": 3,
+  "span": [
+    110,
+    135
+  ],
+  "tower_scale": 1.15,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      8.5,
+      -14.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      25.0,
+      34.0
+    ],
+    "lens": 22
+  },
+  "palette": {
+    "horizon": [
+      0.3577265961295809,
+      0.06950082602389253,
+      309.9531482594361
+    ],
+    "zenith": [
+      0.486,
+      0.029,
+      155.3
+    ],
+    "steel": {
+      "relation": "shade",
+      "amount": 0.85
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.3577265961295809,
+      0.06950082602389253,
+      309.9531482594361
+    ],
+    "zenith": [
+      0.486,
+      0.029,
+      155.3
+    ]
+  },
+  "fog_clear": 70,
+  "fog_depth": 150,
+  "steel": [
+    0.0,
+    0.05560066081911402,
+    309.9531482594361
+  ],
+  "meta": {
+    "campaign": "color-01",
+    "gen": 3,
+    "id": "c03-02",
+    "chassis": 2,
+    "parents": [
+      "c01-08"
+    ],
+    "gates": {
+      "max_horizon_zenith_de": 0.3,
+      "max_farm_horizon_zenith_de": 0.35
+    }
+  }
+}
