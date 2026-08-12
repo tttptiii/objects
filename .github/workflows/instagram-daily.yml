@@ -9,10 +9,11 @@ on:
     - cron: "44 19 * * *"
   workflow_dispatch:
     inputs:
-      dry_run:
-        description: "Validate the next piece without publishing"
-        type: boolean
-        default: false
+      mode:
+        description: "post = publish the next piece · dry-run = validate only · refresh = rotate the token now"
+        type: choice
+        options: [post, dry-run, refresh]
+        default: dry-run
 
 concurrency:
   group: instagram-daily
@@ -34,4 +35,9 @@ jobs:
           # refreshed token can be stored — that is what makes the 60-day expiry
           # a non-event. Posting works either way until the first refresh is due.
           GH_TOKEN: ${{ secrets.IG_SECRETS_PAT || secrets.GITHUB_TOKEN }}
-        run: python scripts/post_instagram.py --auto ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          case "${{ inputs.mode || 'post' }}" in
+            refresh)  python scripts/post_instagram.py --refresh ;;
+            dry-run)  python scripts/post_instagram.py --auto --dry-run ;;
+            *)        python scripts/post_instagram.py --auto ;;
+          esac
