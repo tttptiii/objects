@@ -29,7 +29,9 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_TOKEN_DATE: ${{ secrets.IG_TOKEN_DATE }}
-          # PAT with this repository's Secrets: read/write — lets the run store a
-          # refreshed token, so the 60-day expiry never needs a human.
-          GH_TOKEN: ${{ secrets.IG_SECRETS_PAT }}
+          # gh reads the release inventory with the run's own token; the PAT (with
+          # this repository's Secrets: read/write) takes over when present so a
+          # refreshed token can be stored — that is what makes the 60-day expiry
+          # a non-event. Posting works either way until the first refresh is due.
+          GH_TOKEN: ${{ secrets.IG_SECRETS_PAT || secrets.GITHUB_TOKEN }}
         run: python scripts/post_instagram.py --auto ${{ inputs.dry_run && '--dry-run' || '' }}
