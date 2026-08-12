@@ -1,0 +1,35 @@
+name: instagram daily
+
+# One piece a day at 04:44 KST (19:44 UTC the day before). The script reads the
+# account's own feed to decide what is next, so a skipped or retried run cannot
+# double-post, and when every hosted piece has been published it exits quietly —
+# the series stops until a new batch is sampled, rendered, and uploaded.
+on:
+  schedule:
+    - cron: "44 19 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Validate the next piece without publishing"
+        type: boolean
+        default: false
+
+concurrency:
+  group: instagram-daily
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish the next piece
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_TOKEN_DATE: ${{ secrets.IG_TOKEN_DATE }}
+          # PAT with this repository's Secrets: read/write — lets the run store a
+          # refreshed token, so the 60-day expiry never needs a human.
+          GH_TOKEN: ${{ secrets.IG_SECRETS_PAT }}
+        run: python scripts/post_instagram.py --auto ${{ inputs.dry_run && '--dry-run' || '' }}
