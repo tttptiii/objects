@@ -17,6 +17,7 @@ Usage:
   python scripts/export_instagram.py
 """
 
+import argparse
 import glob
 import json
 import os
@@ -51,6 +52,9 @@ def caption(n, spec):
 
 
 def main():
+    # Nothing to configure — but this writes a file per piece, so a mistyped flag
+    # should stop here rather than silently rewrite the whole folder.
+    argparse.ArgumentParser(description=__doc__.split("\n")[0]).parse_args()
     out_dir = os.path.join(ROOT, "outputs", RULESET, "instagram")
     os.makedirs(out_dir, exist_ok=True)
     queue = ["# Posting queue", "",

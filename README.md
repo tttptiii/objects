@@ -91,6 +91,16 @@ winner. Campaign individuals never become pieces. What a campaign finds is
 **distilled** into the next rules revision — `color-01` became four dusk mood
 bands and a relaxed gradient gate — so the published artifact stays the rules.
 
+The two loops keep separate clocks, and deliberately so. A batch is due when the
+posting queue runs shallow — demand decides that, and `post_instagram.py --check`
+reports the depth. A campaign is due when there is a question the rules cannot
+answer; a campaign without one burns renders to learn nothing. Tying either to the
+other's count would put an exploratory activity on the critical path of a daily
+commitment. **One ordering does bind them: a campaign's findings are distilled into
+the rules before the next batch is sampled, never after.** Piece numbers are
+permanent, so a batch drawn from a map that was already out of date cannot be taken
+back — it just becomes part of the series.
+
 **The refusals are part of the record.** Rejected candidates are kept in
 `scenes/pylon-series/rejected/` with the violations that killed them, and whole
 directions the author rejected stay in the history. The flat cutout terrain below was

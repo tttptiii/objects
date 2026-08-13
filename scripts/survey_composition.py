@@ -1,0 +1,135 @@
+"""Where do the pieces already sit in composition space?
+
+Before asking a campaign to explore a space, ask what the series has already covered.
+Every accepted spec is a sample; this reads all of them and reports the spread along
+the axes that decide what a picture looks like from where it is taken:
+
+  head-on     |fwd . y| — the camera's aim against the axis of the line. 1.0 looks
+              straight down the line (towers stack, wires leave in mirror symmetry);
+              0.0 stands broadside to it.
+  anchor      the nearest tower's share of the frame height — the same quantity the
+              validator gates on for landscape pieces.
+  length      towers x mean span, in metres: how much line the picture claims.
+
+A hole in the spread is a question for a campaign. An even spread with one outlier is
+a threshold in checks.json. Everything piled in one corner means the rules are
+choosing the composition, whatever the axes say.
+
+Usage:
+  python scripts/survey_composition.py
+  python scripts/survey_composition.py --axis head-on   # sorted list, one axis
+"""
+
+import argparse
+import glob
+import json
+import math
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pylon3d  # noqa: E402
+import ruleset  # noqa: E402
+from validate_pylon import camera_basis  # noqa: E402
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RULESET = "pylon-series"
+
+
+def measure(spec):
+    """One spec -> its coordinates in composition space."""
+    cam = spec["camera"]
+    pos, aim, lens = cam["pos"], cam["aim"], cam["lens"]
+    fwd, _right, _up = camera_basis(pos, aim)
+
+    count = int(spec["towers"])
+    span = spec["span"]
+    ys = pylon3d.tower_ys(count, span)
+    terrain = spec.get("terrain")
+    elevations = pylon3d.tower_elevations(terrain, count, span) or [0.0] * count
+
+    # the anchor is the tower nearest the camera — the one the picture is about
+    ni = min(range(len(ys)), key=lambda i: abs(ys[i] - pos[1]))
+    scale = spec.get("tower_scale", 1.0)
+    top = (pylon3d.HEIGHT + pylon3d.PEAK_H) * scale
+    d_peak = math.dist(pos, (0.0, ys[ni], top + elevations[ni]))
+
+    spans = span if isinstance(span, list) else [span] * (count - 1)
+    return {
+        "head_on": abs(fwd[1]),                     # the line runs along +y
+        "anchor": (top * lens) / (36.0 * d_peak),
+        "length": count * (sum(spans) / len(spans)),
+        "kind": (terrain or {}).get("kind") or "bare sky",
+        "lens": lens,
+        "towers": count,
+    }
+
+
+def histogram(values, lo, hi, bins=10, width=44):
+    """A text histogram — the holes are the point, so empty bins must be visible."""
+    counts = [0] * bins
+    for v in values:
+        i = min(bins - 1, max(0, int((v - lo) / (hi - lo) * bins)))
+        counts[i] += 1
+    peak = max(counts) or 1
+    out = []
+    for i, c in enumerate(counts):
+        edge = lo + (hi - lo) * i / bins
+        bar = "#" * round(c / peak * width)
+        out.append(f"  {edge:6.2f} |{bar:<{width}}| {c or '':>3}")
+    return "\n".join(out)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--axis", choices=["head-on", "anchor", "length"],
+                    help="list every piece along one axis instead of the histograms")
+    args = ap.parse_args()
+
+    rows = []
+    for path in sorted(glob.glob(os.path.join(ROOT, "scenes", RULESET, "[0-9]*.json"))):
+        with open(path, encoding="utf-8") as f:
+            spec = json.load(f)
+        m = measure(spec)
+        m["piece"] = int(os.path.basename(path)[:3])
+        rows.append(m)
+
+    if args.axis:
+        key = {"head-on": "head_on", "anchor": "anchor", "length": "length"}[args.axis]
+        for r in sorted(rows, key=lambda r: r[key]):
+            print(f"  {r['piece']:03d}  {r[key]:8.3f}  {r['kind']:<10} "
+                  f"lens {r['lens']:>2}  {r['towers']} towers")
+        return
+
+    # Bounds come from the rules, not from the data, so an empty bin means "the rules
+    # allow this and the series has never gone there" — which is the only kind of hole
+    # worth a campaign. Choosing the bounds by eye makes a narrow-by-design axis look
+    # collapsed.
+    cfg = ruleset.load(RULESET)["pylon"]
+    t_lo, t_hi = cfg["towers"]
+    s_lo, s_hi = cfg["span"]
+
+    print(f"[survey] {len(rows)} pieces; bounds are what the rules permit\n")
+    for label, key, lo, hi in (
+            ("head-on  (1.0 = straight down the line, 0.0 = broadside) — ungoverned",
+             "head_on", 0.0, 1.0),
+            ("anchor   (nearest tower's share of frame height)", "anchor", 0.0, 1.0),
+            ("length   (towers x mean span, metres)",
+             "length", t_lo * s_lo, t_hi * s_hi)):
+        vals = [r[key] for r in rows]
+        print(label)
+        print(histogram(vals, lo, hi))
+        print(f"  min {min(vals):.2f}  median {sorted(vals)[len(vals) // 2]:.2f}  "
+              f"max {max(vals):.2f}\n")
+
+    used = sorted({r["towers"] for r in rows})
+    unused = [n for n in range(t_lo, t_hi + 1) if n not in used]
+    print(f"tower counts used: {used}" +
+          (f" — permitted but never sampled: {unused}" if unused else ""))
+    print("most head-on:")
+    for r in sorted(rows, key=lambda r: -r["head_on"])[:5]:
+        print(f"  {r['piece']:03d}  {r['head_on']:.3f}  {r['kind']}")
+
+
+if __name__ == "__main__":
+    main()
