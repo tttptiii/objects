@@ -359,12 +359,18 @@ UNREJECTED = {
 }
 
 if __name__ == "__main__":
+    import copy
     import glob
     import json
     import os
     import sys
 
     import ruleset
+    from sample_pylons import resolve_palette
+
+    def load(path):
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
 
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     cfg = ruleset.load("pylon-series")["pylon"]
@@ -373,26 +379,44 @@ if __name__ == "__main__":
     accepted = sorted(glob.glob(os.path.join(root, "scenes", "pylon-series",
                                              "[0-9]*.json")))
     for path in accepted:
-        with open(path, encoding="utf-8") as f:
-            found = check(json.load(f), cfg)
+        spec = load(path)
+        found = check(spec, cfg)
         if found:
             failures.append(f"{os.path.basename(path)} is in the series but no longer "
                             f"passes: {found}")
+        # check() only ever sees colors that resolve_palette already wrote, so
+        # replaying it alone would let the palette grammar return constants and still
+        # come up green. Re-derive from the anchor and hold it against what the spec
+        # recorded: 73 pinned outputs for colorutil.derive, free.
+        if spec.get("palette"):
+            again = copy.deepcopy(spec)
+            resolve_palette(again)
+            for where, key in (("sky", "zenith"), (None, "steel")):
+                was = (spec.get(where) or {}).get(key) if where else spec.get(key)
+                now = (again.get(where) or {}).get(key) if where else again.get(key)
+                if was != now:
+                    failures.append(f"{os.path.basename(path)}: re-deriving the "
+                                    f"palette gives {key} {now}, the spec records "
+                                    f"{was} — the palette grammar has drifted")
 
     rejected = sorted(glob.glob(os.path.join(root, "scenes", "pylon-series",
                                              "rejected", "*.json")))
+    names = {os.path.basename(p) for p in rejected}
+    for stale in sorted(set(UNREJECTED) - names):
+        failures.append(f"UNREJECTED names {stale}, which is not in rejected/ — "
+                        "drop the entry or restore the file")
     for path in rejected:
         name = os.path.basename(path)
-        with open(path, encoding="utf-8") as f:
-            found = check(json.load(f), cfg)
+        spec = load(path)
+        found = check(spec, cfg)
         if found and name in UNREJECTED:
             failures.append(f"{name} is listed as un-refused but is refused again: "
                             f"{found} — remove it from UNREJECTED")
         elif not found and name not in UNREJECTED:
-            failures.append(f"{name} was refused for "
-                            f"{json.load(open(path, encoding='utf-8'))['meta']['rejected_for']} "
-                            "but now passes — if a rules revision meant this, add it "
-                            "to UNREJECTED with the reason")
+            was = (spec.get("meta") or {}).get("rejected_for", "(no reason recorded)")
+            failures.append(f"{name} was refused for {was} but now passes — if a "
+                            "rules revision meant this, add it to UNREJECTED with "
+                            "the reason")
 
     if failures:
         print(f"[validate] {len(failures)} failure(s):")

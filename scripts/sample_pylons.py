@@ -137,11 +137,17 @@ def sample_one(idx, brief, rs, model, effort, out_dir, today, retries):
             spec = extract_json(text)
             if not isinstance(spec, dict):
                 raise ValueError("spec is not an object")
+            # Validation runs inside the retry, not after it. The validator reads
+            # untrusted model output and assumes block shapes ("terrain": "mountains"
+            # instead of an object raises), and one such slip must cost this piece an
+            # attempt — not take every other piece in the batch down with it.
+            issues = resolve_palette(spec)
+            issues += check(spec, cfg)
         except Exception as e:
-            retry = f"That failed: {type(e).__name__}: {e}. Emit one JSON object only."
+            retry = (f"That failed: {type(e).__name__}: {e}. Emit one complete JSON "
+                     "object — every block the shape the rules describe — and nothing "
+                     "else.")
             continue
-        issues = resolve_palette(spec)
-        issues += check(spec, cfg)
         if req_kind and (spec.get("terrain") or {}).get("kind") != req_kind:
             issues.insert(0, (f"this piece's direction requires terrain.kind "
                               f"'{req_kind}' — include that terrain block and satisfy "

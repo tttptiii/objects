@@ -68,13 +68,26 @@ def load_env():
     return env
 
 
+def set_secret(name, value):
+    """`gh secret set`, with the value kept out of any failure message.
+
+    check=True would raise CalledProcessError, whose text embeds the whole argv —
+    token included — straight into a public repository's Actions log. A token minted
+    seconds earlier by refresh_access_token is not yet a registered secret, so the
+    runner's log masking would not catch it either."""
+    r = subprocess.run(["gh", "secret", "set", name, "--body", value],
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode != 0:
+        detail = (r.stderr or "").replace(value, "***").strip()[:200]
+        sys.exit(f"[post] could not write the {name} secret (gh exit "
+                 f"{r.returncode}): {detail}")
+
+
 def save_env(env):
     """Persist the refreshed token: .env locally, the repo secret under Actions."""
     if os.environ.get("GITHUB_ACTIONS"):
-        subprocess.run(["gh", "secret", "set", "IG_TOKEN", "--body", env["IG_TOKEN"]],
-                       check=True, cwd=ROOT)
-        subprocess.run(["gh", "secret", "set", "IG_TOKEN_DATE",
-                        "--body", env["IG_TOKEN_DATE"]], check=True, cwd=ROOT)
+        set_secret("IG_TOKEN", env["IG_TOKEN"])
+        set_secret("IG_TOKEN_DATE", env["IG_TOKEN_DATE"])
         print("[post] repository secrets updated")
         return
     with open(ENV, "w", encoding="utf-8") as f:
@@ -147,7 +160,13 @@ def hosted_pieces():
                         "-q", ".assets[].name"], capture_output=True, text=True,
                        cwd=ROOT)
     if r.returncode != 0:
-        return set()
+        # An absent release means an empty inventory; anything else — no auth, no
+        # network, rate limit — must not read as one, or --check reports "the series
+        # has caught up" when it means "gh failed" and the operator stops looking.
+        if "not found" in (r.stderr or "").lower():
+            return set()
+        sys.exit(f"[post] could not read the release inventory (gh exit "
+                 f"{r.returncode}): {(r.stderr or '').strip()[:200]}")
     return {int(m.group(1)) for m in
             (re.fullmatch(r"(\d{3})\.jpg", n) for n in r.stdout.split()) if m}
 

@@ -51,25 +51,32 @@ def describe(spec):
     return kind, rhythm, scale, ins, anchor
 
 
+def tracked_thumbs(pieces):
+    """Piece numbers that have a thumbnail on disk. This — not the untracked draft
+    folder — is what the gallery is built from, so a fresh clone with no renders
+    reproduces the same docs/pieces.md instead of erasing it."""
+    tdir = os.path.join(ROOT, "docs", "thumbs")
+    return {n for n, _ in pieces
+            if os.path.exists(os.path.join(tdir, f"{n:03d}.png"))}
+
+
 def write_thumbs(pieces):
-    """Copy the draft renders in as tracked thumbnails — the series' small visual
-    record. Full renders stay untracked (reproducible from the specs)."""
+    """Refresh the tracked thumbnails from the draft renders, where those exist.
+    Full renders stay untracked (reproducible from the specs)."""
     tdir = os.path.join(ROOT, "docs", "thumbs")
     os.makedirs(tdir, exist_ok=True)
-    have = set()
     for n, _spec in pieces:
         src = os.path.join(ROOT, "outputs", RULESET, "draft", f"{n:03d}.png")
         if os.path.exists(src):
             shutil.copyfile(src, os.path.join(tdir, f"{n:03d}.png"))
-            have.add(n)
-        else:
-            print(f"[report] warning: no draft render for {n:03d} — thumbnail skipped")
+        elif not os.path.exists(os.path.join(tdir, f"{n:03d}.png")):
+            print(f"[report] warning: no draft render and no thumbnail for {n:03d}")
     # drop thumbnails whose piece no longer exists
     active = {n for n, _ in pieces}
     for path in glob.glob(os.path.join(tdir, "[0-9]*.png")):
         if int(os.path.basename(path)[:3]) not in active:
             os.remove(path)
-    return have
+    return tracked_thumbs(pieces)
 
 
 def manifest_text(pieces, thumbs):
@@ -176,9 +183,7 @@ def check_manifest(pieces):
     """Is the tracked manifest what the specs would generate right now? Sampling a
     piece and forgetting to regenerate leaves docs/pieces.md quietly wrong, and it is
     the page that says what every number is."""
-    tdir = os.path.join(ROOT, "docs", "thumbs")
-    thumbs = {n for n, _ in pieces
-              if os.path.exists(os.path.join(tdir, f"{n:03d}.png"))}
+    thumbs = tracked_thumbs(pieces)
     path = os.path.join(ROOT, "docs", "pieces.md")
     on_disk = ""
     if os.path.exists(path):
