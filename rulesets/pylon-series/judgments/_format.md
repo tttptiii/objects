@@ -5,15 +5,26 @@ only thing that revises the rules, so they are part of the record — the loop i
 rules → pieces → judgment → next revision of the rules, and this directory is the
 third arrow.
 
+**A verdict is about the rules, never about the piece's fate.** Every spec the
+validator accepts is part of the series and goes out in its turn; judgment cannot
+remove it. So the question a verdict answers is not "is this one good enough to
+show" but "did the rules that made it need changing". A piece that a later revision
+would no longer produce stays exactly where it is — that is the record, and it is
+what makes the revisions legible afterwards.
+
 Format, one table per batch:
 
 | piece | verdict | note |
 |---|---|---|
-| 012 | keep | — |
-| 013 | kill | the reason, in the author's words where possible |
+| 012 | holds | — |
+| 013 | open | what it exposed, in the author's words where possible |
 | 014 | revise | what was changed in response, and where |
 
-Verdicts: **keep** (accepted as part of the series), **kill** (rejected — the piece
-stays on disk as a record, the reason feeds the rules), **revise** (accepted after a
-recorded spec or rules change). Below the table, note any rules revision the batch
-triggered, with the resulting `rules_sha`.
+Verdicts: **holds** (the rules held — the piece asks nothing of them), **revise**
+(the rules, the renderer, or a threshold changed in response; say what and where),
+**open** (something worth changing, seen but not yet acted on — it carries to a later
+revision). Below the table, note any rules revision the batch triggered, with the
+resulting `rules_sha`.
+
+Batches 01–04 wrote **keep** where this format now says **holds**; the meaning was
+always the same, and no batch has ever used the fourth word that once stood here.

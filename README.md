@@ -63,8 +63,17 @@ render_pylon3d.py (Blender, Cycles)     spec -> image, deterministically
         │
         ▼
 human judgment ──► rulesets/pylon-series/judgments/   ──► the next revision
-  (keep / kill / revise, per batch)                        of rules.md
+  (per batch — on the rules,                               of rules.md
+   never on the piece)
 ```
+
+That third arrow points at the rules, not at the pictures. **Every spec the validator
+accepts is part of the series and goes out in its turn** — there is no second gate
+where taste picks winners, because a hand-picked series would make the rules a
+suggestion. When a piece disappoints, the thing that was wrong is the rules, and the
+judgment says so; the piece itself stays, including the ones a later revision would
+no longer produce. Selection happens once, in code, against thresholds anyone can
+read.
 
 ### The two loops
 
