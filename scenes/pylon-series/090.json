@@ -1,0 +1,82 @@
+{
+  "towers": 4,
+  "span": 130,
+  "camera": {
+    "pos": [
+      90,
+      -40,
+      25
+    ],
+    "aim": [
+      0,
+      60,
+      22
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.83,
+      0.06,
+      300
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.38
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.6,
+      "detail": 5.0,
+      "strength": 0.25
+    },
+    "horizon": [
+      0.83,
+      0.06,
+      300
+    ],
+    "zenith": [
+      0.73,
+      0.048,
+      300.0
+    ]
+  },
+  "fog_clear": 140,
+  "fog_depth": 500,
+  "terrain": {
+    "kind": "mountains",
+    "relief": 250,
+    "scale": 1000,
+    "sharp": 0.5,
+    "phase": 4.1,
+    "shade": 0.35,
+    "facet": 90,
+    "color": [
+      0.44999999999999996,
+      0.048,
+      300.0
+    ]
+  },
+  "steel": [
+    0.07999999999999996,
+    0.048,
+    300.0
+  ],
+  "meta": {
+    "work": 90,
+    "ruleset": "pylon-series",
+    "rules_sha": "9abacd67518a",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-14",
+    "direction": "Mountain country, the line threading a valley. Violet evening haze. Thin haze — a long clear sight down the line. Camera raised on a flank slope, looking across at the line below. A standard line. Anchor the palette hue between 280 and 320 degrees, lightness 0.78-0.9."
+  }
+}

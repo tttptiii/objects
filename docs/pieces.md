@@ -70,9 +70,17 @@ Piece numbers are permanent: a number keeps its creative brief forever (`ruleset
 |---|---|---|---|
 | ![](thumbs/080.png) | ![](thumbs/081.png) | ![](thumbs/082.png) | ![](thumbs/083.png) |
 
-| 084 |
+| 084 | 085 | 086 | 087 |
+|---|---|---|---|
+| ![](thumbs/084.png) | ![](thumbs/085.png) | ![](thumbs/086.png) | ![](thumbs/087.png) |
+
+| 088 | 089 | 090 | 091 |
+|---|---|---|---|
+| ![](thumbs/088.png) | ![](thumbs/089.png) | ![](thumbs/090.png) | ![](thumbs/091.png) |
+
+| 092 |
 |---|
-| ![](thumbs/084.png) |
+| ![](thumbs/092.png) |
 
 ## Manifest
 
@@ -143,5 +151,13 @@ Piece numbers are permanent: a number keeps its creative brief forever (`ruleset
 | 082 | mountains | scale 1.15, V-strings, uneven spans | `0.955 0.012 218` | claude-sonnet-5 | `d44d7b3095a2` | 2026-08-12 |
 | 083 | farmland | scale 1.0, I-strings, uneven spans | `0.8 0.045 258` | claude-sonnet-5 | `d44d7b3095a2` | 2026-08-12 |
 | 084 | bare sky | scale 1.15, V-strings, even spans | `0.42 0.05 230` | claude-sonnet-5 | `9abacd67518a` | 2026-08-12 |
+| 085 | snowfield | scale 1.15, V-strings, even spans | `0.83 0.06 300` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
+| 086 | mountains | scale 1.05, I-strings, uneven spans | `0.8 0.05 258` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
+| 087 | farmland | scale 1.0, I-strings, uneven spans | `0.92 0.02 235` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
+| 088 | bare sky | scale 1.0, I-strings, uneven spans | `0.75 0.008 210` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
+| 089 | snowfield | scale 1.0, I-strings, even spans | `0.42 0.06 230` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
+| 090 | mountains | scale 1.0, I-strings, even spans | `0.83 0.06 300` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
+| 091 | farmland | scale 1.0, I-strings, even spans | `0.8 0.032 258` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
+| 092 | bare sky | scale 0.9, I-strings, uneven spans | `0.9 0.028 55` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
 
-Active pieces: 65. Superseded specs: 11 (`scenes/superseded/`). Rejected candidates: `scenes/pylon-series/rejected/`. Judgments: `rulesets/pylon-series/judgments/`.
+Active pieces: 73. Superseded specs: 11 (`scenes/superseded/`). Rejected candidates: `scenes/pylon-series/rejected/`. Judgments: `rulesets/pylon-series/judgments/`.

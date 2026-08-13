@@ -1,0 +1,90 @@
+{
+  "towers": 3,
+  "span": [
+    90,
+    130
+  ],
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      15.0,
+      -55.0,
+      16.0
+    ],
+    "aim": [
+      0.0,
+      45.0,
+      22.0
+    ],
+    "lens": 22
+  },
+  "palette": {
+    "horizon": [
+      0.92,
+      0.02,
+      235
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.92,
+      0.02,
+      235
+    ],
+    "zenith": [
+      0.8200000000000001,
+      0.016,
+      235.0
+    ]
+  },
+  "fog_clear": 75,
+  "fog_depth": 320,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.78,
+      0.035,
+      224
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 100,
+      "height": 6
+    },
+    "hills": {
+      "relief": 60,
+      "scale": 700
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.75
+    }
+  },
+  "steel": [
+    0.17000000000000004,
+    0.016,
+    235.0
+  ],
+  "meta": {
+    "work": 87,
+    "ruleset": "pylon-series",
+    "rules_sha": "9abacd67518a",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-14",
+    "direction": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Cool blue-gray morning fog. Dense fog — only the near survives whole. Camera raised on a flank slope, looking across at the line below. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 215 and 255 degrees, lightness 0.88-0.97."
+  }
+}

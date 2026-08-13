@@ -1,0 +1,90 @@
+{
+  "towers": 3,
+  "span": [
+    95,
+    145
+  ],
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      10.0,
+      -30.0,
+      14.0
+    ],
+    "aim": [
+      0.0,
+      40.0,
+      25.0
+    ],
+    "lens": 28
+  },
+  "palette": {
+    "horizon": [
+      0.92,
+      0.02,
+      235
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.75
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.2,
+      "detail": 5.0,
+      "strength": 0.35
+    },
+    "horizon": [
+      0.92,
+      0.02,
+      235
+    ],
+    "zenith": [
+      0.8200000000000001,
+      0.016,
+      235.0
+    ]
+  },
+  "fog_clear": 55,
+  "fog_depth": 260,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.1,
+    "field": [
+      0.78,
+      0.035,
+      224
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 90,
+      "height": 6
+    },
+    "hills": {
+      "relief": 60,
+      "scale": 700
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.75
+    }
+  },
+  "steel": [
+    0.17000000000000004,
+    0.016,
+    235.0
+  ],
+  "meta": {
+    "work": 87,
+    "attempt": 1,
+    "rejected_for": [
+      "fog_clear = 55 out of range 60-400",
+      "only 10/15 keypoints of the nearest tower fit inside the frame with margin — landscape pieces contain the whole tower; step back, widen the lens, or re-aim"
+    ]
+  }
+}

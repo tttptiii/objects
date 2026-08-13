@@ -1,0 +1,67 @@
+{
+  "towers": 3,
+  "span": [
+    95,
+    150
+  ],
+  "camera": {
+    "pos": [
+      18.0,
+      -8.0,
+      2.0
+    ],
+    "aim": [
+      0.0,
+      10.0,
+      26.0
+    ],
+    "lens": 20
+  },
+  "palette": {
+    "horizon": [
+      0.75,
+      0.008,
+      210
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.08
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.7
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.0,
+      "detail": 5.0,
+      "strength": 0.3
+    },
+    "horizon": [
+      0.75,
+      0.008,
+      210
+    ],
+    "zenith": [
+      0.67,
+      0.0064,
+      210.0
+    ]
+  },
+  "fog_clear": 55,
+  "fog_depth": 80,
+  "steel": [
+    0.050000000000000044,
+    0.0064,
+    210.0
+  ],
+  "meta": {
+    "work": 88,
+    "ruleset": "pylon-series",
+    "rules_sha": "9abacd67518a",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-14",
+    "direction": "No landscape — only towers, wires, and fog. Ash-gray fog with chroma stripped to almost nothing — the picture reads in grays; keep the anchor's chroma at or below 0.01. Dense fog — only the near survives whole. Off to the side of the line, wires crossing the frame diagonally overhead. An uneven span rhythm, the gaps varying tower to tower. Anchor the palette hue between 0 and 360 degrees, lightness 0.6-0.9."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "towers": 3,
+  "span": 120,
+  "insulators": "I",
+  "camera": {
+    "pos": [
+      -14.0,
+      -24.0,
+      6.0
+    ],
+    "aim": [
+      0.0,
+      26.0,
+      26.0
+    ],
+    "lens": 20
+  },
+  "palette": {
+    "horizon": [
+      0.8,
+      0.032,
+      258
+    ],
+    "zenith": {
+      "relation": "shade",
+      "amount": 0.1
+    },
+    "steel": {
+      "relation": "shade",
+      "amount": 0.78
+    },
+    "terrain": {
+      "relation": "shade",
+      "amount": 0.3
+    }
+  },
+  "sky": {
+    "clouds": {
+      "scale": 2.1,
+      "detail": 5.5,
+      "strength": 0.4
+    },
+    "horizon": [
+      0.8,
+      0.032,
+      258
+    ],
+    "zenith": [
+      0.7000000000000001,
+      0.0256,
+      258.0
+    ]
+  },
+  "fog_clear": 65,
+  "fog_depth": 320,
+  "terrain": {
+    "kind": "farmland",
+    "phase": 4.6,
+    "field": [
+      0.5,
+      0.0256,
+      258.0
+    ],
+    "facet": 15,
+    "hedge": {
+      "distance": 110,
+      "height": 6
+    },
+    "hills": {
+      "relief": 55,
+      "scale": 700
+    },
+    "mist": {
+      "height": 20,
+      "amount": 0.8
+    }
+  },
+  "steel": [
+    0.020000000000000018,
+    0.0256,
+    258.0
+  ],
+  "meta": {
+    "work": 91,
+    "ruleset": "pylon-series",
+    "rules_sha": "9abacd67518a",
+    "model": "claude-sonnet-5",
+    "date": "2026-08-14",
+    "direction": "Crop country: a field underfoot, a hedgerow, ground mist behind it. Blue dusk, the light almost gone. Dense fog — only the near survives whole. The anchor close to one edge, most of the frame given to land and haze. A standard line. Anchor the palette hue between 240 and 275 degrees, lightness 0.72-0.86."
+  }
+}
