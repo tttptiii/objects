@@ -104,6 +104,12 @@ judged as adding close to nothing — the critique that led to the low-poly land
 Whether a given composition can be sampled again is not guaranteed. Whether a given
 image can be made again is.
 
+Because of that, the series is its own regression test. `validate_pylon.py` run on its
+own replays every spec in `scenes/`: the pieces must still pass the rules that admitted
+them, and the candidates in `rejected/` must still be refused. A revision that quietly
+invalidates work already in the series says so immediately, and one that would have
+admitted a rejected candidate has to be named as such.
+
 ## Layout
 
 ```
@@ -138,6 +144,10 @@ python scripts/render_pylons.py --demos
 
 # regenerate the manifest (docs/pieces.md) and a local contact sheet
 python scripts/report_pylons.py
+
+# self-checks: replay the whole spec corpus; confirm the manifest is not stale
+python scripts/validate_pylon.py
+python scripts/report_pylons.py --check
 
 # package post-ready images + captions (outputs/pylon-series/instagram/)
 python scripts/export_instagram.py

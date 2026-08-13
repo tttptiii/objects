@@ -13,9 +13,11 @@ Three outputs, one source of truth (the spec files):
                                         for reviewing a batch in one page
 
 Usage:
-  python scripts/report_pylons.py
+  python scripts/report_pylons.py            # regenerate all three
+  python scripts/report_pylons.py --check    # is docs/pieces.md still current?
 """
 
+import argparse
 import glob
 import html
 import json
@@ -70,7 +72,7 @@ def write_thumbs(pieces):
     return have
 
 
-def write_manifest(pieces, thumbs):
+def manifest_text(pieces, thumbs):
     superseded = sorted(glob.glob(os.path.join(ROOT, "scenes", "superseded", "*.json")))
     lines = [
         "# Pieces",
@@ -115,9 +117,13 @@ def write_manifest(pieces, thumbs):
         "`rulesets/pylon-series/judgments/`.",
         "",
     ]
+    return "\n".join(lines)
+
+
+def write_manifest(pieces, thumbs):
     path = os.path.join(ROOT, "docs", "pieces.md")
     with open(path, "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
+        f.write(manifest_text(pieces, thumbs))
     return path
 
 
@@ -166,8 +172,33 @@ def write_contact(pieces):
     return path
 
 
+def check_manifest(pieces):
+    """Is the tracked manifest what the specs would generate right now? Sampling a
+    piece and forgetting to regenerate leaves docs/pieces.md quietly wrong, and it is
+    the page that says what every number is."""
+    tdir = os.path.join(ROOT, "docs", "thumbs")
+    thumbs = {n for n, _ in pieces
+              if os.path.exists(os.path.join(tdir, f"{n:03d}.png"))}
+    path = os.path.join(ROOT, "docs", "pieces.md")
+    on_disk = ""
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            on_disk = f.read()
+    if on_disk != manifest_text(pieces, thumbs):
+        sys.exit("[report] docs/pieces.md is stale — regenerate it: "
+                 "python scripts/report_pylons.py")
+    print(f"[report] docs/pieces.md is current ({len(pieces)} pieces, "
+          f"{len(thumbs)} thumbnails)")
+
+
 def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--check", action="store_true",
+                    help="verify docs/pieces.md matches the specs; write nothing")
+    args = ap.parse_args()
     pieces = load_pieces()
+    if args.check:
+        return check_manifest(pieces)
     thumbs = write_thumbs(pieces)
     print(f"[report] docs/thumbs: {len(thumbs)} thumbnails")
     print(f"[report] {write_manifest(pieces, thumbs)}")

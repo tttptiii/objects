@@ -340,3 +340,64 @@ def check(spec, cfg):
                  "the tower's share of the frame height (height x lens / (36 x dist))")
 
     return issues
+
+
+# The series is its own regression corpus. Every accepted spec passed these checks
+# once, and every spec in rejected/ failed them with its reasons written into the
+# file — so replaying both is a test with no fixtures to invent. It catches a
+# geometry or ΔE regression here, and equally a rules revision that quietly
+# invalidates work already in the series.
+#
+#   python scripts/validate_pylon.py
+#
+# Rejected specs predate the rules that refused them and carry no rules_sha, so the
+# exact wording is not asserted — only that they are still refused. A relaxation may
+# legitimately un-refuse one; when it does, name it here with its reason.
+UNREJECTED = {
+    # eased 0.14 -> 0.22 when the color campaign was distilled (2026-08-12)
+    "029-a2.json": "horizon/zenith ΔE 0.18 is within the widened gradient cap",
+}
+
+if __name__ == "__main__":
+    import glob
+    import json
+    import os
+    import sys
+
+    import ruleset
+
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    cfg = ruleset.load("pylon-series")["pylon"]
+    failures = []
+
+    accepted = sorted(glob.glob(os.path.join(root, "scenes", "pylon-series",
+                                             "[0-9]*.json")))
+    for path in accepted:
+        with open(path, encoding="utf-8") as f:
+            found = check(json.load(f), cfg)
+        if found:
+            failures.append(f"{os.path.basename(path)} is in the series but no longer "
+                            f"passes: {found}")
+
+    rejected = sorted(glob.glob(os.path.join(root, "scenes", "pylon-series",
+                                             "rejected", "*.json")))
+    for path in rejected:
+        name = os.path.basename(path)
+        with open(path, encoding="utf-8") as f:
+            found = check(json.load(f), cfg)
+        if found and name in UNREJECTED:
+            failures.append(f"{name} is listed as un-refused but is refused again: "
+                            f"{found} — remove it from UNREJECTED")
+        elif not found and name not in UNREJECTED:
+            failures.append(f"{name} was refused for "
+                            f"{json.load(open(path, encoding='utf-8'))['meta']['rejected_for']} "
+                            "but now passes — if a rules revision meant this, add it "
+                            "to UNREJECTED with the reason")
+
+    if failures:
+        print(f"[validate] {len(failures)} failure(s):")
+        for line in failures:
+            print(f"  {line}")
+        sys.exit(1)
+    print(f"[validate] {len(accepted)} accepted specs pass, {len(rejected)} rejected "
+          f"specs still refused ({len(UNREJECTED)} un-refused by later revisions)")
