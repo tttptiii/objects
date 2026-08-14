@@ -4,9 +4,13 @@ Before asking a campaign to explore a space, ask what the series has already cov
 Every accepted spec is a sample; this reads all of them and reports the spread along
 the axes that decide what a picture looks like from where it is taken:
 
-  head-on     |fwd . y| — the camera's aim against the axis of the line. 1.0 looks
-              straight down the line (towers stack, wires leave in mirror symmetry);
-              0.0 stands broadside to it.
+  standoff    |camera x| — how far to the side of the line the camera stands. The
+              line runs up x=0, so 0 puts the viewer on the axis and the towers
+              stack into mirror symmetry; stepping aside separates them into a
+              diagonal recession and sends the wires across the frame.
+  head-on     |fwd . y| — where the camera *aims*, against the axis. Not the same
+              question: 028 aims almost straight down the line (0.99) from 35 m to
+              the side, and that is the composition the README leads with.
   anchor      the nearest tower's share of the frame height — the same quantity the
               validator gates on for landscape pieces.
   length      towers x mean span, in metres: how much line the picture claims.
@@ -56,7 +60,8 @@ def measure(spec):
 
     spans = span if isinstance(span, list) else [span] * (count - 1)
     return {
-        "head_on": abs(fwd[1]),                     # the line runs along +y
+        "standoff": abs(pos[0]),                    # the line runs up x=0
+        "head_on": abs(fwd[1]),                     # ...and along +y
         "anchor": (top * lens) / (36.0 * d_peak),
         "length": count * (sum(spans) / len(spans)),
         "kind": (terrain or {}).get("kind") or "bare sky",
@@ -82,7 +87,7 @@ def histogram(values, lo, hi, bins=10, width=44):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--axis", choices=["head-on", "anchor", "length"],
+    ap.add_argument("--axis", choices=["standoff", "head-on", "anchor", "length"],
                     help="list every piece along one axis instead of the histograms")
     args = ap.parse_args()
 
@@ -95,7 +100,7 @@ def main():
         rows.append(m)
 
     if args.axis:
-        key = {"head-on": "head_on", "anchor": "anchor", "length": "length"}[args.axis]
+        key = args.axis.replace("-", "_")
         for r in sorted(rows, key=lambda r: r[key]):
             print(f"  {r['piece']:03d}  {r[key]:8.3f}  {r['kind']:<10} "
                   f"lens {r['lens']:>2}  {r['towers']} towers")
@@ -111,8 +116,10 @@ def main():
 
     print(f"[survey] {len(rows)} pieces; bounds are what the rules permit\n")
     for label, key, lo, hi in (
-            ("head-on  (1.0 = straight down the line, 0.0 = broadside) — ungoverned",
-             "head_on", 0.0, 1.0),
+            ("standoff (metres to the side of the line) — ungoverned",
+             "standoff", 0.0, 40.0),
+            ("head-on  (1.0 = aimed down the line) — ungoverned, and not the same "
+             "question", "head_on", 0.0, 1.0),
             ("anchor   (nearest tower's share of frame height)", "anchor", 0.0, 1.0),
             ("length   (towers x mean span, metres)",
              "length", t_lo * s_lo, t_hi * s_hi)):
@@ -126,9 +133,11 @@ def main():
     unused = [n for n in range(t_lo, t_hi + 1) if n not in used]
     print(f"tower counts used: {used}" +
           (f" — permitted but never sampled: {unused}" if unused else ""))
-    print("most head-on:")
-    for r in sorted(rows, key=lambda r: -r["head_on"])[:5]:
-        print(f"  {r['piece']:03d}  {r['head_on']:.3f}  {r['kind']}")
+    on_axis = [r for r in rows if r["standoff"] < 5.0]
+    print(f"standing on the axis (standoff < 5 m): {len(on_axis)} of {len(rows)} — "
+          + ", ".join(f"{r['piece']:03d}" for r in sorted(
+              on_axis, key=lambda r: r["standoff"])[:12])
+          + (" ..." if len(on_axis) > 12 else ""))
 
 
 if __name__ == "__main__":
