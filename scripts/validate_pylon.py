@@ -240,7 +240,7 @@ def check(spec, cfg):
         issues.append(
             f"only {n_vis} keypoints of the nearest tower land in frame "
             f"(< {cfg['min_visible_keypoints']}) — the camera is not looking at the subject")
-    elif cfg.get("require_upper_keypoint") and upper_vis == 0:
+    elif cfg["require_upper_keypoint"] and upper_vis == 0:
         issues.append(
             "no arm tip or peak of the nearest tower is in frame — only legs; raise the "
             "aim or step back")
@@ -260,8 +260,11 @@ def check(spec, cfg):
     # A landscape that never enters the frame is no landscape: the ray through the
     # bottom-center of the frame must reach the ground close enough that the field
     # renders crisp under the tower
-    reach = {"snowfield": cfg.get("snow_ground_reach"),
-             "farmland": cfg.get("farm_ground_reach")}.get(kind)
+    # Indexed, not .get(): a misspelled key raises here instead of deleting the check
+    # in silence. Null still disables this one, because the truthiness test below is
+    # what gates it — that is particular to these two, not a property of thresholds.
+    reach = {"snowfield": cfg["snow_ground_reach"],
+             "farmland": cfg["farm_ground_reach"]}.get(kind)
     if reach:
         bd = tuple(f - tan_half * u for f, u in zip(fwd, up))
         n = math.sqrt(sum(c * c for c in bd))

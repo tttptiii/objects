@@ -170,6 +170,18 @@ continuous lines, never chains of dots (bead-chain wires were explicitly rejecte
   A gate the prompt does not describe is a retry tax, not a rule; the sentence was
   added to the farmland section and nothing about what is permitted changed.
 
+- **The line has no ends (2026-08-13).** Conductors used to continue a span past the
+  first tower toward the camera (`lead`) and simply stop at the last one, so every
+  picture quietly claimed the line began somewhere off-frame and terminated in view.
+  A transmission line does neither. The renderer now continues both ends by one span
+  (`trail`, symmetric with `lead`), and the line is cut by the frame and the fog
+  instead of by the geometry. The cut end at the far side is not guarded: 32 of 73
+  pieces put it inside the frustum, but at 350–700 m a conductor is a hairline the
+  colour of the haze, and 082 — the worst case at 0.32 dissolve — shows nothing at
+  full resolution. `lead` needed its guard because its cut end is near, thick, and
+  dark; this one does not. Geometry unchanged, so specs and thresholds are untouched;
+  every render changes.
+
 ## Not yet variables (candidates for later)
 
 Tower proportions (height, base ratio, waist independently), bracing pattern (X/V/K),

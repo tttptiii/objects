@@ -24,7 +24,9 @@ yet, and falls silent when the series has caught up with itself.
 proportions — 45 m body, square lattice with X-braced panels, volumetric arm trusses,
 insulator strings, conductors hanging as true catenaries. Every member renders as a
 continuous beveled line. A wire cannot float: its endpoints are computed from the arms
-it hangs from, so placement has stakes because the object is real.
+it hangs from, so placement has stakes because the object is real. The line has no
+ends — the conductors continue past both terminal towers, so what closes the picture
+is the frame and the fog, never the geometry running out.
 
 **Decided by the model, within the rules** (`rulesets/pylon-series/rules.md`): the
 camera, the rhythm of the line (tower count, spans, tower scale, insulator style), the

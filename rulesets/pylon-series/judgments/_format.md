@@ -26,5 +26,15 @@ Verdicts: **holds** (the rules held — the piece asks nothing of them), **revis
 revision). Below the table, note any rules revision the batch triggered, with the
 resulting `rules_sha`.
 
+**An `open` verdict has one address: `notes.md`, under "Not yet variables".** To see
+what is outstanding, `rg -n '\| open \|' rulesets/pylon-series/judgments/2026-*.md`
+(dated files only — this one is a template and its rows are examples). An entry there
+with no counterpart in the carrier is the failure this rule prevents. A batch
+file is read once, when the batch is judged; a promise left only here is a promise
+nobody will pass again. Writing it into the carrier in the same session is what makes
+it a deferral rather than a thought. Closing it is the same move in reverse: batch 04
+raised `terrain.hedge_color` as a promotion candidate and dropped it four paragraphs
+later, and because both are in the file, the question stays answered.
+
 Batches 01–04 wrote **keep** where this format now says **holds**; the meaning was
 always the same, and no batch has ever used the fourth word that once stood here.

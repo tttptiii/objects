@@ -79,12 +79,15 @@ def set_secret(name, value):
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
         detail = (r.stderr or "").replace(value, "***").strip()[:200]
-        sys.exit(f"[post] could not write the {name} secret (gh exit "
-                 f"{r.returncode}): {detail}")
+        raise RuntimeError(f"could not write the {name} secret (gh exit "
+                           f"{r.returncode}): {detail}")
 
 
 def save_env(env):
-    """Persist the refreshed token: .env locally, the repo secret under Actions."""
+    """Persist the refreshed token: .env locally, the repo secret under Actions.
+
+    Raises rather than exiting, so the caller can decide. A rotation that cannot be
+    stored is a problem for the next 20 days, not for today's post."""
     if os.environ.get("GITHUB_ACTIONS"):
         set_secret("IG_TOKEN", env["IG_TOKEN"])
         set_secret("IG_TOKEN_DATE", env["IG_TOKEN_DATE"])
@@ -125,6 +128,23 @@ def maybe_refresh(env, force=False):
     save_env(env)
     print(f"[post] token refreshed (valid ~{r.get('expires_in', 0) // 86400} days)")
     return env
+
+
+def rotate(env, force=False):
+    """Best-effort rotation. Returns whether the token was renewed and stored.
+
+    Catches BaseException-side exits too: `api` and `load_env` call `sys.exit`, and
+    none of that should retroactively fail a run whose picture is already out. The
+    caller decides whether a false return matters — for `--refresh` it does, because
+    the operator asked for exactly this and a token was minted and then lost."""
+    try:
+        maybe_refresh(env, force=force)
+        return True
+    except (Exception, SystemExit) as e:
+        print(f"[post] warning: the token was not rotated ({e}). It expires 60 days "
+              "after it was issued; run --refresh once `gh` can write repository "
+              "secrets (IG_SECRETS_PAT needs Contents: read and Secrets: read/write).")
+        return False
 
 
 def posted_pieces(env):
@@ -239,11 +259,11 @@ def caption_for(n):
     return re.sub(r"\n*ALT:.*$", "", build_caption(n, spec), flags=re.DOTALL).strip()
 
 
-def next_piece(env):
+def next_piece(done):
     available = hosted_pieces()
     if not available:
         sys.exit("[post] no hosted JPEGs — run --upload on the workstation first")
-    remaining = sorted(available - posted_pieces(env))
+    remaining = sorted(available - done)
     return remaining[0] if remaining else None
 
 
@@ -287,8 +307,7 @@ def main():
         return
     env = load_env()
     if args.refresh:
-        maybe_refresh(env, force=True)
-        return
+        sys.exit(0 if rotate(env, force=True) else 1)
     if args.check:
         me = api("GET", "me", fields="username,account_type",
                  access_token=env["IG_TOKEN"])
@@ -304,13 +323,28 @@ def main():
               + (f"{nxt[0]:03d}" if nxt else "none (the series has caught up)"))
         return
     if args.auto or args.post is not None:
-        env = maybe_refresh(env)
-        n = args.post if args.post is not None else next_piece(env)
-        if n is None:
-            print("[post] nothing new to publish — every hosted piece is on the "
-                  "feed. Sample and render a new batch to continue.")
-            return
-        publish(env, n, dry_run=args.dry_run)
+        # Rotation runs last but unconditionally. Last, because the token is good for
+        # 60 days and the picture for one, and rotating first let a failed secret
+        # write — the only step here that needs a PAT — cost the day's post.
+        # Unconditionally, because "nothing new to publish" is the designed resting
+        # state of this series, and a rotation that only happens after a successful
+        # post would never happen again once the queue runs dry.
+        try:
+            done = posted_pieces(env)
+            if args.post is not None:
+                n = args.post
+                if n in done:
+                    sys.exit(f"[post] {n:03d} is already on the feed")
+            else:
+                n = next_piece(done)
+                if n is None:
+                    print("[post] nothing new to publish — every hosted piece is on "
+                          "the feed. Sample and render a new batch to continue.")
+                    return
+            publish(env, n, dry_run=args.dry_run)
+        finally:
+            if not args.dry_run:
+                rotate(env)
         return
     ap.error("pass --check, --auto, --post N, --upload, or --refresh")
 

@@ -328,17 +328,31 @@ def tower_ys(count, span):
 def line_of_towers(count=3, span=SPAN, elevations=None, lead=True, scale=1.0,
                    v_strings=False):
     """A run of identical towers receding along +Y, conductors and ground wire between
-    them. With `lead`, half-span wires continue past the first tower toward the camera
-    region — right for the worm's-eye close-up, wrong for a distant vista where their
-    cut ends would hang visibly in the air. `elevations` raises each tower's base — the
-    wires follow, since attachments are computed per tower."""
+    them.
+
+    A transmission line has no ends, and a picture of one should not invent them, so
+    the conductors continue a full span past both terminal towers: the line is cut by
+    the frame and the fog rather than by the geometry running out. The trailing end
+    needs no switch — it is always the farthest thing in the picture and the haze takes
+    it. `lead` has one, because its cut end is near the camera, thick and dark, and a
+    distant vista has to drop it (see `lead_ends_off_frame` in the renderer).
+
+    `elevations` raises each tower's base — the wires follow, since attachments are
+    computed per tower."""
     elev = list(elevations or [])
     elev += [elev[-1] if elev else 0.0] * (count - len(elev))
     ys = tower_ys(count, span)
-    lead_gap = span[0] if isinstance(span, (list, tuple)) else span
+    spans = list(span) if isinstance(span, (list, tuple)) else [span] * max(1, count - 1)
+    lead_gap, trail_gap = spans[0], spans[-1]
     towers = [tower(origin_y=ys[i], origin_z=elev[i], scale=scale,
                     v_strings=v_strings) for i in range(count)]
     wires = []
+
+    def stub(attach, gap, sag):
+        """One span of conductor continuing past a terminal tower, level with it. The
+        catenary is symmetric about its midpoint and both ends share a Z, so the
+        direction of `gap` is the only thing that distinguishes lead from trail."""
+        return catenary3d(attach, (attach[0], attach[1] + gap, attach[2]), sag)
 
     for (z, _reach) in zip(ARM_LEVELS, ARM_REACH):
         for side in (-1, 1):
@@ -347,17 +361,15 @@ def line_of_towers(count=3, span=SPAN, elevations=None, lead=True, scale=1.0,
                 b = towers[i + 1]["attach"][(z, side)]
                 wires.append(catenary3d(a, b, SAG))
             if lead:
-                first = towers[0]["attach"][(z, side)]
-                wires.append(catenary3d((first[0], first[1] - lead_gap, first[2]),
-                                        first, SAG))
+                wires.append(stub(towers[0]["attach"][(z, side)], -lead_gap, SAG))
+            wires.append(stub(towers[-1]["attach"][(z, side)], trail_gap, SAG))
     # ground wire along the peaks
     for i in range(count - 1):
         a, b = towers[i]["attach"]["peak"], towers[i + 1]["attach"]["peak"]
         wires.append(catenary3d(a, b, GROUND_SAG))
     if lead:
-        first = towers[0]["attach"]["peak"]
-        wires.append(catenary3d((first[0], first[1] - lead_gap, first[2]), first,
-                                GROUND_SAG))
+        wires.append(stub(towers[0]["attach"]["peak"], -lead_gap, GROUND_SAG))
+    wires.append(stub(towers[-1]["attach"]["peak"], trail_gap, GROUND_SAG))
 
     merged = {"legs": [], "braces": [], "arms": [], "insulators": []}
     for t in towers:

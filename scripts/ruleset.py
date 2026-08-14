@@ -11,8 +11,19 @@ experiments would slow down and reverting to an earlier rule set would be painfu
         notes.md      # for humans: version metadata, revision history, rationale
 
 `checks.json` is a **partial override** of DEFAULTS. Set a value to null to disable that
-check entirely. An unknown key raises at load time — a typo silently disabling a check
-would be worse than a crash.
+check entirely. An unknown top-level key raises at load time — a typo silently
+disabling a whole rule set would be worse than a crash.
+
+Thresholds live one level down, inside the rule set's own dict, and are guarded
+differently: every one is read by subscript, so a misspelling raises a KeyError
+instead of removing the check. Not at load time, though, and not on the next spec —
+only on the first spec that reaches that particular check, since most sit behind a
+terrain branch. `python scripts/validate_pylon.py` replays the whole corpus and so
+reaches every check the corpus happens to exercise; a threshold no accepted or
+rejected spec has ever triggered is not covered by it. Two known gaps of that kind
+are `max_snow_sky_de` and `min_farm_sky_de`, which need a spec carrying an explicit
+terrain color. A stray key that no check reads at all is dead weight, and nothing
+catches that — it costs nothing but a line.
 """
 
 import hashlib
