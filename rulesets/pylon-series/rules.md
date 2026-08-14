@@ -180,6 +180,11 @@ zenith (ΔE up to 0.30), still muted, never a full sunset.
   frame share, at least 3 towers, far-tower dissolve), plus: the bottom of the
   frame must reach the ground within 80 m — this kind is a landscape with towers
   in it.
+- **The mountains' fog and camera envelope applies here too**, and it replaces the
+  general one: `fog_clear` **60–400**, `fog_depth` **200–900**, camera pos z up to
+  **40**. Distance is what this kind is made of — the hedge, the mist, the hills,
+  and the far towers all sit behind one another — so the shallow fog of a bare-sky
+  close-up would swallow the middle distance whole.
 
 ## Palette (one anchor, named moves)
 

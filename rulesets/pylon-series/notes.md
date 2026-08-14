@@ -158,6 +158,18 @@ continuous lines, never chains of dots (bead-chain wires were explicitly rejecte
   anchors, not the judge's color words), and the sunset cap eased 0.14 → 0.22.
   The design space is now 1,728 combinations; the series darkens from piece 084 on.
 
+- **The farmland envelope the prompt never mentioned (2026-08-13).** `validate_pylon`
+  has always given farmland the mountains fog and camera envelope — `fog_clear`
+  60–400, `fog_depth` 200–900, camera z to 40 — because the kind is built out of
+  distance. `rules.md` stated those numbers only in the mountains section, and the
+  farmland section's list of what carries over named the anchor, the tower count, the
+  dissolve, and the ground reach, but not fog. So the model used the general
+  envelope and was refused for it: **every farmland piece sampled to date — 051, 055,
+  059, 067, 079, 083, 087, 091 — failed its first attempt on `fog_clear` or
+  `fog_depth`.** Not one mountains piece ever did, because mountains was documented.
+  A gate the prompt does not describe is a retry tax, not a rule; the sentence was
+  added to the farmland section and nothing about what is permitted changed.
+
 ## Not yet variables (candidates for later)
 
 Tower proportions (height, base ratio, waist independently), bracing pattern (X/V/K),
