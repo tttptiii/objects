@@ -21,6 +21,7 @@ Usage:
   python scripts/post_instagram.py --auto --dry-run  # rehearse: fetch + validate only
   python scripts/post_instagram.py --post 2        # publish one piece by number
   python scripts/post_instagram.py --upload        # convert + upload JPEGs (Windows)
+  python scripts/post_instagram.py --upload --replace  # ...after a renderer revision
   python scripts/post_instagram.py --refresh       # force a token refresh
 """
 
@@ -221,8 +222,14 @@ def to_jpeg(n):
     return dst
 
 
-def cmd_upload():
-    """Convert every full render to JPEG and put it on the release."""
+def cmd_upload(replace=False):
+    """Convert every full render to JPEG and put it on the release.
+
+    Pieces already hosted are skipped, because normally the JPEG on the release and
+    the render on disk are the same picture. A renderer revision breaks that: with
+    `replace`, every piece is converted and clobbered so the queue serves the current
+    geometry. Pieces already published keep whatever Instagram copied at the time —
+    the feed is not rewritten."""
     tags = subprocess.run(["gh", "release", "list", "--json", "tagName",
                            "-q", ".[].tagName"], capture_output=True, text=True,
                           cwd=ROOT).stdout.split()
@@ -232,7 +239,7 @@ def cmd_upload():
                         "JPEG copies serving as image_url sources for API "
                         "publishing. The specs remain the units of reproduction."],
                        check=True, capture_output=True, cwd=ROOT)
-    have = hosted_pieces()
+    have = set() if replace else hosted_pieces()
     todo = []
     for path in sorted(glob.glob(os.path.join(SCENES, "[0-9]*.json"))):
         n = int(os.path.basename(path)[:3])
@@ -246,8 +253,9 @@ def cmd_upload():
     for i in range(0, len(todo), 10):
         subprocess.run(["gh", "release", "upload", RELEASE_TAG, *todo[i:i + 10],
                         "--clobber"], check=True, capture_output=True, cwd=ROOT)
-    print(f"[post] uploaded {len(todo)} new JPEG(s); "
-          f"{len(hosted_pieces())} pieces now hosted")
+    print(f"[post] uploaded {len(todo)} JPEG(s)"
+          + (" (replacing what was there)" if replace else " (new)")
+          + f"; {len(hosted_pieces())} pieces now hosted")
 
 
 # --- publishing ------------------------------------------------------------
@@ -300,10 +308,13 @@ def main():
     ap.add_argument("--upload", action="store_true")
     ap.add_argument("--refresh", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--replace", action="store_true",
+                    help="with --upload: re-convert and clobber every hosted JPEG, "
+                         "for when the renderer changed under them")
     args = ap.parse_args()
 
     if args.upload:
-        cmd_upload()
+        cmd_upload(replace=args.replace)
         return
     env = load_env()
     if args.refresh:

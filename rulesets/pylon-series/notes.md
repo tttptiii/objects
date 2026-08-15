@@ -180,7 +180,11 @@ continuous lines, never chains of dots (bead-chain wires were explicitly rejecte
   colour of the haze, and 082 — the worst case at 0.32 dissolve — shows nothing at
   full resolution. `lead` needed its guard because its cut end is near, thick, and
   dark; this one does not. Geometry unchanged, so specs and thresholds are untouched;
-  every render changes.
+  every render changes. All 73 pieces were re-rendered at both sizes and the hosted
+  JPEGs replaced, so the queue serves the current geometry. **000–003 had already gone
+  out and keep the old one** — Instagram copies an image when it publishes, and the
+  feed is not rewritten. The first four pictures in the series are the ones where the
+  line still ends. That is a fact about the series now, not a defect to paper over.
 
 ## Not yet variables (candidates for later)
 
