@@ -163,3 +163,5 @@ Piece numbers are permanent: a number keeps its creative brief forever (`ruleset
 Active pieces: 73. Superseded specs: 11 (`scenes/superseded/`). Rejected candidates: `scenes/pylon-series/rejected/`. Judgments: `rulesets/pylon-series/judgments/`.
 
 Renderer `1e6bbc939cf7` — a content hash of `pylon3d.py` and `render_pylon3d.py`. A spec names the picture; a spec and this hash together name the file.
+
+The feed publishes 57 of these. The other 16 stand in a place the feed already shows, so it passes over them — 026 after 024, 027 after 024, 030 after 028, 051 after 036, 053 after 024, 056 after 040, 062 after 046, 065 after 045, 069 after 024, 076 after 001, 079 after 059, 080 after 003, 081 after 057, 087 after 037, 091 after 083, 092 after 004. They stay in the series: what the rules made is the record, and the account is a reading of it. Thresholds live in `checks.json` under `feed`.

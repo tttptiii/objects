@@ -34,6 +34,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pylon3d  # noqa: E402
 import ruleset  # noqa: E402
+from colorutil import delta_e  # noqa: E402
 from validate_pylon import camera_basis  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -59,15 +60,65 @@ def measure(spec):
     d_peak = math.dist(pos, (0.0, ys[ni], top + elevations[ni]))
 
     spans = span if isinstance(span, list) else [span] * (count - 1)
+    palette = spec.get("palette") or {}
     return {
         "standoff": abs(pos[0]),                    # the line runs up x=0
         "head_on": abs(fwd[1]),                     # ...and along +y
+        "palette_anchor": list(palette.get("horizon")
+                               or spec["sky"]["horizon"]),
         "anchor": (top * lens) / (36.0 * d_peak),
         "length": count * (sum(spans) / len(spans)),
         "kind": (terrain or {}).get("kind") or "bare sky",
         "lens": lens,
         "towers": count,
     }
+
+
+def same_picture(a, b, feed):
+    """Are these two measurements the same picture twice?
+
+    Not a distance with weights — a conjunction. Two pieces are a repeat only when
+    every axis that decides what a picture looks like sits inside its own tolerance,
+    so one clearly different axis is enough to make them different pictures. Each
+    tolerance is then a number a reader can argue with, which a weighted sum is not.
+    """
+    if feed.get("same_kind_only", True) and a["kind"] != b["kind"]:
+        return False
+    return (delta_e(a["palette_anchor"], b["palette_anchor"]) < feed["repeat_color_de"]
+            and abs(a["standoff"] - b["standoff"]) < feed["repeat_standoff_m"]
+            and abs(a["head_on"] - b["head_on"]) < feed["repeat_head_on"])
+
+
+def feed_selection(measured, feed):
+    """Walk the pieces in numeric order and keep the ones the feed will show.
+
+    The series keeps everything the rules produced; the feed shows one piece from each
+    region of the space — the same idea the scout loop uses when it keeps one elite per
+    niche, applied to what the account publishes. A profile grid is seen all at once,
+    so "already shown" has to mean ever, not lately.
+
+    Returns (shown, {skipped: the piece it repeats}). Because posting walks the numbers
+    in order, replaying that walk offline reproduces the live decision exactly — which
+    is what lets the manifest name the passed-over pieces without asking the API.
+    """
+    shown, skipped = [], {}
+    for n in sorted(measured):
+        dup = next((m for m in shown if same_picture(measured[n], measured[m], feed)),
+                   None)
+        if dup is None:
+            shown.append(n)
+        else:
+            skipped[n] = dup
+    return shown, skipped
+
+
+def measured_pieces():
+    """Every accepted piece, keyed by number, in composition space."""
+    out = {}
+    for path in sorted(glob.glob(os.path.join(ROOT, "scenes", RULESET, "[0-9]*.json"))):
+        with open(path, encoding="utf-8") as f:
+            out[int(os.path.basename(path)[:3])] = measure(json.load(f))
+    return out
 
 
 def histogram(values, lo, hi, bins=10, width=44):

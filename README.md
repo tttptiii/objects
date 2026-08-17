@@ -70,12 +70,27 @@ human judgment ──► rulesets/pylon-series/judgments/   ──► the next r
 ```
 
 That third arrow points at the rules, not at the pictures. **Every spec the validator
-accepts is part of the series and goes out in its turn** — there is no second gate
-where taste picks winners, because a hand-picked series would make the rules a
-suggestion. When a piece disappoints, the thing that was wrong is the rules, and the
-judgment says so; the piece itself stays, including the ones a later revision would
-no longer produce. Selection happens once, in code, against thresholds anyone can
-read.
+accepts is part of the series** — there is no gate where taste picks winners, because
+a hand-picked series would make the rules a suggestion. When a piece disappoints, the
+thing that was wrong is the rules, and the judgment says so; the piece itself stays,
+including the ones a later revision would no longer produce.
+
+### The series and the feed are not the same set
+
+The series is the whole record. The account is a **reading** of it, and one rule
+separates them: the feed shows one piece from each region of the space, and passes
+over a piece that stands where something it already shows stands. Two pieces are the
+same place when the terrain kind matches *and* the palette anchor, the camera's
+distance from the line, and its aim are all within tolerance — a conjunction, so one
+clearly different axis is enough to make them different pictures. The numbers live in
+`checks.json` under `feed`, and `docs/pieces.md` names every piece the feed passed
+over and which one it stands behind.
+
+Global, not recent: a profile grid is read all at once, so a near-twin twenty posts
+back still lands beside its double. This is the same idea the scout loop uses when it
+keeps one elite per niche, pointed at the account instead of at a campaign — a map
+rather than an inventory. Nothing is deleted, hidden, or unnumbered by it, and
+`--post N` still publishes a passed-over piece if you name it.
 
 ### The vocabulary
 

@@ -26,8 +26,10 @@ import shutil
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ruleset  # noqa: E402
 from colorutil import oklch_to_hex  # noqa: E402
 from render_pylons import render_sha, stamped_sha  # noqa: E402
+from survey_composition import feed_selection, measured_pieces  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RULESET = "pylon-series"
@@ -154,6 +156,17 @@ def manifest_text(pieces, thumbs):
         "name the file.",
         "",
     ]
+    shown, skipped = feed_selection(measured_pieces(), ruleset.load(RULESET)["feed"])
+    if skipped:
+        lines += [
+            f"The feed publishes {len(shown)} of these. The other {len(skipped)} stand "
+            "in a place the feed already shows, so it passes over them — "
+            + ", ".join(f"{n:03d} after {d:03d}" for n, d in sorted(skipped.items()))
+            + ". They stay in the series: what the rules made is the record, and the "
+            "account is a reading of it. Thresholds live in `checks.json` under "
+            "`feed`.",
+            "",
+        ]
     return "\n".join(lines)
 
 

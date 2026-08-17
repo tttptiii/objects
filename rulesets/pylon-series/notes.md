@@ -197,6 +197,24 @@ continuous lines, never chains of dots (bead-chain wires were explicitly rejecte
   batch cannot claim a clean sweep — and range requests now drop piece numbers that
   have no spec instead of counting the gaps as failures.
 
+- **The feed becomes a reading of the series (2026-08-17).** Measuring the 73 pieces
+  pairwise in spec space turned up real repeats — 024 and 027 sit at ΔE 0.001 with the
+  camera in the same place, and 045/065 and 072/092 share a brief that differs only in
+  fog density. Two causes, neither fixable by the brief: the design space's axes are
+  not equally discriminating (two points differing only in `density` can look the
+  same), and the model converges to the envelope's comfortable middle even from
+  genuinely different prose. The author's first instinct was to delete the archive
+  back to what had been posted; the better shape was to leave the series alone and add
+  a rule about the account. `checks.json` grew a `feed` block, kept apart from `pylon`
+  because it judges a piece against the rest of the series rather than against the
+  rules. A repeat is a conjunction — same terrain kind, and palette anchor within
+  ΔE 0.05, and camera standoff within 6 m, and aim within 0.10 — so one clearly
+  different axis makes two pictures different. At those numbers the feed shows 57 and
+  passes over 16, which is exactly the measured repeats and nothing else; loosening to
+  ΔE 0.02 caught only 7, tightening to 0.10 buried half the series. The passed-over
+  pieces stay in `scenes/`, in the manifest, and in the repo — the record is what the
+  rules made, and the account is a reading of it.
+
 ## Not yet variables (candidates for later)
 
 Tower proportions (height, base ratio, waist independently), bracing pattern (X/V/K),

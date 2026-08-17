@@ -45,11 +45,14 @@ import urllib.request
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ruleset  # noqa: E402
 from export_instagram import caption as build_caption  # noqa: E402
+from survey_composition import measured_pieces, same_picture  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENV = os.path.join(ROOT, ".env")
-SCENES = os.path.join(ROOT, "scenes", "pylon-series")
+RULESET = "pylon-series"
+SCENES = os.path.join(ROOT, "scenes", RULESET)
 IG_DIR = os.path.join(ROOT, "outputs", "pylon-series", "instagram")
 API = "https://graph.instagram.com/v23.0"
 RELEASE_TAG = "ig-posts"
@@ -292,12 +295,33 @@ def caption_for(n):
     return re.sub(r"\n*ALT:.*$", "", build_caption(n, spec), flags=re.DOTALL).strip()
 
 
+def repeats_posted(n, done, measured, feed):
+    """The already-posted piece `n` would repeat, or None.
+
+    The series keeps everything the rules make; the feed shows one picture per region
+    of the space. A profile grid is read all at once, so a near-twin twenty posts back
+    still lands beside its double — which is why this asks about everything posted, not
+    the last few."""
+    if n not in measured:
+        return None
+    return next((p for p in sorted(done)
+                 if p in measured and same_picture(measured[n], measured[p], feed)),
+                None)
+
+
 def next_piece(done):
     available = hosted_pieces()
     if not available:
         sys.exit("[post] no hosted JPEGs — run --upload on the workstation first")
-    remaining = sorted(available - done)
-    return remaining[0] if remaining else None
+    feed = ruleset.load(RULESET)["feed"]
+    measured = measured_pieces()
+    for n in sorted(available - done):
+        dup = repeats_posted(n, done, measured, feed)
+        if dup is None:
+            return n
+        print(f"[post] passing over {n:03d} — the feed already shows {dup:03d}, and "
+              "the two sit in the same place. It stays in the series.")
+    return None
 
 
 def publish(env, n, dry_run=False):
@@ -371,9 +395,19 @@ def main():
         nxt = sorted(hosted - done)
         print(f"[post] @{me.get('username')} ({me.get('account_type')}) — "
               f"quota {used}/100 per 24h")
+        feed, measured = ruleset.load(RULESET)["feed"], measured_pieces()
+        passed_over = {n: repeats_posted(n, done, measured, feed) for n in nxt}
+        passed_over = {n: d for n, d in passed_over.items() if d is not None}
+        showable = [n for n in nxt if n not in passed_over]
         print(f"[post] hosted {len(hosted)} · posted {len(done)} · "
               f"remaining {len(nxt)} · next "
-              + (f"{nxt[0]:03d}" if nxt else "none (the series has caught up)"))
+              + (f"{showable[0]:03d}" if showable
+                 else "none (every piece left repeats one already shown)"))
+        if passed_over:
+            print(f"[post] the feed passes over {len(passed_over)} of those: "
+                  + ", ".join(f"{n:03d}→{d:03d}" for n, d in
+                              sorted(passed_over.items())[:10])
+                  + (" ..." if len(passed_over) > 10 else ""))
         probe = sorted(int(os.path.basename(p)[:3])
                        for p in glob.glob(os.path.join(SCENES, "[0-9]*.json")))[:1]
         if probe and caption_parses_back(probe[0]) != probe[0]:
@@ -396,6 +430,11 @@ def main():
                 n = args.post
                 if n in done:
                     sys.exit(f"[post] {n:03d} is already on the feed")
+                dup = repeats_posted(n, done, measured_pieces(),
+                                     ruleset.load(RULESET)["feed"])
+                if dup is not None:
+                    print(f"[post] warning: {n:03d} repeats {dup:03d}, which --auto "
+                          "would pass over. Posting it because you named it.")
             else:
                 n = next_piece(done)
                 if n is None:

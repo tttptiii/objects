@@ -38,6 +38,10 @@ DEFAULTS = {
     # Pylon series (validate_pylon.py) — parameter ranges and camera/contrast rules,
     # as one dict.
     "pylon": None,
+    # What counts as the same picture twice (survey_composition.py). Kept apart from
+    # `pylon` because it judges a piece against the rest of the series rather than
+    # against the rules, and it gates the feed, not the series.
+    "feed": None,
 }
 
 

@@ -46,5 +46,11 @@
     "snow_facet": [6, 20],
     "mountain_facet": [40, 140],
     "farm_facet": [12, 45]
+  },
+  "feed": {
+    "same_kind_only": true,
+    "repeat_color_de": 0.05,
+    "repeat_standoff_m": 6.0,
+    "repeat_head_on": 0.10
   }
 }
