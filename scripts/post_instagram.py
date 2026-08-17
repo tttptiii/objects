@@ -6,9 +6,14 @@ untracked), so publishing is: pick a piece -> POST /media -> POST /media_publish
 
 **State lives in the feed, not in a file.** `--auto` reads the account's own posts,
 parses the piece number out of each caption, and publishes the lowest-numbered
-piece that has a hosted JPEG and has not been posted yet. Nothing to sync, nothing
-to corrupt, and a re-run after a failure cannot double-post. When every hosted
-piece has been published it exits quietly — the series stops until new work lands.
+piece that has a hosted JPEG and has not been posted yet. Nothing to sync and
+nothing to corrupt. When every hosted piece has been published it exits quietly —
+the series stops until new work lands.
+
+A re-run after a *reported* failure cannot double-post, because the feed already
+knows. The one gap is a publish whose answer never arrives: the piece may be live
+and the feed is only eventually consistent, so this asks once and then refuses to
+decide rather than guessing. Nothing here republishes on its own.
 
 Secrets come from .env locally (gitignored) or the environment in CI:
 IG_TOKEN, IG_USER_ID, IG_TOKEN_DATE (managed). The long-lived token lasts 60 days
@@ -148,6 +153,26 @@ def rotate(env, force=False):
         return False
 
 
+# The whole of this script's memory. State lives in the feed, and this is how the feed
+# is read back, so the expression quietly carries two guarantees at once: --auto's
+# ordering and --post's refusal to repeat. If the caption's first line ever changes
+# shape, it matches nothing, every piece looks unpublished, and the series restarts
+# from 000 without a single error. `caption_parses_back` pins it against a real caption.
+PIECE_IN_CAPTION = re.compile(r"pylon-series (\d{3})")
+
+
+def caption_parses_back(n=None):
+    """Round-trip one real caption through the regex. Returns the piece number it
+    recovered, or None — the caller decides how loud that is."""
+    numbers = sorted(int(os.path.basename(p)[:3])
+                     for p in glob.glob(os.path.join(SCENES, "[0-9]*.json")))
+    if not numbers:
+        return None
+    n = numbers[0] if n is None else n
+    m = PIECE_IN_CAPTION.search(caption_for(n))
+    return int(m.group(1)) if m else None
+
+
 def posted_pieces(env):
     """Piece numbers already on the feed, read back out of the captions."""
     done, path = set(), f"{env['IG_USER_ID']}/media"
@@ -160,7 +185,7 @@ def posted_pieces(env):
         except urllib.error.HTTPError as e:
             sys.exit(f"[post] could not read the feed: {e.read()[:300]}")
         for item in page.get("data", []):
-            m = re.search(r"pylon-series (\d{3})", item.get("caption") or "")
+            m = PIECE_IN_CAPTION.search(item.get("caption") or "")
             if m:
                 done.add(int(m.group(1)))
         url = (page.get("paging") or {}).get("next")
@@ -295,8 +320,25 @@ def publish(env, n, dry_run=False):
         print(f"[post] DRY RUN — container {cid} validated and left unpublished "
               "(it expires in 24h)")
         return
-    r = api("POST", f"{env['IG_USER_ID']}/media_publish", creation_id=cid,
-            access_token=env["IG_TOKEN"])
+    try:
+        r = api("POST", f"{env['IG_USER_ID']}/media_publish", creation_id=cid,
+                access_token=env["IG_TOKEN"])
+    except OSError as e:
+        # The request left and the answer did not come back — a reset, a timeout, a
+        # dropped connection. The piece may be live or may not, and this is the one
+        # place the feed cannot be trusted yet either, because it is only eventually
+        # consistent. A rerun that assumes nothing happened is how a piece goes out
+        # twice, so ask the feed once, then stop rather than guess.
+        # (api() turns an HTTPError into sys.exit, so what reaches here is a transport
+        # failure, never a refusal Instagram actually spoke.)
+        print(f"[post] no answer to media_publish for {n:03d} ({e}) — asking the feed")
+        time.sleep(20)
+        if n in posted_pieces(env):
+            print(f"[post] {n:03d} did land after all; nothing more to do")
+            return
+        sys.exit(f"[post] {n:03d} is not on the feed yet and may still appear. Do not "
+                 "republish by hand — the next --auto reads the feed first and will "
+                 "skip it if it did land.")
     print(f"[post] published {n:03d} — media id {r['id']}")
 
 
@@ -332,6 +374,14 @@ def main():
         print(f"[post] hosted {len(hosted)} · posted {len(done)} · "
               f"remaining {len(nxt)} · next "
               + (f"{nxt[0]:03d}" if nxt else "none (the series has caught up)"))
+        probe = sorted(int(os.path.basename(p)[:3])
+                       for p in glob.glob(os.path.join(SCENES, "[0-9]*.json")))[:1]
+        if probe and caption_parses_back(probe[0]) != probe[0]:
+            sys.exit(f"[post] a caption for {probe[0]:03d} no longer parses back to "
+                     "its piece number. Every piece would read as unpublished and the "
+                     "series would restart from 000 — fix the caption's first line or "
+                     "PIECE_IN_CAPTION before the next run.")
+        print("[post] captions parse back to their piece numbers")
         return
     if args.auto or args.post is not None:
         # Rotation runs last but unconditionally. Last, because the token is good for
