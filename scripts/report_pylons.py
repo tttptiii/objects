@@ -27,6 +27,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from colorutil import oklch_to_hex  # noqa: E402
+from render_pylons import render_sha, stamped_sha  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RULESET = "pylon-series"
@@ -60,6 +61,28 @@ def tracked_thumbs(pieces):
             if os.path.exists(os.path.join(tdir, f"{n:03d}.png"))}
 
 
+# Blender stamps the wall-clock date and its own timing into every PNG it writes, so
+# re-rendering an unchanged scene produces a byte-different file with bit-identical
+# pixels. Tracked thumbnails would then churn on every render, and "this image changed"
+# would stop meaning anything in a diff. Chunks are self-contained and carry their own
+# CRC, so dropping these by name is safe and needs no re-encoding.
+VOLATILE_PNG_CHUNKS = {b"tEXt", b"iTXt", b"zTXt", b"tIME", b"eXIf"}
+
+
+def copy_png_without_timestamps(src, dst):
+    with open(src, "rb") as f:
+        data = f.read()
+    out, i = [data[:8]], 8
+    while i < len(data):
+        length = int.from_bytes(data[i:i + 4], "big")
+        end = i + 12 + length
+        if data[i + 4:i + 8] not in VOLATILE_PNG_CHUNKS:
+            out.append(data[i:end])
+        i = end
+    with open(dst, "wb") as f:
+        f.write(b"".join(out))
+
+
 def write_thumbs(pieces):
     """Refresh the tracked thumbnails from the draft renders, where those exist.
     Full renders stay untracked (reproducible from the specs)."""
@@ -68,7 +91,7 @@ def write_thumbs(pieces):
     for n, _spec in pieces:
         src = os.path.join(ROOT, "outputs", RULESET, "draft", f"{n:03d}.png")
         if os.path.exists(src):
-            shutil.copyfile(src, os.path.join(tdir, f"{n:03d}.png"))
+            copy_png_without_timestamps(src, os.path.join(tdir, f"{n:03d}.png"))
         elif not os.path.exists(os.path.join(tdir, f"{n:03d}.png")):
             print(f"[report] warning: no draft render and no thumbnail for {n:03d}")
     # drop thumbnails whose piece no longer exists
@@ -122,6 +145,13 @@ def manifest_text(pieces, thumbs):
         "(`scenes/superseded/`). Rejected candidates: "
         "`scenes/pylon-series/rejected/`. Judgments: "
         "`rulesets/pylon-series/judgments/`.",
+        "",
+        # The live hash, not the stamp the drafts carry: this file must regenerate
+        # identically on a machine that has no outputs/ at all, which is what lets CI
+        # check it. The stamp answers a different question, in check_manifest.
+        f"Renderer `{render_sha()}` — a content hash of `pylon3d.py` and "
+        "`render_pylon3d.py`. A spec names the picture; a spec and this hash together "
+        "name the file.",
         "",
     ]
     return "\n".join(lines)
@@ -183,6 +213,16 @@ def check_manifest(pieces):
     """Is the tracked manifest what the specs would generate right now? Sampling a
     piece and forgetting to regenerate leaves docs/pieces.md quietly wrong, and it is
     the page that says what every number is."""
+    # Ask about the renderer first: a stale manifest is a regeneration away, but stale
+    # images need Blender, and reporting the cheaper fault first sends the reader down
+    # the wrong path. Comparing the live renderer against the stamp the drafts carry
+    # also means regenerating alone cannot make this pass while the images stay old.
+    draft_dir = os.path.join(ROOT, "outputs", RULESET, "draft")
+    drafts_sha, live = stamped_sha(draft_dir), render_sha()
+    if drafts_sha is not None and drafts_sha != live:
+        sys.exit(f"[report] the renderer changed since these images were made "
+                 f"({drafts_sha} -> {live}) — re-render before regenerating: "
+                 f"python scripts/render_pylons.py --pieces 0-{max(n for n, _ in pieces)}")
     thumbs = tracked_thumbs(pieces)
     path = os.path.join(ROOT, "docs", "pieces.md")
     on_disk = ""

@@ -161,3 +161,5 @@ Piece numbers are permanent: a number keeps its creative brief forever (`ruleset
 | 092 | bare sky | scale 0.9, I-strings, uneven spans | `0.9 0.028 55` | claude-sonnet-5 | `9abacd67518a` | 2026-08-14 |
 
 Active pieces: 73. Superseded specs: 11 (`scenes/superseded/`). Rejected candidates: `scenes/pylon-series/rejected/`. Judgments: `rulesets/pylon-series/judgments/`.
+
+Renderer `1e6bbc939cf7` — a content hash of `pylon3d.py` and `render_pylon3d.py`. A spec names the picture; a spec and this hash together name the file.

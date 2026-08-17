@@ -123,7 +123,13 @@ judged as adding close to nothing — the critique that led to the low-poly land
   (`rules_sha`) that produced it.
 
 Whether a given composition can be sampled again is not guaranteed. Whether a given
-image can be made again is.
+image can be made again is — provided you also know which renderer made it. A spec
+names the picture; the renderer decides the file. So `docs/pieces.md` records a content
+hash of `pylon3d.py` and `render_pylon3d.py` beside the pieces, the render driver
+stamps the same hash into the output directory it writes, and `report_pylons.py
+--check` refuses to regenerate the manifest when the two have drifted apart. The series
+has already lived through one renderer revision that changed every image while every
+spec stayed byte-identical; nothing recorded it at the time.
 
 Because of that, the series is its own regression test. `validate_pylon.py` run on its
 own replays every spec in `scenes/`: the pieces must still pass the rules that admitted
@@ -147,6 +153,17 @@ outputs/         rendered images (reproducible, not tracked)
 docs/pieces.md   generated manifest: what every piece number is
 docs/images/     curated copies for this page
 ```
+
+Four of those are worth opening on their own. [**rules.md**](rulesets/pylon-series/rules.md)
+is the prompt itself — the published artifact, and the shortest way to see what the
+model is actually asked. [**notes.md**](rulesets/pylon-series/notes.md) is where every
+threshold came from, revision by revision, and is the closest thing to a history of the
+series. [**judgments/**](rulesets/pylon-series/judgments/) holds the per-batch verdicts
+(and [what a verdict means](rulesets/pylon-series/judgments/_format.md), which is not
+what it usually means elsewhere). [**pieces.md**](docs/pieces.md) is the generated
+manifest: every piece number, its brief, its palette anchor, and the exact revision of
+the rules that made it. A [second rule set](rulesets/README.md) would start by copying
+a directory, not by editing Python.
 
 ## Setup and running
 

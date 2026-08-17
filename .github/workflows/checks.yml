@@ -1,0 +1,36 @@
+name: checks
+
+# The two self-checks, on every push and pull request. Both are pure stdlib and run
+# in about a second, so there is no reason for them to depend on someone remembering:
+#
+#   validate_pylon.py       replays the whole spec corpus — the accepted pieces must
+#                           still pass the rules that admitted them, the rejected ones
+#                           must still be refused, and the palette grammar must still
+#                           derive what each spec recorded
+#   report_pylons.py --check  docs/pieces.md is what the specs and the tracked
+#                           thumbnails would generate right now
+#
+# Neither needs Blender: they read specs and tracked PNG filenames, never pixels.
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Replay the spec corpus
+        run: python scripts/validate_pylon.py
+
+      - name: The manifest matches the specs
+        run: python scripts/report_pylons.py --check

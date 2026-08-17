@@ -186,6 +186,17 @@ continuous lines, never chains of dots (bead-chain wires were explicitly rejecte
   feed is not rewritten. The first four pictures in the series are the ones where the
   line still ends. That is a fact about the series now, not a defect to paper over.
 
+- **The renderer gets a hash too (2026-08-17).** `rules_sha` pinned the prompt that
+  produced a spec, and nothing pinned the renderer that produced an image — so the
+  trailing-span revision changed all 73 pictures while all 73 specs stayed
+  byte-identical, and 000–003 went out with a geometry no later re-render reproduces.
+  `docs/pieces.md` now carries a content hash of `pylon3d.py` and `render_pylon3d.py`,
+  `render_pylons.py` stamps that hash into each output directory it fills, and
+  `report_pylons.py --check` compares the two and refuses to regenerate over stale
+  images. The stamp is written only when every requested piece rendered, so a partial
+  batch cannot claim a clean sweep — and range requests now drop piece numbers that
+  have no spec instead of counting the gaps as failures.
+
 ## Not yet variables (candidates for later)
 
 Tower proportions (height, base ratio, waist independently), bracing pattern (X/V/K),
