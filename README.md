@@ -77,6 +77,29 @@ judgment says so; the piece itself stays, including the ones a later revision wo
 no longer produce. Selection happens once, in code, against thresholds anyone can
 read.
 
+### The vocabulary
+
+Every term below is a thing on disk, and the two loops are built out of them.
+
+| | |
+|---|---|
+| **piece** | A permanent number and its spec. The number keeps its brief forever, so resampling never changes what a piece is about. |
+| **direction** | One piece's brief — either hand-written and frozen, or a point in a design space of 4 stages × 9 moods × 3 densities × 4 compositions × 4 line kinds, walked by a stride of 137 so consecutive numbers land far apart. |
+| **rejected candidate** | A spec the validator refused, kept with the reasons that killed it. Refusals are part of the record, and they are also the corpus the self-check replays. |
+| **batch** | A judgment event, not a folder: the pieces looked at together and written up in one dated file. |
+| **verdict** | `holds`, `revise`, or `open` — and always about the rules, never about the picture's fate. |
+| **campaign** | One question, explored by evolution. Lives in `scenes/evolve/`, never in the series. |
+| **generation** | One round inside a campaign. |
+| **chassis** | An accepted piece whose composition a campaign borrows, frozen, so only the variable under study moves. |
+| **genome** | The part being evolved — for `color-01`, the palette block. |
+| **niche / elite** | A cell of the map, and the best individual in it. Keeping one per cell is what makes the result a map of the territory instead of a single winner. |
+
+**The two loops meet in exactly one place: both write to `rules.md`.** The scout loop
+reads finished pieces as chassis and writes nothing back to them, and no campaign
+individual ever becomes a piece — not by policy but by construction, since an
+individual wears another piece's camera, line and fog and differs only in the one
+variable under test.
+
 ### The two loops
 
 The procedure above is the **main loop**; its unit is the **batch** — a sampled
@@ -89,9 +112,14 @@ what the palette space holds — by evolving spec genomes on frozen compositions
 MAP-Elites-style: **generations** of mutate → validate → render → judge, a vision
 model scoring the drafts and the author's own 1–10 scores overriding it, the best
 individual kept per niche so the result is a map of the territory, not a single
-winner. Campaign individuals never become pieces. What a campaign finds is
-**distilled** into the next rules revision — `color-01` became four dusk mood
-bands and a relaxed gradient gate — so the published artifact stays the rules.
+winner. What a campaign finds is **distilled** into the next rules revision —
+`color-01` became four dusk mood bands and a relaxed gradient gate — so the
+published artifact stays the rules.
+
+A campaign therefore changes what future pieces are *allowed to look like*; it never
+changes which pictures get shown. Scoring 68 individuals moved nothing in the feed:
+the scores chose elites, the elites drew a map, and a person read the map and edited
+a prompt. It is a soil survey, and the samples do not go to market.
 
 The two loops keep separate clocks, and deliberately so. A batch is due when the
 posting queue runs shallow — demand decides that, and `post_instagram.py --check`
